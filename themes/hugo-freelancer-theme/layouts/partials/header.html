@@ -1,0 +1,23 @@
+{{ "<!-- Header -->" | safeHTML }}
+<header>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <img class="img-responsive" src="img/{{ with .Site.Params.header.image }}{{ . }}{{ else }}profile.png{{ end }}" alt="">
+                <div class="intro-text">
+                    <span class="name">{{ with .Site.Params.header.name }}{{ . }}{{ end }}</span>
+                    <hr class="header star-light">
+                    <span class="skills">{{ with .Site.Params.header.subtitle | safeHTML }}{{ . }}{{ end }}</span>
+                </div>
+		<div class="header-about">
+			{{ with .Site.Params.header.body | safeHTML }}{{ . }}{{ end }}
+		</div>
+            </div>
+        </div>
+	    <div class="col-lg-8 col-lg-offset-2 text-center">
+		<a href="{{ with .Site.Params.header.button.link }}{{.}}{{ end }}" class="btn btn-lg btn-outline header">
+		    <i class="fa fa-{{ with .Site.Params.header.button.icon }}{{.}}{{end}}"></i> {{ with .Site.Params.header.button.text }}{{ . }}{{ end }}
+		</a>
+	    </div>
+    </div>
+</header>

@@ -1,0 +1,154 @@
+baseurl: 'https://example.org/'
+languageCode: en-us
+title: Jacob House
+theme: hugo-freelancer-theme
+params:
+  name: Jacob House
+  description: Portfolio Website
+  email: jacob@jwfh.ca
+  favicon: /img/a-master-favicon.ico
+  custom_css: ["css/jwfh.css", "css/transfonter.css"]
+  custom_js: []
+  navigation:
+    # brand: "<img src=\"/img/logo-1.png\">"
+    brand: JWFH
+  header:
+    image: _DSC8963.png
+    name: Jacob House
+    subtitle: Software Developer &bull; Photographer &bull; Graphic Designer
+    body: >-
+      <p>I'm a 20 year-old Newfoundlander attending Memorial University to study
+      Computer Science and Mathematics. I am particularly interested in 
+      automation, networking, and security.</p>
+      <p>Outside of school, I am very interested in photography and graphic 
+      design. </p>
+    button:
+      text: Download Résumé
+      link: /pdf/resume.pdf
+      icon: download
+  education:
+    title: Education
+    left: >-
+      __Memorial University Class of 2019__</br>
+      _Bachelor of Science_</br>
+      Major in Computer Science</br>
+      Minor in Mathematics</br>
+    right: >-
+      __IB Diploma Programme__</br>
+      Certificates in Mathematics, Chemistry, Biology, and History with grades 
+      of 6, 5, 5, and 5, respectively.
+  skills:
+    title: Skills
+    left: >-
+      __Programming__</br>
+      Fluent in Python 3, C, C++, and (My)SQL. Some experience with PHP, Java, 
+      JavaScript. I've worked with Python web development framework Flask and
+      JavaScript's Node framework.</br>&nbsp;</br>
+      __LaTeX Typesetting__</br>
+      I use LaTeX on a daily basis as my word processor of choice. I typeset all
+      school notes, assignments, etc., and have written several packages and classes
+      for use with LaTeX and plain TeX.
+    right: >-
+      __Server Administration__</br>
+      I've had significant experience with Microsoft Windows Server technologies, 
+      though lately most of my work has been under Linux with a focus on 
+      containerization with Docker.</br>&nbsp;</br>
+      __Photography__</br>
+      I started out primarily shooting landscapes, however recently I've become
+      interested in portrait photography as well. I'm inspired by photographers
+      like [Brandon Woelfel](//www.instagram.com/brandonwoelfel/), 
+      [Kai Böttcher](//www.instagram.com/kai.boet/), and 
+      [Brayden Hall](//www.instagram.com/braybraywoowoo/).
+  work:
+    title: Recent Work Experience
+    short_title: Work 
+    left: >-
+      __Software Engineer__</br>
+      _Voice of Wesley Radio Station_</br>
+      I'm designing and developing a web-based music inventory system to 
+      replace an aging infrastructure using Python and MySQL in Docker.</br>&nbsp;</br>
+      __Software Developer__</br>
+      _MUN Computer Science Department_</br>
+      I'm working with the Department of Computer Science to develop the new 
+      wireless printing web app using Python and Acrobat Preflight.
+    right:
+      __Marketing Specialist__</br>
+      _The Commons_</br>
+      This role involved creation of both print and digital promotional material
+      using Adobe Creative Cloud software for The Commons, Memorial University's 
+      student learning hub located in the QEII Library.
+  awards:
+    title: Awards
+    left: >-
+      __Faculty of Science Dean's List__</br>
+      _2017&ndash;2018 Academic Year_</br>
+      An award presented to students who have demonstrated exceptional academic 
+      performance by ranking in the top ten per cent of undergraduate students.
+    right: >-
+      __Regional Science Fair__</br>
+      _2015 Bronze Medalist_</br>
+      A statistical analysis of training techniques used in competitive swimming,
+      entitled _Is Tapering Effective?_
+  portfolio:
+    title: Portfolio
+    modal:
+      client: Client
+      date: Date
+      category: Category
+      buttontext: Close
+  # about:
+  #   title: About
+  #   left: >-
+  #     Freelancer is a free bootstrap theme created by Start Bootstrap. The
+  #     download includes the complete source files including HTML, CSS, and
+  #     JavaScript as well as optional LESS stylesheets for easy customization.
+  #   right: >-
+  #     Whether you're a student looking to showcase your work, a professional
+  #     looking to attract clients, or a graphic artist looking to share your
+  #     projects, this template is the perfect starting point!
+  #   button:
+  #     text: Download theme
+  #     link: //github.com/digitalcraftsman/hugo-freelancer-theme/archive/master.zip
+  #     icon: download
+  contact:
+    short_title: Contact
+    title: Hey You
+    text: >-
+      Thanks for taking the time to look at my portfolio.</br> 
+      Please feel free to drop me a line if you'd like to get in touch!
+    form:
+      name:
+        text: Name
+        error: Please enter your name.
+      email:
+        text: Email Address
+        error: Please enter your email address.
+      phone:
+        text: Phone Number
+        error: Please enter your phone number.
+      message:
+        text: Message
+        error: Please enter a message.
+      button:
+        text: Send
+  footer:
+    copyright: Jacob WF House
+    location:
+      title: Location
+      address:
+        - 'St. John''s, Newfoundland'
+        - Canada
+    social:
+      title: Interwebz Presence
+      networks:
+        - icon: fa-github
+          link: //github.com/jwfh
+        - icon: fa-linkedin
+          link: //www.linkedin.com/in/jacob-house-a699a4162
+        - icon: fa-instagram
+          link: //www.instagram.com/jacobsinthehouse/
+    credits:
+      title: Under The Hood
+      text: >-
+        This website was generated using [Hugo](//gohugo.io) and is hosted
+        using [GitHub Pages](//pages.github.com).

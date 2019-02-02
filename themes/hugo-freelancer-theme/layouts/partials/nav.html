@@ -1,0 +1,46 @@
+{{ "<!-- Navigation -->" | safeHTML }}
+<nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+        {{ "<!-- Brand and toggle get grouped for better mobile display -->" | safeHTML }}
+        <div class="navbar-header page-scroll">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="#page-top">{{ with .Site.Params.navigation.brand | safeHTML}}{{ . }}{{ end }}</a>
+        </div>
+        {{ "<!-- Collect the nav links, forms, and other content for toggling -->" | safeHTML }}
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li class="hidden">
+                    <a href="#page-top"></a>
+                </li>
+                <li class="education page-scroll">
+                    <a href="#education">{{ with .Site.Params.education.title }}{{ . }}{{ end }}</a>
+                </li>
+                <li class="skills page-scroll">
+                    <a href="#skills">{{ with .Site.Params.skills.title }}{{ . }}{{ end }}</a>
+                </li>
+                <li class="work page-scroll">
+                    <a href="#work">{{ with .Site.Params.work.short_title }}{{ . }}{{ end }}</a>
+                </li>
+                <li class="awards page-scroll">
+                    <a href="#awards">{{ with .Site.Params.awards.title }}{{ . }}{{ end }}</a>
+                </li>
+                <li class="page-scroll">
+                    <a href="#portfolio">{{ with .Site.Params.portfolio.title }}{{ . }}{{ end }}</a>
+                </li>
+                <!-- <li class="page-scroll"> -->
+                <!--     <a href="#about">{{ with .Site.Params.about.title }}{{ . }}{{ end }}</a> -->
+                <!-- </li> -->
+                <li class="page-scroll">
+                    <a href="#contact">{{ with .Site.Params.contact.short_title }}{{ . }}{{ end }}</a>
+                </li>
+            </ul>
+        </div>
+        {{ "<!-- /.navbar-collapse -->" | safeHTML }}
+    </div>
+    {{ "<!-- /.container-fluid -->" | safeHTML }}
+</nav>

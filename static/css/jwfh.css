@@ -1,0 +1,111 @@
+:root {
+	/* --primary-color: rgba(27, 42, 56, 1); */
+	--primary-color: rgba(33, 37, 38, 1);
+	--accent-education: rgba(0, 56, 168, 1);
+	--accent-work: rgba(255, 218, 56, 1);
+	--accent-skills: rgba(0, 178, 122, 1);
+	--accent-awards: rgba(211, 5, 71, 1);
+	--accent-color-a: rgba(101, 179, 227, 1);
+	--accent-color-b: rgba(23, 105, 162, 1);
+	--jwfh-dark-grey: rgba(33, 37, 38, 1);
+	--jwfh-light-grey: rgba(113, 116, 116, 1);
+}
+
+body, h1, h2 {
+	font-family: "AvenirLTW01-55Roman";
+}
+
+header {
+	/* background-color: var(--accent-color-a); */
+	background-color: white;
+	color: var(--jwfh-dark-grey);
+}
+
+header .intro-text .name {
+	font-family: "AvenirLTW01-95Black";
+}
+
+.header-about {
+	margin: 2pc;
+}
+
+.navbar {
+	font-family: "AvenirLTW01-85Heavy";
+}
+
+.navbar-brand {
+	font-family: "AvenirLTW01-95Black";
+}
+
+.navbar-default, footer .footer-below {
+	background-color: var(--primary-color);
+}
+
+footer .footer-above {
+	background-color: var(--jwfh-dark-grey);
+}
+
+section.education {
+	background-color: var(--accent-education);
+	color: white;
+}
+
+hr.education, hr.skills, hr.work, hr.header {
+	border-color: var(--jwfh-dark-grey);;
+}
+
+h2.skills {
+	color: var(--accent-skills);	
+}
+
+section.work {
+	background-color: var(--accent-work);
+}
+
+h2.awards {
+	color: var(--accent-awards);
+}
+
+.navbar-default .navbar-nav>.active>a,.navbar-default .navbar-nav>.active>a:hover,.navbar-default .navbar-nav>.active>a:focus {
+    color: #ffffff;
+    background-color: var(--primary-color);
+}
+
+.navbar-default .navbar-nav>li.education>a:hover,.navbar-default .navbar-nav>li.education>a:focus {
+    color: var(--accent-education);
+    background-color: transparent;
+}
+
+.navbar-default .navbar-nav>li.skills>a:hover,.navbar-default .navbar-nav>li.skills>a:focus {
+    color: var(--accent-skills);
+    background-color: transparent;
+}
+
+
+.navbar-default .navbar-nav>li.work>a:hover,.navbar-default .navbar-nav>li.work>a:focus {
+    color: var(--accent-work);
+    background-color: transparent;
+}
+.navbar-default .navbar-nav>li.awards>a:hover,.navbar-default .navbar-nav>li.awards>a:focus {
+    color: var(--accent-awards);
+    background-color: transparent;
+}
+
+
+.header.btn-outline {
+    margin-top: 15px;
+    border: solid 2px var(--primary-color);
+    font-size: 20px;
+    color: var(--primary-color);
+    background: 0 0;
+    transition: all .3s ease-in-out;
+}
+
+.header.btn-outline:hover,
+.header.btn-outline:focus,
+.header.btn-outline:active,
+.header.btn-outline.active {
+    border: solid 2px var(--primary-color);
+    color: white;
+    background: var(--primary-color);
+}
