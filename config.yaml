@@ -22,9 +22,13 @@ params:
       automation, networking, and security.</p>
       <p>Outside of school, I am very interested in photography and graphic 
       design. </p>
-    button:
+    left_button:
       text: Download Résumé
       link: /pdf/resume.pdf
+      icon: download
+    right_button:
+      text: Download Portfolio
+      link: /pdf/portfolio.pdf
       icon: download
   education:
     title: Education
