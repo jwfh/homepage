@@ -24,7 +24,7 @@ params:
       design. </p>
     left_button:
       text: Download Résumé
-      link: /pdf/resume.pdf
+      link: /pdf/resume-public.pdf
       icon: download
     right_button:
       text: Download Portfolio
