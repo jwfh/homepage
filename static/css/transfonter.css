@@ -2,8 +2,7 @@
     font-family: 'BellSlim';
     src: local('BellSlim SemiBold Regular'), local('BellSlimSemiBold'),
         url('/font/BellSlimSemiBold.woff2') format('woff2'),
-        url('/font/BellSlimSemiBold.woff') format('woff'),
-        url('/font/BellSlimSemiBold.ttf') format('truetype');
+        url('/font/BellSlimSemiBold.woff') format('woff');
     font-weight: 600;
     font-style: normal;
 }
@@ -12,8 +11,7 @@
     font-family: 'BellSlim';
     src: local('BellSlim Regular'), local('BellSlim'),
         url('/font/BellSlim.woff2') format('woff2'),
-        url('/font/BellSlim.woff') format('woff'),
-        url('/font/BellSlim.ttf') format('truetype');
+        url('/font/BellSlim.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -22,8 +20,7 @@
     font-family: 'BellSlim';
     src: local('BellSlim Medium Regular'), local('BellSlimMedium'),
         url('/font/BellSlimMedium.woff2') format('woff2'),
-        url('/font/BellSlimMedium.woff') format('woff'),
-        url('/font/BellSlimMedium.ttf') format('truetype');
+        url('/font/BellSlimMedium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
@@ -32,8 +29,7 @@
     font-family: 'AvenirLTW01-35Light';
     src: local('Avenir LT W01 35 Light'), local('AvenirLTW01-35Light'),
         url('/font/AvenirLTW01-35Light.woff2') format('woff2'),
-        url('/font/AvenirLTW01-35Light.woff') format('woff'),
-        url('/font/AvenirLTW01-35Light.ttf') format('truetype');
+        url('/font/AvenirLTW01-35Light.woff') format('woff');
     font-weight: 300;
     font-style: normal;
 }
@@ -42,8 +38,7 @@
     font-family: 'AvenirLTW01-95Black';
     src: local('Avenir LT W01 95 Black'), local('AvenirLTW01-95Black'),
         url('/font/AvenirLTW01-95Black.woff2') format('woff2'),
-        url('/font/AvenirLTW01-95Black.woff') format('woff'),
-        url('/font/AvenirLTW01-95Black.ttf') format('truetype');
+        url('/font/AvenirLTW01-95Black.woff') format('woff');
     font-weight: 900;
     font-style: normal;
 }
@@ -52,8 +47,7 @@
     font-family: 'AvenirLTW01-55Roman';
     src: local('Avenir LT W01 55 Roman'), local('AvenirLTW01-55Roman'),
         url('/font/AvenirLTW01-55Roman.woff2') format('woff2'),
-        url('/font/AvenirLTW01-55Roman.woff') format('woff'),
-        url('/font/AvenirLTW01-55Roman.ttf') format('truetype');
+        url('/font/AvenirLTW01-55Roman.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
@@ -62,8 +56,7 @@
     font-family: 'AvenirLTW01-65Medium';
     src: local('Avenir LT W01 65 Medium'), local('AvenirLTW01-65Medium'),
         url('/font/AvenirLTW01-65Medium.woff2') format('woff2'),
-        url('/font/AvenirLTW01-65Medium.woff') format('woff'),
-        url('/font/AvenirLTW01-65Medium.ttf') format('truetype');
+        url('/font/AvenirLTW01-65Medium.woff') format('woff');
     font-weight: 500;
     font-style: normal;
 }
@@ -72,8 +65,7 @@
     font-family: 'AvenirLTW01-85Heavy';
     src: local('Avenir LT W01 85 Heavy'), local('AvenirLTW01-85Heavy'),
         url('/font/AvenirLTW01-85Heavy.woff2') format('woff2'),
-        url('/font/AvenirLTW01-85Heavy.woff') format('woff'),
-        url('/font/AvenirLTW01-85Heavy.ttf') format('truetype');
+        url('/font/AvenirLTW01-85Heavy.woff') format('woff');
     font-weight: 900;
     font-style: normal;
 }
@@ -82,8 +74,7 @@
     font-family: 'icomoon';
     src: local('icomoon'),
         url('/font/icomoon.woff2') format('woff2'),
-        url('/font/icomoon.woff') format('woff'),
-        url('/font/icomoon.ttf') format('truetype');
+        url('/font/icomoon.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }

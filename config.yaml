@@ -24,7 +24,7 @@ params:
       design. </p>
     left_button:
       text: Download Résumé
-      link: /pdf/resume-public.pdf
+      link: /pdf/resume.pdf
       icon: download
     right_button:
       text: Download Portfolio
@@ -62,7 +62,10 @@ params:
       interested in portrait photography as well. I'm inspired by photographers
       like [Brandon Woelfel](//www.instagram.com/brandonwoelfel/), 
       [Kai Böttcher](//www.instagram.com/kai.boet/), and 
-      [Brayden Hall](//www.instagram.com/braybraywoowoo/).
+      [Brayden Hall](//www.instagram.com/braybraywoowoo/). I'm also interested in the 
+      style of photos in 
+      [#imaginarymagnitude](https://www.instagram.com/explore/tags/imaginarymagnitude/) 
+      and those of [Reuben Wu](https://www.instagram.com/itsreuben/).
   work:
     title: Recent Work Experience
     short_title: Work 
