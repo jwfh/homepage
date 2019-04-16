@@ -1,7 +1,0 @@
-[submodule "build"]
-	path = build
-	url = https://github.com/jwfh/jwfh.github.io
-	branch = master
-; [submodule "hugo/themes/hugo-freelancer-theme"]
-; 	path = hugo/themes/hugo-freelancer-theme
-; 	url = https://github.com/digitalcraftsman/hugo-freelancer-theme
