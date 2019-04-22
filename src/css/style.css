@@ -11498,16 +11498,24 @@ h5,
   font-weight: 400;
 }
 
-.ftco-hireme {
+.ftco-banner {
   background: #0075f6;
+  padding: 5em 0;
 }
-.ftco-hireme h2 {
+.ftco-banner h2 {
   color: #fff;
   font-size: 40px;
   font-weight: 300;
 }
-.ftco-hireme h2 span {
+.ftco-banner h2 span {
   font-weight: 800;
+}
+.ftco-banner h2 p strong {
+  font-weight: 900;
+}
+.ftco-banner h2,
+.ftco-banner h2 p {
+  margin: 0;
 }
 
 .project {

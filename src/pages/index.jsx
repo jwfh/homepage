@@ -1,24 +1,44 @@
-/* eslint-disable no-inline-comments */
+/*
+ * Copyright (c) 2019 Jacob House and Colorlib.
+ *
+ * This file is licensed under a Creative Commons Attribution (CC BY 4.0)
+ * license.
+ *
+ * The source of the content design and HTML is Colorlib's Niko theme.
+ * Conversion to React and minor modifications to the theme were done by
+ * Jacob House.
+ *
+ * You are free to:
+ *   - Share: copy and redistribute the material in any medium or format.
+ *   - Adapt: remix, transform, and build upon the material for any purpose,
+ *     even commercially.
+ * Under the following terms:
+ *   - Attribution: You must give appropriate credit, provide a link to the
+ *     license, and indicate if changes were made. You may do so in any
+ *     reasonable manner, but not in any way that suggests the licensor
+ *     endorses you or your use.
+ *   - No additional restrictions — You may not apply legal terms or
+ *     technological measures that legally restrict others from doing anything
+ *     the license permits.
+ *
+ * The licensor cannot revoke these freedoms as long as you follow the license
+ * terms.
+ */
+
 import React from 'react';
+import PropTypes from 'prop-types';
 import {Link, withPrefix, graphql} from 'gatsby';
 import {BottomFade} from '../components/fade';
 import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
-
-import AboutJPG from '../images/about.jpg';
+import presets from '../presets';
+import remark from 'remark';
+import remark2react from 'remark-react';
 
 const IndexPage = ({data}) => (
   <Layout>
     <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-    {/* <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <div style={{maxWidth: '300px', marginBottom: '1.45rem'}}>
-      <Image />
-    </div>
-    <Link to="/page-2/">Go to page 2</Link> */}
-
     {/* <section id="home-section" class="hero">
       <div class="home-slider  owl-carousel">
         <div class="slider-item ">
@@ -99,90 +119,132 @@ const IndexPage = ({data}) => (
           </div>
         </div>
       </div>
-    </section>
+</section>*/}
 
     <section
-      class="ftco-about ftco-counter img ftco-section"
+      className="ftco-about ftco-counter img ftco-section"
       id="about-section"
     >
-      <div class="container">
-        <div class="row d-flex">
-          <div class="col-md-6 col-lg-5 d-flex">
-            <div class="img-about img d-flex align-items-stretch">
-              <div class="overlay" />
+      <div className="container">
+        <div className="row d-flex">
+          <div className="col-md-6 col-lg-5 d-flex">
+            <div className="img-about img d-flex align-items-stretch">
+              <div className="overlay" />
               <div
-                class="img d-flex align-self-stretch align-items-center"
-                style="background-image:url(images/about-1.jpg);"
+                className="img d-flex align-self-stretch align-items-center"
+                style={{backgroundImage: 'url(\'/tmp/about-1.jpg\')'}}
               />
             </div>
           </div>
-          <div class="col-md-6 col-lg-7 pl-lg-5 py-5">
-            <div class="row justify-content-start pb-3">
-              <div class="col-md-12 heading-section ftco-animate">
-                <span class="subheading">Welcome</span>
-                <h2
-                  class="mb-4"
-                  style="font-size: 34px; text-transform: capitalize;"
-                >
-                  About Me
-                </h2>
-                <p>
-                  A small river named Duden flows by their place and supplies it
-                  with the necessary regelialia. It is a paradisematic country,
-                  in which roasted parts of sentences fly into your mouth.
-                </p>
+          <div className="col-md-6 col-lg-7 pl-lg-5 py-5">
+            <div className="row justify-content-start pb-3">
+              <BottomFade>
+                <div className="col-md-12 heading-section">
+                  <span className="subheading">Welcome</span>
+                  <h2
+                    className="mb-4"
+                    style={{fontSize: '34px', textTransform: 'capitalize'}}
+                  >
+                    About Me
+                  </h2>
+                  <p>
+                    A small river named Duden flows by their place and supplies
+                    it with the necessary regelialia. It is a paradisematic
+                    country, in which roasted parts of sentences fly into your
+                    mouth.
+                  </p>
+                </div>
+              </BottomFade>
+            </div>
+            <div className="row">
+              <div className="col-md-6">
+                <BottomFade>
+                  <div className="media block-6 services d-block">
+                    <div className="icon">
+                      <span className="flaticon-analysis" />
+                    </div>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Web Design</h3>
+                      <p>
+                        A small river named Duden flows by their place and
+                        supplies.
+                      </p>
+                    </div>
+                  </div>
+                </BottomFade>
+              </div>
+              <div className="col-md-6">
+                <BottomFade>
+                  <div className="media block-6 services d-block">
+                    <div className="icon">
+                      <span className="flaticon-analysis" />
+                    </div>
+                    <div className="media-body">
+                      <h3 className="heading mb-3">Web Application</h3>
+                      <p>
+                        A small river named Duden flows by their place and
+                        supplies.
+                      </p>
+                    </div>
+                  </div>
+                </BottomFade>
               </div>
             </div>
-            <div class="row">
-              <div class="col-md-6">
-                <div class="media block-6 services d-block ftco-animate">
-                  <div class="icon">
-                    <span class="flaticon-analysis" />
-                  </div>
-                  <div class="media-body">
-                    <h3 class="heading mb-3">Web Design</h3>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies.
-                    </p>
-                  </div>
+            <BottomFade>
+              <div className="counter-wrap d-flex mt-md-3">
+                <div className="text p-4 pr-5 bg-primary">
+                  <p className="mb-0">
+                    <span className="number" data-number="200">
+                      0
+                    </span>
+                    <span>Finished Projects</span>
+                  </p>
                 </div>
               </div>
-              <div class="col-md-6">
-                <div class="media block-6 services d-block ftco-animate">
-                  <div class="icon">
-                    <span class="flaticon-analysis" />
-                  </div>
-                  <div class="media-body">
-                    <h3 class="heading mb-3">Web Application</h3>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div class="counter-wrap ftco-animate d-flex mt-md-3">
-              <div class="text p-4 pr-5 bg-primary">
-                <p class="mb-0">
-                  <span class="number" data-number="200">
-                    0
-                  </span>
-                  <span>Finished Projects</span>
-                </p>
-              </div>
-            </div>
+            </BottomFade>
           </div>
         </div>
       </div>
-    </section> */}
-
+    </section>
+    {/* 
     {data.allMarkdownRemark.edges.map((post) => (
       <Link key={post.node.id} to={post.node.frontmatter.path}>
         {post.node.frontmatter.title}
       </Link>
-    ))}
+    ))} */}
+
+    {/*
+     * Banner section #1
+     */}
+    <section className="ftco-section ftco-banner">
+      <div className="container">
+        <div className="row">
+          <BottomFade>
+            <div className="col-md-8 col-lg-9 d-flex align-items-center">
+              <h2>
+                {
+                  remark()
+                    .use(remark2react)
+                    .processSync(presets.pages.home.resumeBanner.text).contents
+                }
+              </h2>
+            </div>
+          </BottomFade>
+          <BottomFade>
+            <div className="col-md-4 col-lg-3 d-flex align-items-center">
+              <p className="mb-0">
+                <Link
+                  to={presets.pages.home.resumeBanner.buttonLink}
+                  className="btn btn-white py-3 px-5"
+                >
+                  {presets.pages.home.resumeBanner.buttonLabel}
+                </Link>
+              </p>
+            </div>
+          </BottomFade>
+        </div>
+      </div>
+    </section>
 
     {/*
      * Skills section
@@ -191,141 +253,84 @@ const IndexPage = ({data}) => (
       <div className="container">
         <div className="row justify-content-center pb-5">
           <BottomFade>
-            <div className="col-md-12 heading-section text-center ftco-animate">
+            <div className="col-md-12 heading-section text-center">
               <span className="subheading">Skills</span>
-              <h2 className="mb-4">My Skills</h2>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
-              </p>
+              <h2 className="mb-4">
+                {presets.pages.home.skills.sliders.first.title}
+              </h2>
+              <p>{presets.pages.home.skills.sliders.first.subtitle}</p>
             </div>
           </BottomFade>
         </div>
         <div className="row">
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>Photoshop</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-1"
-                    role="progressbar"
-                    aria-valuenow="75"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '75%'}}
-                  >
-                    <span>75%</span>
+          {presets.pages.home.skills.sliders.first.content.map(
+            (slider, index) => (
+              <div key={index} className="col-md-6 animate-box">
+                <BottomFade>
+                  <div className="progress-wrap">
+                    <h3>{slider.label}</h3>
+                    <div className="progress">
+                      <div
+                        className={'progress-bar color-' + (index + 1)}
+                        role="progressbar"
+                        aria-valuenow={slider.value}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        style={{width: slider.value + '%'}}
+                      >
+                        <span>{slider.value + '%'}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </BottomFade>
               </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>jQuery</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-2"
-                    role="progressbar"
-                    aria-valuenow="60"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '60%'}}
-                  >
-                    <span>60%</span>
+            )
+          )}
+        </div>
+        <div className="row justify-content-center py-5">
+          <BottomFade>
+            <div className="col-md-12 heading-section text-center">
+              <span className="subheading">Skills</span>
+              <h2 className="mb-4">
+                {presets.pages.home.skills.sliders.second.title}
+              </h2>
+              <p>{presets.pages.home.skills.sliders.second.subtitle}</p>
+            </div>
+          </BottomFade>
+        </div>
+        <div className="row">
+          {presets.pages.home.skills.sliders.second.content.map(
+            (slider, index) => (
+              <div key={index} className="col-md-6 animate-box">
+                <BottomFade>
+                  <div className="progress-wrap">
+                    <h3>{slider.label}</h3>
+                    <div className="progress">
+                      <div
+                        className={'progress-bar color-' + (index + 1)}
+                        role="progressbar"
+                        aria-valuenow={slider.value}
+                        aria-valuemin="0"
+                        aria-valuemax="100"
+                        style={{width: slider.value + '%'}}
+                      >
+                        <span>{slider.value + '%'}</span>
+                      </div>
+                    </div>
                   </div>
-                </div>
+                </BottomFade>
               </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>HTML5</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-3"
-                    role="progressbar"
-                    aria-valuenow="85"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '85%'}}
-                  >
-                    <span>85%</span>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>CSS3</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-4"
-                    role="progressbar"
-                    aria-valuenow="90"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '90%'}}
-                  >
-                    <span>90%</span>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>WordPress</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-5"
-                    role="progressbar"
-                    aria-valuenow="70"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '70%'}}
-                  >
-                    <span>70%</span>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-6 animate-box">
-            <BottomFade>
-              <div className="progress-wrap">
-                <h3>SEO</h3>
-                <div className="progress">
-                  <div
-                    className="progress-bar color-6"
-                    role="progressbar"
-                    aria-valuenow="80"
-                    aria-valuemin="0"
-                    aria-valuemax="100"
-                    style={{width: '80%'}}
-                  >
-                    <span>80%</span>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
+            )
+          )}
         </div>
         <div className="row justify-content-center py-5 mt-5">
           <BottomFade>
             <div className="col-md-12 heading-section text-center">
               <span className="subheading">What I Do</span>
-              <h2 className="mb-4">Strategy, design and a bit of magic</h2>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
-              </p>
+              <h2 className="mb-4">
+                {presets.pages.home.skills.details.title}
+              </h2>
+              <p>{presets.pages.home.skills.details.subtitle}</p>
             </div>
           </BottomFade>
         </div>
@@ -387,24 +392,31 @@ const IndexPage = ({data}) => (
     </section>
 
     {/*
-     * Note section
+     * Banner section #2
      */}
-    <section className="ftco-section ftco-hireme">
+    <section className="ftco-section ftco-banner">
       <div className="container">
         <div className="row">
           <BottomFade>
             <div className="col-md-8 col-lg-9 d-flex align-items-center">
               <h2>
-                I'm <span>Available</span> For Freelancing
+                {
+                  remark()
+                    .use(remark2react)
+                    .processSync(presets.pages.home.banner.text).contents
+                }
               </h2>
             </div>
           </BottomFade>
           <BottomFade>
             <div className="col-md-4 col-lg-3 d-flex align-items-center">
               <p className="mb-0">
-                <a href="#" className="btn btn-white py-4 px-5">
-                  Hire me
-                </a>
+                <Link
+                  to={presets.pages.home.banner.buttonLink}
+                  className="btn btn-white py-3 px-5"
+                >
+                  {presets.pages.home.banner.buttonLabel}
+                </Link>
               </p>
             </div>
           </BottomFade>
@@ -651,17 +663,18 @@ const IndexPage = ({data}) => (
           <BottomFade>
             <div className="col-md-7 heading-section text-center">
               <span className="subheading">Contact</span>
-              <h2 className="mb-4">Hey You</h2>
-              <p>
-                Thanks for taking the time to look at my portfolio. Please feel
-                free to drop me a line if you'd like to get in touch!
-              </p>
+              <h2 className="mb-4">{presets.pages.home.contact.title}</h2>
+              <p>{presets.pages.home.contact.subtitle}</p>
             </div>
           </BottomFade>
         </div>
         <div className="row no-gutters block-9">
           <div className="col-md-6 order-md-last d-flex">
-            <form action="#" className="bg-light p-4 p-md-5 contact-form">
+            <form
+              action={presets.pages.home.contact.formAction}
+              method="POST"
+              className="bg-light p-4 p-md-5 contact-form"
+            >
               <div className="form-group">
                 <input
                   type="text"
@@ -696,7 +709,7 @@ const IndexPage = ({data}) => (
               <div className="form-group">
                 <input
                   type="submit"
-                  value="Send Message"
+                  value="Dispatch Carrier Pidgeon"
                   className="btn btn-primary py-3 px-5"
                 />
               </div>
@@ -705,7 +718,9 @@ const IndexPage = ({data}) => (
           <div className="col-md-6 d-flex">
             <div
               className="img"
-              style={{backgroundImage: `url(${AboutJPG})`}}
+              style={{
+                backgroundImage: `url(${presets.pages.home.contact.image})`,
+              }}
             />
           </div>
         </div>
@@ -713,6 +728,10 @@ const IndexPage = ({data}) => (
     </section>
   </Layout>
 );
+
+IndexPage.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export const postQuery = graphql`
   query IndexQuery {
