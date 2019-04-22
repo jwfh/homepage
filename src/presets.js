@@ -23,6 +23,7 @@
  */
 
 import AboutJPG from './images/about.jpg';
+import ResumePDF from './pdf/resume.pdf';
 
 const site = {
   pages: {
@@ -31,7 +32,7 @@ const site = {
       resumeBanner: {
         text: 'View my **Résumé**',
         buttonLabel: 'Download PDF',
-        buttonLink: '/contact',
+        buttonLink: ResumePDF,
       },
       skills: {
         sliders: {

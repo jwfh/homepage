@@ -67,3 +67,9 @@ yarn-error.log
 .pnp.js
 # Yarn Integrity file
 .yarn-integrity
+
+# TeX temp files
+*.aux
+*.fdb_latexmk
+*.fls
+*.synctex.gz
