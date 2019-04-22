@@ -20,7 +20,7 @@ Since then, Memorial's COMP-3100 course provided me with an opportunity learn a 
 
 In its fourth iteration now, [jwfh.ca](https://jwfh.ca) is a static site that uses the [React](https://reactjs.org/) static site framework known as [Gasby](https://www.gatsbyjs.org/). [jwfh.ca](https://jwfh.ca)'s current state has combined both of its previous goals to provide a showcase of my skills and achievements, as well as a blog in which I can write about things I find interesting.
 
-The site's current design I adopted from the Colorlib [Niko](https://colorlib.com/wp/template/niko/) template which was written in plain HTML, jQuery, and CSS, and released under a CC BY 3.0 license. In an effort to make the site more manageable, I rewrote much of the code to be compliant with the [React](https://reactjs.org/) way of doing things and I moved all static content to central JavaScript file so that others may be able to fork the site and personalize _all_ content from one place. Of course design aspects may be changed by diving deeper into the source. Much of the CSS is nearly unchanged. I've used Markdown for the blog part of the site and let [Gasby](https://www.gatsbyjs.org/)'s GraphQL engine do the heavy lifting in linking between posts and linking the home page to recent posts.
+The site's current design I adopted from the Colorlib [Niko](https://colorlib.com/wp/template/niko/) template which was written in plain HTML, jQuery, and CSS, and released under a [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) license. In an effort to make the site more manageable, I rewrote much of the code to be compliant with the [React](https://reactjs.org/) way of doing things and I moved all static content to central JavaScript file so that others may be able to fork the site and personalize _all_ content from one place. Of course design aspects may be changed by diving deeper into the source. Much of the CSS is nearly unchanged. I've used Markdown for the blog part of the site and let [Gasby](https://www.gatsbyjs.org/)'s GraphQL engine do the heavy lifting in linking between posts and linking the home page to recent posts.
 
 # Contributing
 
@@ -28,4 +28,4 @@ Design and implementation suggestions are welcome. Feel free to open an [issue](
 
 # License
 
-The current site is licensed under a CC BY-NC 4.0 license.
+Unless specified in source files, this project is provided under [MIT License](https://en.wikipedia.org/wiki/MIT_License). Files containing _any_ code sourced from the Colorlib [Niko](https://colorlib.com/wp/template/niko/) template are clearly marked in the respective source files and are provided under [Creative Commons Attribution 4.0 License (CC BY 4.0)](https://creativecommons.org/licenses/by/4.0/), as required under the original designer's [CC BY 3.0](https://creativecommons.org/licenses/by/3.0/) license.
