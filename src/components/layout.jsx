@@ -1,4 +1,27 @@
-/* eslint-disable no-inline-comments */
+/*
+ * Copyright (c) 2019 gatsbyjs.
+ *
+ * This file is licensed under a MIT license.
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to
+ * deal in the Software without restriction, including without limitation the
+ * rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+ * sell copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in
+ * all copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+ * FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+ * IN THE SOFTWARE.
+ */
+
 /**
  * Layout component that queries for data
  * with Gatsby's StaticQuery component
@@ -12,6 +35,9 @@ import {StaticQuery, graphql} from 'gatsby';
 
 import Header from './header';
 import Footer from './footer';
+
+import presets from '../presets';
+
 import '../css/layout.css';
 
 import '../css/europa.css';
@@ -42,42 +68,10 @@ const Layout = ({children}) => (
     render={(data) => (
       <>
         <Header siteTitle={data.site.siteMetadata.title} />
-        <div
-        // style={{
-        //   margin: '0 auto',
-        //   maxWidth: 960,
-        //   padding: '0px 1.0875rem',
-        //   paddingTop: 0,
-        // }}
-        >
+        <div>
           <main>{children}</main>
         </div>
         <Footer />
-
-        {/* Loader */}
-        {/* <div id="ftco-loader" className="show fullscreen">
-          <svg className="circular" width="48" height="48">
-            <circle
-              className="path-bg"
-              cx="24"
-              cy="24"
-              r="22"
-              fill="none"
-              strokeWidth="4"
-              stroke="#eee"
-            />
-            <circle
-              className="path"
-              cx="24"
-              cy="24"
-              r="22"
-              fill="none"
-              strokeWidth="4"
-              strokeMiterlimit="10"
-              stroke="#F96D00"
-            />
-          </svg>
-        </div> */}
       </>
     )}
   />
