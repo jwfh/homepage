@@ -49,16 +49,11 @@ const HTML = (props) => (
       {props.postBodyComponents}
       <script src="/js/jquery.min.js" />
       <script src="/js/jquery-migrate-3.0.1.min.js" />
+      // eslint-disable-next-line no-inline-comments
+      {/* This one might be useful! It has React integration too. */}
       <script src="/js/popper.min.js" />
       <script src="/js/bootstrap.min.js" />
-      <script src="/js/jquery.easing.1.3.js" />
-      <script src="/js/jquery.waypoints.min.js" />
-      <script src="/js/jquery.stellar.min.js" />
-      <script src="/js/owl.carousel.min.js" />
-      <script src="/js/jquery.magnific-popup.min.js" />
-      <script src="/js/aos.js" />
       <script src="/js/jquery.animateNumber.min.js" />
-      <script src="/js/scrollax.min.js" />
     </body>
   </html>
 );
