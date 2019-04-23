@@ -32,7 +32,7 @@ import '../css/europa.css';
 import '../css/flaticon.css';
 import '../css/icomoon.css';
 import '../css/layout.css';
-import '../css/style.min.css';
+import '../css/style.css';
 
 const Layout = ({children}) => (
   <Fragment>

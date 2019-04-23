@@ -24,6 +24,7 @@
 
 import AboutJPG from './images/about.jpg';
 import ResumePDF from './pdf/resume.pdf';
+import LogoSVG from './images/logo.svg';
 
 const site = {
   pages: {
@@ -87,7 +88,10 @@ const site = {
       mapsLink: 'https://goo.gl/maps/BR2QeabAA422',
     },
   },
-  header: {},
+  header: {
+    logo: LogoSVG,
+    name: 'Jacob WF House',
+  },
   footer: {
     links: [
       {label: 'Home', link: '/'},
