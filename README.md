@@ -10,7 +10,7 @@
 
 # About
 
-In 2015, I first touched web development with a small Wordpress site at [jwfh.ca](https://jwfh.ca) that I hosted on a VPS &mdash; web server and database management done by yours truly. At this point the site's focus was as a blog. I wanted some way to share various things I had learned through self-teaching. Many posts were of a tutorial nature. I wrote about managing enterprise Windows deployments &mdash; often with a focus on security &mdash; as this is where my interests primarily were at the time.
+In 2015, I first touched web development with a small Wordpress site at [jwfh.ca](https://jwfh.ca) that I hosted on a VPS &mdash; web server and database management done by yours truly. At this point the site's focus was as a blog. I wanted some way to share various things I had learned through self-teaching. Many posts were of a tutorial nature. I wrote about managing enterprise Windows deployments &mdash; often with a focus on automation or security &mdash; as this is where my interests primarily were at the time.
 
 In 2017, I unpublished the blog as it had become neglected as interests changed and academic life in post-secondary required a more significant time committment.
 

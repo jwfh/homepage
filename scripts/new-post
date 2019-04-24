@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 # Copyright (c) 2019 Jacob WF House.
 #
 # This file is licensed under a MIT license.
@@ -20,17 +22,49 @@
 # FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
 # IN THE SOFTWARE.
 
-# Build environment
-FROM node:11-stretch as builder
-RUN apt update -y && apt upgrade -y \
-  && apt install -y make automake autoconf clang gawk libc-dev libgl1-mesa-glx
-WORKDIR /usr/src/app
-COPY . .
-RUN npm install && npm run build
+import re
+import os
+import datetime
 
-# Production environment
-FROM nginx:alpine
-COPY --from=builder /usr/src/app/public /usr/share/nginx/html
-RUN sed -i -e 's/application\/pdf/application\/octet-stream/' /etc/nginx/mime.types
-EXPOSE 80
-CMD ["nginx", "-g", "daemon off;"]
+
+POSTPATH = 'src/pages/blog/'
+POSTTEMPLATE = '''\
+---
+path: '%(path)s'
+title: '%(title)s'
+date: '%(date)s'
+published: false
+image: ''
+---
+
+
+'''
+
+
+def getSlug(title: str) -> str:
+    slug = re.sub(
+        r'\s', '-', ''.join(re.findall('[A-Za-z \-]', title)).lower())
+    if input('Does %s look alright for a slug? (Y/n)' % (slug,)).lower() == 'n':
+        slug = input('Enter a slug: ')
+    return slug
+
+
+def main() -> None:
+    folder = os.getcwd() + '/' + POSTPATH
+    title = input('Enter post title: ')
+    slug = getSlug(title)
+    while os.path.exists(folder + slug):
+        print('That path exists. Please choose another.')
+        slug = getSlug(slug + '-1')
+    os.makedirs(folder + slug)
+    with open(folder + slug + '/index.md', 'w') as mdFile:
+        mdFile.write(POSTTEMPLATE % {
+            'path': slug,
+            'title': title,
+            'date': datetime.datetime.now(),
+        })
+    print('You may now edit the file "%s."' % (folder + slug + '/index.md',))
+
+
+if __name__ == '__main__':
+    main()
