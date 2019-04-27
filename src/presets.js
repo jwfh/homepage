@@ -25,6 +25,17 @@
 import AboutJPG from './images/about.jpg';
 import ResumePDF from './pdf/resume.pdf';
 import LogoSVG from './images/logo.svg';
+import MathIA from './pdf/ia_math_x1a.pdf';
+import TSPPaper from './pdf/tsp_paper.pdf';
+import HistoryIA from './pdf/ia_hist_x1a.pdf';
+import ChemistryIA from './pdf/ia_chem_x1a.pdf';
+import BiologyIA from './pdf/ia_biol_x1a.pdf';
+import BookStacks from './images/_DSC3717-Processed.jpg';
+import Librarian from './images/LibrarianMockup.jpg';
+import PoolBlocks from './images/pool-generic.jpg';
+import PortraitPhoto from './images/_DSC3842-Processed.jpg';
+import Sunset from './images/sunset.jpg';
+import ProductPhoto from './images/_DSC0058-Processed.jpg';
 
 const site = {
   pages: {
@@ -34,6 +45,8 @@ const site = {
         text: 'View my **Résumé**',
         buttonLabel: 'Download PDF',
         buttonLink: ResumePDF,
+        // Need to use <a> rather than <Link> here otherwise the PDF doesn't load
+        external: true,
       },
       skills: {
         sliders: {
@@ -57,23 +70,112 @@ const site = {
             content: [
               // Choose a maximum of SIX skills
               {label: 'Adobe Creative Cloud', value: '85'},
-              {label: 'DSLR Photography', value: '75'},
+              {label: 'DSLR Photography', value: '80'},
               {label: 'Print Design', value: '70'},
-              {label: 'Web & App UX', value: '80'},
+              {label: 'Web & App UX', value: '75'},
             ],
           },
         },
         details: {
           title: 'Strategy, Design, and a bit of Magic',
-          subtitle: '',
+          subtitle: 'Areas of my work that I am most interested in.',
+          content: [
+            // Use multiples of THREE here
+            {
+              title: 'Software Development',
+              link: '/portfolio/software/',
+              icon: 'flasks',
+              list: [
+                'Correctness',
+                'Code Quality',
+                'User Experience',
+                'Documentation',
+              ],
+            },
+            {
+              title: 'Computer Security',
+              link: '/portfolio/security/',
+              icon: 'analysis',
+              list: [
+                'Network',
+                'Application',
+                'Cryptographic',
+                'Threat Modeling',
+              ],
+            },
+            {
+              title: 'Systems Administration',
+              link: '/portfolio/sysadmin/',
+              icon: 'ideas',
+              list: [
+                'OS Agnostic',
+                'Automated Deployment',
+                'Userbase Integration',
+                'TCO & ROI',
+              ],
+            },
+          ],
         },
       },
       banner: {
         text: 'I\'m **Available** For Freelancing',
         buttonLabel: 'Hire me',
         buttonLink: '/contact',
+        external: false,
       },
-      projects: {},
+      projects: {
+        title: 'Projects & Awards',
+        subtitle:
+          'This section is all about future goals and past success. The sky is, indeed, the limit.',
+        content: [
+          /*
+           * There are FIVE panels. They are as follow.
+           * -------
+           * |   |2|
+           * | 1 |-|
+           * |   |3|
+           * |-----|
+           * |4| 5 |
+           * -------
+           */
+          {
+            title: 'VOWR Music Librarian',
+            subtitle: 'Python Web App',
+            link: '/projects/vowr-librarian/',
+            image: Librarian,
+          },
+          {
+            title: 'Dean\'s List 2016-17',
+            subtitle: 'Academic Award',
+            link: '/awards/#deans-list',
+            image: BookStacks,
+          },
+          {
+            title: 'Portrait Photography',
+            subtitle: 'Hobby & Passion',
+            link: '/portfolio/photography',
+            image: PortraitPhoto,
+          },
+          // {
+          //   title: 'Product Photography',
+          //   subtitle: 'Finding the Perfect Angle',
+          //   link: '/portfolio/photography',
+          //   image: ProductPhoto,
+          // },
+          {
+            title: 'Regional Science Fair',
+            subtitle: 'Bronze Medal',
+            link: '/awards/#regional-science-fair',
+            image: PoolBlocks,
+          },
+          {
+            title: 'Lansscape Photography',
+            subtitle: 'Hobby & Passion',
+            link: '/portfolio/photography',
+            image: Sunset,
+          },
+        ],
+      },
       blog: {},
       contact: {
         title: 'Hey You',
@@ -86,6 +188,49 @@ const site = {
     contact: {
       address: 'St. John\'s, Newfoundland, Canada',
       mapsLink: 'https://goo.gl/maps/BR2QeabAA422',
+    },
+    publications: {
+      papers: [
+        {
+          title: 'GAs To Solve The Travelling Salesman Problem',
+          link: TSPPaper,
+          anchor: 'tsp-paper',
+          authors:
+            'Jacob House, Nabil Miri, Omar Mohamed, and Hassan El-Khatib',
+          date: 'December 10 2018',
+        },
+        {
+          title:
+            'To What Extent Did Propaganda Allow Hitler to Earn the Support of the German Populace Between 1933 and 1939?',
+          link: HistoryIA,
+          anchor: 'history-ia',
+          authors: 'Jacob House',
+          date: 'December 10 2018',
+        },
+        {
+          title:
+            'With Respect to Surface Area to Volume Ratios Affecting Rates of Diffusion, Is One Cell Shape More Efficient Than Others?',
+          link: BiologyIA,
+          anchor: 'biology-ia',
+          authors: 'Jacob House',
+          date: 'February 2016',
+        },
+        {
+          title:
+            'Investigating the Effect of Sulphuric Acid on Various Metals to Mimic Acid Rain Exposure',
+          link: ChemistryIA,
+          anchor: 'chemistry-ia',
+          authors: 'Jacob House',
+          date: 'December 2016',
+        },
+        {
+          title: 'Is Tapering Effective?',
+          link: MathIA,
+          anchor: 'math-ia',
+          authors: 'Jacob House',
+          date: 'November 26 2014',
+        },
+      ],
     },
   },
   header: {

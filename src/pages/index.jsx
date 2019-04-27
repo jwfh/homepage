@@ -5,8 +5,8 @@
  * license.
  *
  * The source of the content design and HTML is Colorlib's Niko theme.
- * Conversion to React and minor modifications to the theme were done by
- * Jacob House.
+ * Conversion to React and major modifications to the theme structure were
+ * done by Jacob House.
  *
  * You are free to:
  *   - Share: copy and redistribute the material in any medium or format.
@@ -35,8 +35,17 @@ import SEO from '../components/seo';
 import presets from '../presets';
 import remark from 'remark';
 import remark2react from 'remark-react';
+import {
+  Section,
+  Container,
+  Row,
+  SectionTitle,
+  Banner,
+  Slider,
+  DetailPanel,
+} from '../components/partials';
 
-const IndexPage = ({data}) => (
+const IndexPage = () => (
   <Layout>
     <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
     {/* <section id="home-section" class="hero">
@@ -213,247 +222,113 @@ const IndexPage = ({data}) => (
       </Link>
     ))} */}
 
-    {/*
-     * Banner section #1
-     */}
-    <section className="ftco-section ftco-banner">
-      <div className="container">
-        <div className="row">
-          <BottomFade>
-            <div className="col-md-8 col-lg-9 d-flex align-items-center">
-              <h2>
-                {
-                  remark()
-                    .use(remark2react)
-                    .processSync(presets.pages.home.resumeBanner.text).contents
-                }
-              </h2>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 col-lg-3 d-flex align-items-center">
-              <p className="mb-0">
-                <Link
-                  to={presets.pages.home.resumeBanner.buttonLink}
-                  className="btn btn-white py-3 px-5"
-                >
-                  {presets.pages.home.resumeBanner.buttonLabel}
-                </Link>
-              </p>
-            </div>
-          </BottomFade>
-        </div>
-      </div>
-    </section>
+    {
+      // Banner section #1 (Résumé)
+    }
+    <Banner
+      external={presets.pages.home.resumeBanner.external}
+      text={presets.pages.home.resumeBanner.text}
+      button={{
+        label: presets.pages.home.resumeBanner.buttonLabel,
+        link: presets.pages.home.resumeBanner.buttonLink,
+      }}
+    />
 
-    {/*
-     * Skills section
-     */}
-    <section className="ftco-section bg-light" id="skills-section">
-      <div className="container">
-        <div className="row justify-content-center pb-5">
-          <BottomFade>
-            <div className="col-md-12 heading-section text-center">
-              <span className="subheading">Skills</span>
-              <h2 className="mb-4">
-                {presets.pages.home.skills.sliders.first.title}
-              </h2>
-              <p>{presets.pages.home.skills.sliders.first.subtitle}</p>
-            </div>
-          </BottomFade>
-        </div>
-        <div className="row">
+    {
+      // Skills section
+    }
+    <Section className="bg-light" id="skills-section">
+      <Container>
+        <SectionTitle
+          className="pb-5"
+          tagline="Skills"
+          title={presets.pages.home.skills.sliders.first.title}
+          subtitle={presets.pages.home.skills.sliders.first.subtitle}
+        />
+        <Row>
           {presets.pages.home.skills.sliders.first.content.map(
             (slider, index) => (
-              <div key={index} className="col-md-6 animate-box">
-                <BottomFade>
-                  <div className="progress-wrap">
-                    <h3>{slider.label}</h3>
-                    <div className="progress">
-                      <div
-                        className={'progress-bar color-' + (index + 1)}
-                        role="progressbar"
-                        aria-valuenow={slider.value}
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style={{width: slider.value + '%'}}
-                      >
-                        <span>{slider.value + '%'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </BottomFade>
-              </div>
+              <Slider value={slider.value} label={slider.label} key={index} />
             )
           )}
-        </div>
-        <div className="row justify-content-center py-5">
-          <BottomFade>
-            <div className="col-md-12 heading-section text-center">
-              <span className="subheading">Skills</span>
-              <h2 className="mb-4">
-                {presets.pages.home.skills.sliders.second.title}
-              </h2>
-              <p>{presets.pages.home.skills.sliders.second.subtitle}</p>
-            </div>
-          </BottomFade>
-        </div>
-        <div className="row">
+        </Row>
+        <SectionTitle
+          className="py-5"
+          tagline="Skills"
+          title={presets.pages.home.skills.sliders.second.title}
+          subtitle={presets.pages.home.skills.sliders.second.subtitle}
+        />
+        <Row>
           {presets.pages.home.skills.sliders.second.content.map(
             (slider, index) => (
-              <div key={index} className="col-md-6 animate-box">
-                <BottomFade>
-                  <div className="progress-wrap">
-                    <h3>{slider.label}</h3>
-                    <div className="progress">
-                      <div
-                        className={'progress-bar color-' + (index + 1)}
-                        role="progressbar"
-                        aria-valuenow={slider.value}
-                        aria-valuemin="0"
-                        aria-valuemax="100"
-                        style={{width: slider.value + '%'}}
-                      >
-                        <span>{slider.value + '%'}</span>
-                      </div>
-                    </div>
-                  </div>
-                </BottomFade>
-              </div>
+              <Slider value={slider.value} label={slider.label} key={index} />
             )
           )}
-        </div>
-        <div className="row justify-content-center py-5 mt-5">
-          <BottomFade>
-            <div className="col-md-12 heading-section text-center">
-              <span className="subheading">What I Do</span>
-              <h2 className="mb-4">
-                {presets.pages.home.skills.details.title}
-              </h2>
-              <p>{presets.pages.home.skills.details.subtitle}</p>
-            </div>
-          </BottomFade>
-        </div>
+        </Row>
+        <SectionTitle
+          className="py-5 mt-5"
+          tagline="What I Do"
+          title={presets.pages.home.skills.details.title}
+          subtitle={presets.pages.home.skills.details.subtitle}
+        />
+        <Row>
+          {presets.pages.home.skills.details.content.map((panel, index) => (
+            <DetailPanel
+              key={index}
+              title={panel.title}
+              link={panel.link}
+              icon={panel.icon}
+            >
+              {panel.list}
+            </DetailPanel>
+          ))}
+        </Row>
+      </Container>
+    </Section>
 
-        <div className="row">
-          <BottomFade>
-            <div className="col-md-4 text-center d-flex">
-              <div className="services-1">
-                <span className="icon">
-                  <i className="flaticon-analysis" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">
-                    <a href="#">Explore</a>
-                  </h3>
-                  <h4>Design Sprints</h4>
-                  <h4>Product Strategy</h4>
-                  <h4>UX Strategy</h4>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 text-center d-flex">
-              <div className="services-1">
-                <span className="icon">
-                  <i className="flaticon-flasks" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">
-                    <a href="#">Create</a>
-                  </h3>
-                  <h4>Information</h4>
-                  <h4>UX/UI Design</h4>
-                  <h4>Branding</h4>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 text-center d-flex">
-              <div className="services-1">
-                <span className="icon">
-                  <i className="flaticon-ideas" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">
-                    <a href="#">Learn</a>
-                  </h3>
-                  <h4>Prototyping</h4>
-                  <h4>User Testing</h4>
-                  <h4>UI Testing</h4>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-        </div>
-      </div>
-    </section>
+    {
+      // Banner section #2 (Hire Me)
+    }
+    <Banner
+      external={presets.pages.home.banner.external}
+      text={presets.pages.home.banner.text}
+      button={{
+        label: presets.pages.home.banner.buttonLabel,
+        link: presets.pages.home.banner.buttonLink,
+      }}
+    />
 
-    {/*
-     * Banner section #2
-     */}
-    <section className="ftco-section ftco-banner">
-      <div className="container">
-        <div className="row">
-          <BottomFade>
-            <div className="col-md-8 col-lg-9 d-flex align-items-center">
-              <h2>
-                {
-                  remark()
-                    .use(remark2react)
-                    .processSync(presets.pages.home.banner.text).contents
-                }
-              </h2>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 col-lg-3 d-flex align-items-center">
-              <p className="mb-0">
-                <Link
-                  to={presets.pages.home.banner.buttonLink}
-                  className="btn btn-white py-3 px-5"
-                >
-                  {presets.pages.home.banner.buttonLabel}
-                </Link>
-              </p>
-            </div>
-          </BottomFade>
-        </div>
-      </div>
-    </section>
-
-    {/*
-     * Project section
-     */}
-    <section className="ftco-section ftco-project" id="projects-section">
-      <div className="container">
-        <div className="row justify-content-center pb-5">
-          <BottomFade>
-            <div className="col-md-12 heading-section text-center">
-              <span className="subheading">Accomplishments</span>
-              <h2 className="mb-4">Our Projects</h2>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
-              </p>
-            </div>
-          </BottomFade>
-        </div>
-        <div className="row">
+    {
+      // Project section
+    }
+    <Section className="ftco-project" id="projects-section">
+      <Container>
+        <SectionTitle
+          className="pb-5"
+          tagline="Accomplishments"
+          title={presets.pages.home.projects.title}
+          subtitle={presets.pages.home.projects.subtitle}
+        />
+        <Row>
           <div className="col-md-8">
             <BottomFade>
               <div
                 className="project img img-2 d-flex justify-content-center align-items-center"
-                style={{backgroundImage: 'url(\'/tmp/project-1.jpg\')'}}
+                style={{
+                  backgroundImage:
+                    'url(\'' +
+                    presets.pages.home.projects.content[0].image +
+                    '\')',
+                }}
               >
                 <div className="overlay" />
                 <div className="text text-center p-4">
                   <h3>
-                    <a href="#">Branding &amp; Illustration Design</a>
+                    <Link to={presets.pages.home.projects.content[0].link}>
+                      {presets.pages.home.projects.content[0].title}
+                    </Link>
                   </h3>
-                  <span>Web Design</span>
+                  <span>{presets.pages.home.projects.content[0].subtitle}</span>
                 </div>
               </div>
             </BottomFade>
@@ -464,14 +339,23 @@ const IndexPage = ({data}) => (
                 <BottomFade>
                   <div
                     className="project img d-flex justify-content-center align-items-center"
-                    style={{backgroundImage: 'url(\'/tmp/project-2.jpg\')'}}
+                    style={{
+                      backgroundImage:
+                        'url(\'' +
+                        presets.pages.home.projects.content[1].image +
+                        '\')',
+                    }}
                   >
                     <div className="overlay" />
                     <div className="text text-center p-4">
                       <h3>
-                        <a href="#">Branding &amp; Illustration Design</a>
+                        <Link to={presets.pages.home.projects.content[1].link}>
+                          {presets.pages.home.projects.content[1].title}
+                        </Link>
                       </h3>
-                      <span>Web Design</span>
+                      <span>
+                        {presets.pages.home.projects.content[1].subtitle}
+                      </span>
                     </div>
                   </div>
                 </BottomFade>
@@ -480,14 +364,23 @@ const IndexPage = ({data}) => (
                 <BottomFade>
                   <div
                     className="project img d-flex justify-content-center align-items-center"
-                    style={{backgroundImage: 'url(\'/tmp/project-3.jpg\')'}}
+                    style={{
+                      backgroundImage:
+                        'url(\'' +
+                        presets.pages.home.projects.content[2].image +
+                        '\')',
+                    }}
                   >
                     <div className="overlay" />
                     <div className="text text-center p-4">
                       <h3>
-                        <a href="#">Branding &amp; Illustration Design</a>
+                        <Link to={presets.pages.home.projects.content[2].link}>
+                          {presets.pages.home.projects.content[2].title}
+                        </Link>
                       </h3>
-                      <span>Web Design</span>
+                      <span>
+                        {presets.pages.home.projects.content[2].subtitle}
+                      </span>
                     </div>
                   </div>
                 </BottomFade>
@@ -498,14 +391,21 @@ const IndexPage = ({data}) => (
             <BottomFade>
               <div
                 className="project img d-flex justify-content-center align-items-center"
-                style={{backgroundImage: 'url(\'/tmp/project-4.jpg\')'}}
+                style={{
+                  backgroundImage:
+                    'url(\'' +
+                    presets.pages.home.projects.content[3].image +
+                    '\')',
+                }}
               >
                 <div className="overlay" />
                 <div className="text text-center p-4">
                   <h3>
-                    <a href="#">Branding &amp; Illustration Design</a>
+                    <Link to={presets.pages.home.projects.content[3].link}>
+                      {presets.pages.home.projects.content[3].title}
+                    </Link>
                   </h3>
-                  <span>Web Design</span>
+                  <span>{presets.pages.home.projects.content[3].subtitle}</span>
                 </div>
               </div>
             </BottomFade>
@@ -514,32 +414,39 @@ const IndexPage = ({data}) => (
             <BottomFade>
               <div
                 className="project img d-flex justify-content-center align-items-center"
-                style={{backgroundImage: 'url(\'/tmp/project-5.jpg\')'}}
+                style={{
+                  backgroundImage:
+                    'url(\'' +
+                    presets.pages.home.projects.content[4].image +
+                    '\')',
+                }}
               >
                 <div className="overlay" />
                 <div className="text text-center p-4">
                   <h3>
-                    <a href="#">Branding &amp; Illustration Design</a>
+                    <Link to={presets.pages.home.projects.content[4].link}>
+                      {presets.pages.home.projects.content[4].title}
+                    </Link>
                   </h3>
-                  <span>Web Design</span>
+                  <span>{presets.pages.home.projects.content[4].subtitle}</span>
                 </div>
               </div>
             </BottomFade>
           </div>
-        </div>
-      </div>
-    </section>
+        </Row>
+      </Container>
+    </Section>
 
-    {/*
-     * Blog section
-     */}
-    <section className="ftco-section bg-light" id="blog-section">
+    {
+      // Blog section
+    }
+    <Section className="bg-light" id="blog-section">
       <div className="container">
         <div className="row justify-content-center mb-5 pb-5">
           <BottomFade>
             <div className="col-md-7 heading-section text-center">
               <span className="subheading">Blog</span>
-              <h2 className="mb-4">Our Blog</h2>
+              <h2 className="mb-4">My Blog</h2>
               <p>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia
@@ -649,11 +556,11 @@ const IndexPage = ({data}) => (
           </BottomFade>
         </div>
       </div>
-    </section>
+    </Section>
 
-    {/*
-     * Contact section
-     */}
+    {
+      // Contact section
+    }
     <section
       className="ftco-section contact-section ftco-no-pb"
       id="contact-section"

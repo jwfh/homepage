@@ -31,6 +31,9 @@ import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import presets from '../presets';
 import {media} from './breakpoints';
+import {BottomFade} from './fade';
+import remark from 'remark';
+import remark2react from 'remark-react';
 
 export const Logo = styled.div`
   height: 4vh;
@@ -140,13 +143,13 @@ export const IconItem = ({external, className, icon, label, ...rest}) =>
     </li>
   );
 
-const ContainerDiv = ({children, className, ...rest}) => (
+export const Container = ({children, className, ...rest}) => (
   <div {...rest} className={'container' + (className ? ` ${className}` : '')}>
     {children}
   </div>
 );
 
-export const Container = styled(ContainerDiv)`
+export const NarrowContainer = styled(Container)`
   width: 100%;
   padding-right: 15px;
   padding-left: 15px;
@@ -159,7 +162,7 @@ export const Container = styled(ContainerDiv)`
     max-width: 720px;
   `}
   ${media.desktop`
-    max-width: 960px;
+    max-width: 720px;
   `}
   ${media.giant`
     max-width: 1140px;
@@ -215,3 +218,116 @@ export const NavItem = ({label, className, anchor, ...rest}) => (
     </a>
   </li>
 );
+
+export const Section = ({children, className, ...rest}) => (
+  <section
+    {...rest}
+    className={'ftco-section' + (className ? ` ${className}` : '')}
+  >
+    {children}
+  </section>
+);
+
+export const SectionTitle = ({className, title, subtitle, tagline}) => (
+  <div
+    className={
+      'row justify-content-center' + (className ? ` ${className}` : '')
+    }
+  >
+    <BottomFade>
+      <div className="col-md-12 heading-section text-center">
+        <span className="subheading">{tagline}</span>
+        <h2 className="mb-4">{title}</h2>
+        <p>{subtitle}</p>
+      </div>
+    </BottomFade>
+  </div>
+);
+
+export const Banner = ({className, text, button, external}) => (
+  <Section className={'ftco-banner' + (className ? ` ${className}` : '')}>
+    <Container>
+      <Row>
+        <BottomFade>
+          <div className="col-md-8 col-lg-9 d-flex align-items-center">
+            <h2>
+              {
+                remark()
+                  .use(remark2react)
+                  .processSync(text).contents
+              }
+            </h2>
+          </div>
+        </BottomFade>
+        <BottomFade>
+          <div className="col-md-4 col-lg-3 d-flex align-items-center">
+            <p className="mb-0">
+              {external ? (
+                <a href={button.link} className="btn btn-white py-3 px-5">
+                  {button.label}
+                </a>
+              ) : (
+                <Link to={button.link} className="btn btn-white py-3 px-5">
+                  {button.label}
+                </Link>
+              )}
+            </p>
+          </div>
+        </BottomFade>
+      </Row>
+    </Container>
+  </Section>
+);
+
+export const Slider = ({value, label, index, className, ...rest}) => (
+  <div
+    {...rest}
+    className={'col-md-6 animate-box' + (className ? ` ${className}` : '')}
+  >
+    <BottomFade>
+      <div className="progress-wrap">
+        <h3>{label}</h3>
+        <div className="progress">
+          <div
+            className={'progress-bar color-' + (index + 1)}
+            role="progressbar"
+            aria-valuenow={value}
+            aria-valuemin="0"
+            aria-valuemax="100"
+            style={{width: value + '%'}}
+          >
+            <span>{value + '%'}</span>
+          </div>
+        </div>
+      </div>
+    </BottomFade>
+  </div>
+);
+
+export const DetailPanel = ({className, title, icon, link, children}) => (
+  <BottomFade className={className}>
+    <div className="col-md-4 text-center d-flex">
+      <div className="services-1">
+        <Link to={link}>
+          <span className="icon">
+            <i className={'flaticon-' + icon} />
+          </span>
+          <div className="desc">
+            <h3 className="mb-5">{title}</h3>
+            {children.map((child, index) => (
+              <h4 key={index}>{child}</h4>
+            ))}
+          </div>
+        </Link>
+      </div>
+    </div>
+  </BottomFade>
+);
+
+export const PageTitle = styled.h2`
+  padding-top: 1.5pc;
+`;
+
+export const PageSubtitle = styled.h4`
+  padding-top: 1pc;
+`;

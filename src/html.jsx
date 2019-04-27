@@ -49,7 +49,6 @@ const HTML = (props) => (
       {props.postBodyComponents}
       <script src="/js/jquery.min.js" />
       <script src="/js/jquery-migrate-3.0.1.min.js" />
-      // eslint-disable-next-line no-inline-comments
       {/* This one might be useful! It has React integration too. */}
       <script src="/js/popper.min.js" />
       <script src="/js/bootstrap.min.js" />
