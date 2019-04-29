@@ -169,7 +169,7 @@ const site = {
             image: PoolBlocks,
           },
           {
-            title: 'Lansscape Photography',
+            title: 'Landscape Photography',
             subtitle: 'Hobby & Passion',
             link: '/portfolio/photography',
             image: Sunset,
