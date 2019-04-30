@@ -35,6 +35,51 @@ import {BottomFade} from './fade';
 import remark from 'remark';
 import remark2react from 'remark-react';
 
+export const CarouselSlider = ({
+  image,
+  title,
+  preface,
+  subtitle,
+  buttonLink,
+  buttonLabel,
+}) => (
+  <div className="slider-item">
+    <div className="overlay" />
+    <div className="container">
+      <div
+        className="row d-flex no-gutters slider-text align-items-end justify-content-end"
+        data-scrollax-parent="true"
+      >
+        <div
+          className="one-third order-md-last img"
+          style={{backgroundImage: `url(${image})`}}
+        >
+          <div className="overlay" />
+        </div>
+        {/* <BottomFade> */}
+        <div
+          className="one-forth d-flex align-items-center"
+          data-scrollax=" properties: { translateY: '70%' }"
+        >
+          <div className="text">
+            <span className="subheading">{preface}</span>
+            <h1 className="mb-4 mt-3">
+              {title.before} <span>{title.in}</span> {title.after}
+            </h1>
+            <h2 className="mb-4">{subtitle}</h2>
+            <p>
+              <Link to={buttonLink} className="btn-custom">
+                {buttonLabel}
+              </Link>
+            </p>
+          </div>
+        </div>
+        {/* </BottomFade> */}
+      </div>
+    </div>
+  </div>
+);
+
 export const Logo = styled.div`
   height: 4vh;
   width: 4vh;

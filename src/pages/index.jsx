@@ -25,16 +25,18 @@
  * terms.
  */
 
-import React from 'react';
-import PropTypes from 'prop-types';
+import React, {Component} from 'react';
 import {Link, withPrefix, graphql} from 'gatsby';
 import {BottomFade} from '../components/fade';
 import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
 import presets from '../presets';
-import remark from 'remark';
-import remark2react from 'remark-react';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
+import 'owl.carousel';
+import OwlCarousel from 'react-owl-carousel';
+import * as $ from 'jquery';
 import {
   Section,
   Container,
@@ -43,94 +45,65 @@ import {
   Banner,
   Slider,
   DetailPanel,
+  CarouselSlider,
 } from '../components/partials';
 
-const IndexPage = () => (
-  <Layout>
-    <SEO title="Home" keywords={['gatsby', 'application', 'react']} />
-    {/* <section id="home-section" class="hero">
-      <div class="home-slider  owl-carousel">
-        <div class="slider-item ">
-          <div class="overlay" />
-          <div class="container">
-            <div
-              class="row d-md-flex no-gutters slider-text align-items-end justify-content-end"
-              data-scrollax-parent="true"
-            >
-              <div
-                class="one-third order-md-last img"
-                style="background-image:url(images/bg_1.jpg);"
-              >
-                <div class="overlay" />
-              </div>
-              <div
-                class="one-forth d-flex  align-items-center ftco-animate"
-                data-scrollax=" properties: { translateY: '70%' }"
-              >
-                <a
-                  href="https://vimeo.com/45830194"
-                  class="icon-video popup-vimeo d-flex justify-content-center align-items-center"
-                >
-                  <span class="ion-ios-play play" />
-                </a>
-                <div class="text">
-                  <span class="subheading">Hello</span>
-                  <h1 class="mb-4 mt-3">
-                    I'm <span>Niko Bochser</span>
-                  </h1>
-                  <h2 class="mb-4">A Freelance Web Developer</h2>
-                  <p>
-                    <a href="#" class="btn-custom">
-                      Hire me
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+export class IndexPage extends Component {
+  activateCarousel = () => {
+    $('.home-slider').owlCarousel({
+      // loop: true,
+      loop: false,
+      rewind: true,
+      autoplay: true,
+      margin: 0,
+      animateOut: 'fadeOut',
+      animateIn: 'fadeIn',
+      nav: false,
+      autoplayHoverPause: false,
+      items: 1,
+      navText: [
+        '<span class=\'ion-md-arrow-back\'></span>',
+        '<span class=\'ion-chevron-right\'></span>',
+      ],
+      responsive: {
+        0: {
+          items: 1,
+        },
+        600: {
+          items: 1,
+        },
+        1000: {
+          items: 1,
+        },
+      },
+    });
+  };
 
-        <div class="slider-item">
-          <div class="overlay" />
-          <div class="container">
-            <div
-              class="row d-flex no-gutters slider-text align-items-end justify-content-end"
-              data-scrollax-parent="true"
-            >
-              <div
-                class="one-third order-md-last img"
-                style="background-image:url(images/bg_2.jpg);"
-              >
-                <div class="overlay" />
-              </div>
-              <div
-                class="one-forth d-flex align-items-center ftco-animate"
-                data-scrollax=" properties: { translateY: '70%' }"
-              >
-                <a
-                  href="https://vimeo.com/45830194"
-                  class="icon-video popup-vimeo d-flex justify-content-center align-items-center"
-                >
-                  <span class="ion-ios-play play" />
-                </a>
-                <div class="text">
-                  <h1 class="mb-4 mt-3">
-                    I'm a <span>web designer</span> from Scotland
-                  </h1>
-                  <p>
-                    <a href="#" class="btn-custom">
-                      Hire me
-                    </a>
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-</section>*/}
+  componentDidMount() {
+    this.activateCarousel();
+  }
 
-    <section
+  render() {
+    return (
+      <Layout>
+        <SEO title="Home" />
+        <section id="home-section" className="hero">
+          <div className="home-slider owl-carousel">
+            {presets.pages.home.about.carousel.map((slider, index) => (
+              <CarouselSlider
+                key={index}
+                title={slider.title}
+                preface={slider.preface}
+                subtitle={slider.subtitle}
+                buttonLink={slider.buttonLink}
+                buttonLabel={slider.buttonLabel}
+                image={slider.image}
+              />
+            ))}
+          </div>
+        </section>
+
+        {/* <section
       className="ftco-about ftco-counter img ftco-section"
       id="about-section"
     >
@@ -214,431 +187,447 @@ const IndexPage = () => (
           </div>
         </div>
       </div>
-    </section>
-    {/* 
+    </section> */}
+        {/* 
     {data.allMarkdownRemark.edges.map((post) => (
       <Link key={post.node.id} to={post.node.frontmatter.path}>
         {post.node.frontmatter.title}
       </Link>
     ))} */}
 
-    {
-      // Banner section #1 (Résumé)
-    }
-    <Banner
-      external={presets.pages.home.resumeBanner.external}
-      text={presets.pages.home.resumeBanner.text}
-      button={{
-        label: presets.pages.home.resumeBanner.buttonLabel,
-        link: presets.pages.home.resumeBanner.buttonLink,
-      }}
-    />
-
-    {
-      // Skills section
-    }
-    <Section className="bg-light" id="skills-section">
-      <Container>
-        <SectionTitle
-          className="pb-5"
-          tagline="Skills"
-          title={presets.pages.home.skills.sliders.first.title}
-          subtitle={presets.pages.home.skills.sliders.first.subtitle}
+        {
+          // Banner section #1 (Résumé)
+        }
+        <Banner
+          external={presets.pages.home.resumeBanner.external}
+          text={presets.pages.home.resumeBanner.text}
+          button={{
+            label: presets.pages.home.resumeBanner.buttonLabel,
+            link: presets.pages.home.resumeBanner.buttonLink,
+          }}
         />
-        <Row>
-          {presets.pages.home.skills.sliders.first.content.map(
-            (slider, index) => (
-              <Slider value={slider.value} label={slider.label} key={index} />
-            )
-          )}
-        </Row>
-        <SectionTitle
-          className="py-5"
-          tagline="Skills"
-          title={presets.pages.home.skills.sliders.second.title}
-          subtitle={presets.pages.home.skills.sliders.second.subtitle}
-        />
-        <Row>
-          {presets.pages.home.skills.sliders.second.content.map(
-            (slider, index) => (
-              <Slider value={slider.value} label={slider.label} key={index} />
-            )
-          )}
-        </Row>
-        <SectionTitle
-          className="py-5 mt-5"
-          tagline="What I Do"
-          title={presets.pages.home.skills.details.title}
-          subtitle={presets.pages.home.skills.details.subtitle}
-        />
-        <Row>
-          {presets.pages.home.skills.details.content.map((panel, index) => (
-            <DetailPanel
-              key={index}
-              title={panel.title}
-              link={panel.link}
-              icon={panel.icon}
-            >
-              {panel.list}
-            </DetailPanel>
-          ))}
-        </Row>
-      </Container>
-    </Section>
 
-    {
-      // Banner section #2 (Hire Me)
-    }
-    <Banner
-      external={presets.pages.home.banner.external}
-      text={presets.pages.home.banner.text}
-      button={{
-        label: presets.pages.home.banner.buttonLabel,
-        link: presets.pages.home.banner.buttonLink,
-      }}
-    />
-
-    {
-      // Project section
-    }
-    <Section className="ftco-project" id="projects-section">
-      <Container>
-        <SectionTitle
-          className="pb-5"
-          tagline="Accomplishments"
-          title={presets.pages.home.projects.title}
-          subtitle={presets.pages.home.projects.subtitle}
-        />
-        <Row>
-          <div className="col-md-8">
-            <BottomFade>
-              <div
-                className="project img img-2 d-flex justify-content-center align-items-center"
-                style={{
-                  backgroundImage:
-                    'url(\'' +
-                    presets.pages.home.projects.content[0].image +
-                    '\')',
-                }}
-              >
-                <div className="overlay" />
-                <div className="text text-center p-4">
-                  <h3>
-                    <Link to={presets.pages.home.projects.content[0].link}>
-                      {presets.pages.home.projects.content[0].title}
-                    </Link>
-                  </h3>
-                  <span>{presets.pages.home.projects.content[0].subtitle}</span>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-4">
-            <div className="row">
-              <div className="col-md-12">
-                <BottomFade>
-                  <div
-                    className="project img d-flex justify-content-center align-items-center"
-                    style={{
-                      backgroundImage:
-                        'url(\'' +
-                        presets.pages.home.projects.content[1].image +
-                        '\')',
-                    }}
-                  >
-                    <div className="overlay" />
-                    <div className="text text-center p-4">
-                      <h3>
-                        <Link to={presets.pages.home.projects.content[1].link}>
-                          {presets.pages.home.projects.content[1].title}
-                        </Link>
-                      </h3>
-                      <span>
-                        {presets.pages.home.projects.content[1].subtitle}
-                      </span>
-                    </div>
-                  </div>
-                </BottomFade>
-              </div>
-              <div className="col-md-12">
-                <BottomFade>
-                  <div
-                    className="project img d-flex justify-content-center align-items-center"
-                    style={{
-                      backgroundImage:
-                        'url(\'' +
-                        presets.pages.home.projects.content[2].image +
-                        '\')',
-                    }}
-                  >
-                    <div className="overlay" />
-                    <div className="text text-center p-4">
-                      <h3>
-                        <Link to={presets.pages.home.projects.content[2].link}>
-                          {presets.pages.home.projects.content[2].title}
-                        </Link>
-                      </h3>
-                      <span>
-                        {presets.pages.home.projects.content[2].subtitle}
-                      </span>
-                    </div>
-                  </div>
-                </BottomFade>
-              </div>
-            </div>
-          </div>
-          <div className="col-md-4">
-            <BottomFade>
-              <div
-                className="project img d-flex justify-content-center align-items-center"
-                style={{
-                  backgroundImage:
-                    'url(\'' +
-                    presets.pages.home.projects.content[3].image +
-                    '\')',
-                }}
-              >
-                <div className="overlay" />
-                <div className="text text-center p-4">
-                  <h3>
-                    <Link to={presets.pages.home.projects.content[3].link}>
-                      {presets.pages.home.projects.content[3].title}
-                    </Link>
-                  </h3>
-                  <span>{presets.pages.home.projects.content[3].subtitle}</span>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-          <div className="col-md-8">
-            <BottomFade>
-              <div
-                className="project img d-flex justify-content-center align-items-center"
-                style={{
-                  backgroundImage:
-                    'url(\'' +
-                    presets.pages.home.projects.content[4].image +
-                    '\')',
-                }}
-              >
-                <div className="overlay" />
-                <div className="text text-center p-4">
-                  <h3>
-                    <Link to={presets.pages.home.projects.content[4].link}>
-                      {presets.pages.home.projects.content[4].title}
-                    </Link>
-                  </h3>
-                  <span>{presets.pages.home.projects.content[4].subtitle}</span>
-                </div>
-              </div>
-            </BottomFade>
-          </div>
-        </Row>
-      </Container>
-    </Section>
-
-    {
-      // Blog section
-    }
-    <Section className="bg-light" id="blog-section">
-      <div className="container">
-        <div className="row justify-content-center mb-5 pb-5">
-          <BottomFade>
-            <div className="col-md-7 heading-section text-center">
-              <span className="subheading">Blog</span>
-              <h2 className="mb-4">My Blog</h2>
-              <p>
-                Far far away, behind the word mountains, far from the countries
-                Vokalia and Consonantia
-              </p>
-            </div>
-          </BottomFade>
-        </div>
-        <div className="row d-flex">
-          <BottomFade>
-            <div className="col-md-4 d-flex">
-              <div className="blog-entry justify-content-end">
-                <a
-                  href="single.html"
-                  className="block-20"
-                  style={{backgroundImage: 'url(\'/tmp/image_1.jpg\')'}}
-                />
-                <div className="text mt-3 float-right d-block">
-                  <div className="d-flex align-items-center mb-3 meta">
-                    <p className="mb-0">
-                      <span className="mr-2">March 23, 2019</span>
-                      <a href="#" className="mr-2">
-                        Admin
-                      </a>
-                      <a href="#" className="meta-chat">
-                        <span className="icon-chat" /> 3
-                      </a>
-                    </p>
-                  </div>
-                  <h3 className="heading">
-                    <a href="single.html">
-                      Why Lead Generation is Key for Business Growth
-                    </a>
-                  </h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 d-flex">
-              <div className="blog-entry justify-content-end">
-                <a
-                  href="single.html"
-                  className="block-20"
-                  style={{backgroundImage: 'url(\'/tmp/image_2.jpg\')'}}
-                />
-                <div className="text mt-3 float-right d-block">
-                  <div className="d-flex align-items-center mb-3 meta">
-                    <p className="mb-0">
-                      <span className="mr-2">March 23, 2019</span>
-                      <a href="#" className="mr-2">
-                        Admin
-                      </a>
-                      <a href="#" className="meta-chat">
-                        <span className="icon-chat" /> 3
-                      </a>
-                    </p>
-                  </div>
-                  <h3 className="heading">
-                    <a href="single.html">
-                      Why Lead Generation is Key for Business Growth
-                    </a>
-                  </h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-          <BottomFade>
-            <div className="col-md-4 d-flex">
-              <div className="blog-entry">
-                <a
-                  href="single.html"
-                  className="block-20"
-                  style={{backgroundImage: 'url(\'/tmp/image_3.jpg\')'}}
-                />
-                <div className="text mt-3 float-right d-block">
-                  <div className="d-flex align-items-center mb-3 meta">
-                    <p className="mb-0">
-                      <span className="mr-2">March 23, 2019</span>
-                      <a href="#" className="mr-2">
-                        Admin
-                      </a>
-                      <a href="#" className="meta-chat">
-                        <span className="icon-chat" /> 3
-                      </a>
-                    </p>
-                  </div>
-                  <h3 className="heading">
-                    <a href="single.html">
-                      Why Lead Generation is Key for Business Growth
-                    </a>
-                  </h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </BottomFade>
-        </div>
-      </div>
-    </Section>
-
-    {
-      // Contact section
-    }
-    <section
-      className="ftco-section contact-section ftco-no-pb"
-      id="contact-section"
-    >
-      <div className="container">
-        <div className="row justify-content-center mb-5 pb-3">
-          <BottomFade>
-            <div className="col-md-7 heading-section text-center">
-              <span className="subheading">Contact</span>
-              <h2 className="mb-4">{presets.pages.home.contact.title}</h2>
-              <p>{presets.pages.home.contact.subtitle}</p>
-            </div>
-          </BottomFade>
-        </div>
-        <div className="row no-gutters block-9">
-          <div className="col-md-6 order-md-last d-flex">
-            <form
-              action={presets.pages.home.contact.formAction}
-              method="POST"
-              className="bg-light p-4 p-md-5 contact-form"
-            >
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Your Name"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Your Email"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="text"
-                  className="form-control"
-                  placeholder="Subject"
-                />
-              </div>
-              <div className="form-group">
-                <textarea
-                  name=""
-                  id=""
-                  cols="30"
-                  rows="7"
-                  className="form-control"
-                  placeholder="Message"
-                />
-              </div>
-              <div className="form-group">
-                <input
-                  type="submit"
-                  value="Dispatch Carrier Pidgeon"
-                  className="btn btn-primary py-3 px-5"
-                />
-              </div>
-            </form>
-          </div>
-          <div className="col-md-6 d-flex">
-            <div
-              className="img"
-              style={{
-                backgroundImage: `url(${presets.pages.home.contact.image})`,
-              }}
+        {
+          // Skills section
+        }
+        <Section className="bg-light" id="skills-section">
+          <Container>
+            <SectionTitle
+              className="pb-5"
+              tagline="Skills"
+              title={presets.pages.home.skills.sliders.first.title}
+              subtitle={presets.pages.home.skills.sliders.first.subtitle}
             />
-          </div>
-        </div>
-      </div>
-    </section>
-  </Layout>
-);
+            <Row>
+              {presets.pages.home.skills.sliders.first.content.map(
+                (slider, index) => (
+                  <Slider
+                    value={slider.value}
+                    label={slider.label}
+                    key={index}
+                  />
+                )
+              )}
+            </Row>
+            <SectionTitle
+              className="py-5"
+              tagline="Skills"
+              title={presets.pages.home.skills.sliders.second.title}
+              subtitle={presets.pages.home.skills.sliders.second.subtitle}
+            />
+            <Row>
+              {presets.pages.home.skills.sliders.second.content.map(
+                (slider, index) => (
+                  <Slider
+                    value={slider.value}
+                    label={slider.label}
+                    key={index}
+                  />
+                )
+              )}
+            </Row>
+            <SectionTitle
+              className="py-5 mt-5"
+              tagline="What I Do"
+              title={presets.pages.home.skills.details.title}
+              subtitle={presets.pages.home.skills.details.subtitle}
+            />
+            <Row>
+              {presets.pages.home.skills.details.content.map((panel, index) => (
+                <DetailPanel
+                  key={index}
+                  title={panel.title}
+                  link={panel.link}
+                  icon={panel.icon}
+                >
+                  {panel.list}
+                </DetailPanel>
+              ))}
+            </Row>
+          </Container>
+        </Section>
 
-IndexPage.propTypes = {
-  data: PropTypes.object.isRequired,
-};
+        {
+          // Banner section #2 (Hire Me)
+        }
+        <Banner
+          external={presets.pages.home.banner.external}
+          text={presets.pages.home.banner.text}
+          button={{
+            label: presets.pages.home.banner.buttonLabel,
+            link: presets.pages.home.banner.buttonLink,
+          }}
+        />
+
+        {
+          // Project section
+        }
+        <Section className="ftco-project" id="projects-section">
+          <Container>
+            <SectionTitle
+              className="pb-5"
+              tagline="Accomplishments"
+              title={presets.pages.home.projects.title}
+              subtitle={presets.pages.home.projects.subtitle}
+            />
+            <Row>
+              <div className="col-md-8">
+                <BottomFade>
+                  <div
+                    className="project img img-2 d-flex justify-content-center align-items-center"
+                    style={{
+                      backgroundImage:
+                        'url(\'' +
+                        presets.pages.home.projects.content[0].image +
+                        '\')',
+                    }}
+                  >
+                    <div className="overlay" />
+                    <div className="text text-center p-4">
+                      <h3>
+                        <Link to={presets.pages.home.projects.content[0].link}>
+                          {presets.pages.home.projects.content[0].title}
+                        </Link>
+                      </h3>
+                      <span>
+                        {presets.pages.home.projects.content[0].subtitle}
+                      </span>
+                    </div>
+                  </div>
+                </BottomFade>
+              </div>
+              <div className="col-md-4">
+                <div className="row">
+                  <div className="col-md-12">
+                    <BottomFade>
+                      <div
+                        className="project img d-flex justify-content-center align-items-center"
+                        style={{
+                          backgroundImage:
+                            'url(\'' +
+                            presets.pages.home.projects.content[1].image +
+                            '\')',
+                        }}
+                      >
+                        <div className="overlay" />
+                        <div className="text text-center p-4">
+                          <h3>
+                            <Link
+                              to={presets.pages.home.projects.content[1].link}
+                            >
+                              {presets.pages.home.projects.content[1].title}
+                            </Link>
+                          </h3>
+                          <span>
+                            {presets.pages.home.projects.content[1].subtitle}
+                          </span>
+                        </div>
+                      </div>
+                    </BottomFade>
+                  </div>
+                  <div className="col-md-12">
+                    <BottomFade>
+                      <div
+                        className="project img d-flex justify-content-center align-items-center"
+                        style={{
+                          backgroundImage:
+                            'url(\'' +
+                            presets.pages.home.projects.content[2].image +
+                            '\')',
+                        }}
+                      >
+                        <div className="overlay" />
+                        <div className="text text-center p-4">
+                          <h3>
+                            <Link
+                              to={presets.pages.home.projects.content[2].link}
+                            >
+                              {presets.pages.home.projects.content[2].title}
+                            </Link>
+                          </h3>
+                          <span>
+                            {presets.pages.home.projects.content[2].subtitle}
+                          </span>
+                        </div>
+                      </div>
+                    </BottomFade>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <BottomFade>
+                  <div
+                    className="project img d-flex justify-content-center align-items-center"
+                    style={{
+                      backgroundImage:
+                        'url(\'' +
+                        presets.pages.home.projects.content[3].image +
+                        '\')',
+                    }}
+                  >
+                    <div className="overlay" />
+                    <div className="text text-center p-4">
+                      <h3>
+                        <Link to={presets.pages.home.projects.content[3].link}>
+                          {presets.pages.home.projects.content[3].title}
+                        </Link>
+                      </h3>
+                      <span>
+                        {presets.pages.home.projects.content[3].subtitle}
+                      </span>
+                    </div>
+                  </div>
+                </BottomFade>
+              </div>
+              <div className="col-md-8">
+                <BottomFade>
+                  <div
+                    className="project img d-flex justify-content-center align-items-center"
+                    style={{
+                      backgroundImage:
+                        'url(\'' +
+                        presets.pages.home.projects.content[4].image +
+                        '\')',
+                    }}
+                  >
+                    <div className="overlay" />
+                    <div className="text text-center p-4">
+                      <h3>
+                        <Link to={presets.pages.home.projects.content[4].link}>
+                          {presets.pages.home.projects.content[4].title}
+                        </Link>
+                      </h3>
+                      <span>
+                        {presets.pages.home.projects.content[4].subtitle}
+                      </span>
+                    </div>
+                  </div>
+                </BottomFade>
+              </div>
+            </Row>
+          </Container>
+        </Section>
+
+        {
+          // Blog section
+        }
+        <Section className="bg-light" id="blog-section">
+          <div className="container">
+            <div className="row justify-content-center mb-5 pb-5">
+              <BottomFade>
+                <div className="col-md-7 heading-section text-center">
+                  <span className="subheading">Blog</span>
+                  <h2 className="mb-4">My Blog</h2>
+                  <p>
+                    Far far away, behind the word mountains, far from the
+                    countries Vokalia and Consonantia
+                  </p>
+                </div>
+              </BottomFade>
+            </div>
+            <div className="row d-flex">
+              <BottomFade>
+                <div className="col-md-4 d-flex">
+                  <div className="blog-entry justify-content-end">
+                    <a
+                      href="single.html"
+                      className="block-20"
+                      style={{backgroundImage: 'url(\'/tmp/image_1.jpg\')'}}
+                    />
+                    <div className="text mt-3 float-right d-block">
+                      <div className="d-flex align-items-center mb-3 meta">
+                        <p className="mb-0">
+                          <span className="mr-2">March 23, 2019</span>
+                          <a href="#" className="mr-2">
+                            Admin
+                          </a>
+                          <a href="#" className="meta-chat">
+                            <span className="icon-chat" /> 3
+                          </a>
+                        </p>
+                      </div>
+                      <h3 className="heading">
+                        <a href="single.html">
+                          Why Lead Generation is Key for Business Growth
+                        </a>
+                      </h3>
+                      <p>
+                        A small river named Duden flows by their place and
+                        supplies it with the necessary regelialia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </BottomFade>
+              <BottomFade>
+                <div className="col-md-4 d-flex">
+                  <div className="blog-entry justify-content-end">
+                    <a
+                      href="single.html"
+                      className="block-20"
+                      style={{backgroundImage: 'url(\'/tmp/image_2.jpg\')'}}
+                    />
+                    <div className="text mt-3 float-right d-block">
+                      <div className="d-flex align-items-center mb-3 meta">
+                        <p className="mb-0">
+                          <span className="mr-2">March 23, 2019</span>
+                          <a href="#" className="mr-2">
+                            Admin
+                          </a>
+                          <a href="#" className="meta-chat">
+                            <span className="icon-chat" /> 3
+                          </a>
+                        </p>
+                      </div>
+                      <h3 className="heading">
+                        <a href="single.html">
+                          Why Lead Generation is Key for Business Growth
+                        </a>
+                      </h3>
+                      <p>
+                        A small river named Duden flows by their place and
+                        supplies it with the necessary regelialia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </BottomFade>
+              <BottomFade>
+                <div className="col-md-4 d-flex">
+                  <div className="blog-entry">
+                    <a
+                      href="single.html"
+                      className="block-20"
+                      style={{backgroundImage: 'url(\'/tmp/image_3.jpg\')'}}
+                    />
+                    <div className="text mt-3 float-right d-block">
+                      <div className="d-flex align-items-center mb-3 meta">
+                        <p className="mb-0">
+                          <span className="mr-2">March 23, 2019</span>
+                          <a href="#" className="mr-2">
+                            Admin
+                          </a>
+                          <a href="#" className="meta-chat">
+                            <span className="icon-chat" /> 3
+                          </a>
+                        </p>
+                      </div>
+                      <h3 className="heading">
+                        <a href="single.html">
+                          Why Lead Generation is Key for Business Growth
+                        </a>
+                      </h3>
+                      <p>
+                        A small river named Duden flows by their place and
+                        supplies it with the necessary regelialia.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </BottomFade>
+            </div>
+          </div>
+        </Section>
+
+        {
+          // Contact section
+        }
+        <section
+          className="ftco-section contact-section ftco-no-pb"
+          id="contact-section"
+        >
+          <div className="container">
+            <div className="row justify-content-center mb-5 pb-3">
+              <BottomFade>
+                <div className="col-md-7 heading-section text-center">
+                  <span className="subheading">Contact</span>
+                  <h2 className="mb-4">{presets.pages.home.contact.title}</h2>
+                  <p>{presets.pages.home.contact.subtitle}</p>
+                </div>
+              </BottomFade>
+            </div>
+            <div className="row no-gutters block-9">
+              <div className="col-md-6 order-md-last d-flex">
+                <form
+                  action={presets.pages.home.contact.formAction}
+                  method="POST"
+                  className="bg-light p-4 p-md-5 contact-form"
+                >
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Your Name"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Your Email"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="text"
+                      className="form-control"
+                      placeholder="Subject"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <textarea
+                      name=""
+                      id=""
+                      cols="30"
+                      rows="7"
+                      className="form-control"
+                      placeholder="Message"
+                    />
+                  </div>
+                  <div className="form-group">
+                    <input
+                      type="submit"
+                      value="Dispatch Carrier Pidgeon"
+                      className="btn btn-primary py-3 px-5"
+                    />
+                  </div>
+                </form>
+              </div>
+              <div className="col-md-6 d-flex">
+                <div
+                  className="img"
+                  style={{
+                    backgroundImage: `url(${presets.pages.home.contact.image})`,
+                  }}
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+      </Layout>
+    );
+  }
+}
 
 export const postQuery = graphql`
   query IndexQuery {

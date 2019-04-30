@@ -33,6 +33,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import Helmet from 'react-helmet';
 import {useStaticQuery, graphql} from 'gatsby';
+import presets from '../presets';
 
 function SEO({description, lang, meta, keywords, title}) {
   const {site} = useStaticQuery(
@@ -50,6 +51,7 @@ function SEO({description, lang, meta, keywords, title}) {
   );
 
   const metaDescription = description || site.siteMetadata.description;
+  keywords = keywords.concat(presets.keywords);
 
   return (
     <Helmet

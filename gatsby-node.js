@@ -5,6 +5,7 @@
  */
 
 const path = require('path');
+const webpack = require('webpack');
 
 exports.createPages = ({actions, graphql}) => {
   const {createPage} = actions;
@@ -37,5 +38,17 @@ exports.createPages = ({actions, graphql}) => {
         component: postTemplate,
       });
     });
+  });
+};
+
+exports.onCreateWebpackConfig = ({stage, rules, loaders, plugins, actions}) => {
+  actions.setWebpackConfig({
+    plugins: [
+      new webpack.ProvidePlugin({
+        $: 'jquery',
+        jQuery: 'jquery',
+        'window.jQuery': 'jquery',
+      }),
+    ],
   });
 };

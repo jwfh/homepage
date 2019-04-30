@@ -22,7 +22,7 @@
  * IN THE SOFTWARE.
  */
 
-import AboutJPG from './images/about.jpg';
+import ContactJPG from './images/about.jpg';
 import ResumePDF from './pdf/resume.pdf';
 import LogoSVG from './images/logo.svg';
 import MathIA from './pdf/ia_math_x1a.pdf';
@@ -35,12 +35,41 @@ import Librarian from './images/LibrarianMockup.jpg';
 import PoolBlocks from './images/pool-generic.jpg';
 import PortraitPhoto from './images/_DSC3842-Processed.jpg';
 import Sunset from './images/sunset.jpg';
-import ProductPhoto from './images/_DSC0058-Processed.jpg';
+// import ProductPhoto from './images/_DSC0058-Processed.jpg';
+import AboutJPG1 from './images/_DSC8963-bg-16x10.jpg';
+import AboutJPG2 from './images/_DSC8819-bg-16x10.jpg';
 
 const site = {
   pages: {
     home: {
-      about: {},
+      about: {
+        carousel: [
+          {
+            preface: 'Hello',
+            title: {
+              before: 'I\'m',
+              in: 'Jacob House',
+              after: '',
+            },
+            subtitle: 'A Software Developer and Design Enthusiast',
+            buttonLabel: 'Click',
+            buttonLink: '',
+            image: AboutJPG1,
+          },
+          {
+            preface: '',
+            title: {
+              before: 'I\'m a',
+              in: 'software developer',
+              after: 'from St. John\'s, Nfld.',
+            },
+            subtitle: '',
+            buttonLabel: 'Click',
+            buttonLink: '',
+            image: AboutJPG2,
+          },
+        ],
+      },
       resumeBanner: {
         text: 'View my **Résumé**',
         buttonLabel: 'Download PDF',
@@ -181,7 +210,7 @@ const site = {
         title: 'Hey You',
         subtitle: `Thanks for taking the time to look at my little slice of the Internet. 
           Please feel free to drop me a line if you'd like to get in touch!`,
-        image: AboutJPG,
+        image: ContactJPG,
         formAction: 'https://formspree.io/jacob@jwfh.ca',
       },
     },
@@ -272,6 +301,54 @@ const site = {
     text: `Copyright ©${new Date().getFullYear()} Jacob House. Provided under dual MIT and Creative Commons Attribution 4.0 License.`,
     link: 'https://github.com/jwfh/homepage#license',
   },
+  keywords: [
+    'gatsby',
+    'application',
+    'react',
+    'portfolio',
+    'resume',
+    'résumé',
+    'software',
+    'security',
+    'app development',
+    'software developer',
+    'photography',
+    'photo',
+    'graphics',
+    'graphic design',
+    'graphic designer',
+    'adobe',
+    'photoshop',
+    'illustrator',
+    'lightroom',
+    'premiere',
+    'premiere pro',
+    'python',
+    'numpy',
+    'javascript',
+    'react',
+    'c',
+    'c++',
+    'java',
+    'rust',
+    'go',
+    'vim',
+    'vi',
+    'bash',
+    'zsh',
+    'fish',
+    'linux',
+    'ubuntu',
+    'arch',
+    'manjaro',
+    'bsd',
+    'freebsd',
+    'macos',
+    'mac',
+    'mac os x',
+    'operating sysetem',
+    'web development',
+  ],
 };
 
 export default site;
