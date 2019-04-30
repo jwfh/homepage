@@ -33,6 +33,9 @@ import '../css/flaticon.css';
 import '../css/icomoon.css';
 import '../css/layout.css';
 import '../css/style.css';
+import '../css/magnific-popup.css';
+import '../css/owl.carousel.min.css';
+import '../css/owl.theme.default.min.css';
 
 const Layout = ({children}) => (
   <Fragment>

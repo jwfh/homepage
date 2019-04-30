@@ -46,11 +46,9 @@ const site = {
         carousel: [
           {
             preface: 'Hello',
-            title: {
-              before: 'I\'m',
-              in: 'Jacob House',
-              after: '',
-            },
+            titleBefore: 'I\'m',
+            titleEm: 'Jacob House',
+            titleAfter: '',
             subtitle: 'A Software Developer and Design Enthusiast',
             buttonLabel: 'Click',
             buttonLink: '',
@@ -58,11 +56,9 @@ const site = {
           },
           {
             preface: '',
-            title: {
-              before: 'I\'m a',
-              in: 'software developer',
-              after: 'from St. John\'s, Nfld.',
-            },
+            titleBefore: 'I\'m a',
+            titleEm: 'software developer',
+            titleAfter: 'from St. John\'s, Nfld.',
             subtitle: '',
             buttonLabel: 'Click',
             buttonLink: '',

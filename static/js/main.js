@@ -1,19 +1,6 @@
-AOS.init({
-  duration: 800,
-  easing: 'slide',
-});
-
+/* eslint-disable no-inline-comments */
 (function($) {
   'use strict';
-
-  $(window).stellar({
-    responsive: true,
-    parallaxBackgrounds: true,
-    parallaxElements: true,
-    horizontalScrolling: false,
-    hideDistantElements: false,
-    scrollProperty: 'scroll',
-  });
 
   var fullHeight = function() {
     $('.js-fullheight').css('height', $(window).height());
@@ -22,6 +9,8 @@ AOS.init({
     });
   };
   fullHeight();
+
+  $.Scrollax();
 
   // loader
   var loader = function() {
@@ -33,99 +22,6 @@ AOS.init({
   };
   loader();
 
-  // Scrollax
-  $.Scrollax();
-
-  // Burger Menu
-  var burgerMenu = function() {
-    $('body').on('click', '.js-fh5co-nav-toggle', function(event) {
-      event.preventDefault();
-
-      if ($('#ftco-nav').is(':visible')) {
-        $(this).removeClass('active');
-      } else {
-        $(this).addClass('active');
-      }
-    });
-  };
-  burgerMenu();
-
-  var onePageClick = function() {
-    $(document).on('click', '#ftco-nav a[href^="#"]', function(event) {
-      event.preventDefault();
-
-      var href = $.attr(this, 'href');
-
-      $('html, body').animate(
-        {
-          scrollTop: $($.attr(this, 'href')).offset().top - 70,
-        },
-        500,
-        function() {
-          // window.location.hash = href;
-        }
-      );
-    });
-  };
-
-  onePageClick();
-
-  var carousel = function() {
-    $('.home-slider').owlCarousel({
-      loop: true,
-      autoplay: true,
-      margin: 0,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
-      nav: false,
-      autoplayHoverPause: false,
-      items: 1,
-      navText: [
-        '<span class=\'ion-md-arrow-back\'></span>',
-        '<span class=\'ion-chevron-right\'></span>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 1,
-        },
-        1000: {
-          items: 1,
-        },
-      },
-    });
-  };
-  carousel();
-
-  $('nav .dropdown').hover(
-    function() {
-      var $this = $(this);
-      // 	 timer;
-      // clearTimeout(timer);
-      $this.addClass('show');
-      $this.find('> a').attr('aria-expanded', true);
-      // $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
-      $this.find('.dropdown-menu').addClass('show');
-    },
-    function() {
-      var $this = $(this);
-      // timer;
-      // timer = setTimeout(function(){
-      $this.removeClass('show');
-      $this.find('> a').attr('aria-expanded', false);
-      // $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
-      $this.find('.dropdown-menu').removeClass('show');
-      // }, 100);
-    }
-  );
-
-  $('#dropdown04').on('show.bs.dropdown', function() {
-    console.log('show');
-  });
-
-  // scroll
   var scrollWindow = function() {
     $(window).scroll(function() {
       var $w = $(this),
@@ -172,7 +68,7 @@ AOS.init({
           direction === 'down' &&
           !$(this.element).hasClass('ftco-animated')
         ) {
-          var comma_separator_number_step = $.animateNumber.numberStepFactories.separator(
+          var commaSeparatorNumberStep = $.animateNumber.numberStepFactories.separator(
             ','
           );
           $('.number').each(function() {
@@ -182,7 +78,7 @@ AOS.init({
             $this.animateNumber(
               {
                 number: num,
-                numberStep: comma_separator_number_step,
+                numberStep: commaSeparatorNumberStep,
               },
               7000
             );
@@ -194,47 +90,165 @@ AOS.init({
   };
   counter();
 
-  var contentWayPoint = function() {
-    var i = 0;
-    console.log($('.ftco-animate'));
-    $('.ftco-animate').waypoint(
-      function(direction) {
-        if (
-          direction === 'down' &&
-          !$(this.element).hasClass('ftco-animated')
-        ) {
-          i++;
-
-          $(this.element).addClass('item-animate');
-          setTimeout(function() {
-            $('body .ftco-animate.item-animate').each(function(k) {
-              var el = $(this);
-              setTimeout(
-                function() {
-                  var effect = el.data('animate-effect');
-                  if (effect === 'fadeIn') {
-                    el.addClass('fadeIn ftco-animated');
-                  } else if (effect === 'fadeInLeft') {
-                    el.addClass('fadeInLeft ftco-animated');
-                  } else if (effect === 'fadeInRight') {
-                    el.addClass('fadeInRight ftco-animated');
-                  } else {
-                    el.addClass('fadeInUp ftco-animated');
-                  }
-                  el.removeClass('item-animate');
-                },
-                k * 50,
-                'easeInOutExpo'
-              );
-            });
-          }, 100);
-        }
-      },
-      {offset: '95%'}
-    );
-    console.log(i);
+  var burgerMenu = function() {
+    $('body').on('click', '.js-fh5co-nav-toggle', function(event) {
+      event.preventDefault();
+      if ($('#ftco-nav').is(':visible')) {
+        $(this).removeClass('active');
+      } else {
+        $(this).addClass('active');
+      }
+    });
   };
-  contentWayPoint();
+  burgerMenu();
+
+  var updateNav = function() {
+    var scrollTop = $(document).scrollTop();
+    var anchors = $('a.nav-link');
+    for (var i = 0; i < anchors.length; i++) {
+      if (
+        Object.entries($(anchors[i].hash)).length !== 0 &&
+        scrollTop > $(anchors[i].hash).offset().top - 40 &&
+        scrollTop <
+          $(anchors[i].hash).offset().top + $(anchors[i].hash).height() - 40
+      ) {
+        $(
+          `nav div.container div.collapse.navbar-collapse ul li a[href="${
+            anchors[i].hash
+          }"]`
+        ).addClass('active');
+      } else {
+        $(
+          `nav div.container div.collapse.navbar-collapse ul li a[href="${
+            anchors[i].hash
+          }"]`
+        ).removeClass('active');
+      }
+    }
+  };
+
+  var navFollowsScroll = function() {
+    $(window).on(
+      'load resize scroll animationend webkitAnimationEnd oAnimationEnd MSAnimationEnd',
+      updateNav
+    );
+  };
+  navFollowsScroll();
+
+  var onePageClick = function() {
+    $(document).on('click', '#ftco-nav a[href^="#"]', function(event) {
+      event.preventDefault();
+      let href = $($.attr(this, 'href')).offset();
+      if (typeof href !== 'undefined') {
+        $('html, body').animate(
+          {
+            scrollTop: href.top - 39,
+          },
+          500,
+          function() {
+            updateNav();
+            // window.location.hash = href;
+          }
+        );
+      }
+    });
+  };
+  onePageClick();
+
+  // var carousel = function() {
+  //   $('.home-slider').owlCarousel({
+  //     loop: true,
+  //     autoPlay: true,
+  //     margin: 0,
+  //     animateOut: 'fadeOut',
+  //     animateIn: 'fadeIn',
+  //     nav: false,
+  //     autoplayHoverPause: false,
+  //     items: 1,
+  //     navText: [
+  //       '<span class=\'ion-md-arrow-back\'></span>',
+  //       '<span class=\'ion-chevron-right\'></span>',
+  //     ],
+  //     responsive: {
+  //       0: {
+  //         items: 1,
+  //       },
+  //       600: {
+  //         items: 1,
+  //       },
+  //       1000: {
+  //         items: 1,
+  //       },
+  //     },
+  //   });
+  // };
+  // carousel();
+
+  $('nav .dropdown').hover(
+    function() {
+      var $this = $(this);
+      // 	 timer;
+      // clearTimeout(timer);
+      $this.addClass('show');
+      $this.find('> a').attr('aria-expanded', true);
+      // $this.find('.dropdown-menu').addClass('animated-fast fadeInUp show');
+      $this.find('.dropdown-menu').addClass('show');
+    },
+    function() {
+      var $this = $(this);
+      // timer;
+      // timer = setTimeout(function(){
+      $this.removeClass('show');
+      $this.find('> a').attr('aria-expanded', false);
+      // $this.find('.dropdown-menu').removeClass('animated-fast fadeInUp show');
+      $this.find('.dropdown-menu').removeClass('show');
+      // }, 100);
+    }
+  );
+
+  $('#dropdown04').on('show.bs.dropdown', function() {
+    console.log('show');
+  });
+
+  // var contentWayPoint = function() {
+  //   var i = 0;
+  //   $('.ftco-animate').waypoint(
+  //     function(direction) {
+  //       if (
+  //         direction === 'down' &&
+  //         !$(this.element).hasClass('ftco-animated')
+  //       ) {
+  //         i++;
+
+  //         $(this.element).addClass('item-animate');
+  //         setTimeout(function() {
+  //           $('body .ftco-animate.item-animate').each(function(k) {
+  //             var el = $(this);
+  //             setTimeout(
+  //               function() {
+  //                 var effect = el.data('animate-effect');
+  //                 if (effect === 'fadeIn') {
+  //                   el.addClass('fadeIn ftco-animated');
+  //                 } else if (effect === 'fadeInLeft') {
+  //                   el.addClass('fadeInLeft ftco-animated');
+  //                 } else if (effect === 'fadeInRight') {
+  //                   el.addClass('fadeInRight ftco-animated');
+  //                 } else {
+  //                   el.addClass('fadeInUp ftco-animated');
+  //                 }
+  //                 el.removeClass('item-animate');
+  //               },
+  //               k * 50,
+  //               'easeInOutExpo'
+  //             );
+  //           });
+  //         }, 100);
+  //       }
+  //     },
+  //     {offset: '95%'}
+  //   );
+  // };
+  // contentWayPoint();
 
   // magnific popup
   $('.image-popup').magnificPopup({

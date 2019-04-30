@@ -37,7 +37,9 @@ import remark2react from 'remark-react';
 
 export const CarouselSlider = ({
   image,
-  title,
+  titleBefore,
+  titleEm,
+  titleAfter,
   preface,
   subtitle,
   buttonLink,
@@ -51,8 +53,8 @@ export const CarouselSlider = ({
         data-scrollax-parent="true"
       >
         <div
-          className="one-third order-md-last img"
-          style={{backgroundImage: `url(${image})`}}
+          className="one-third order-md-last"
+          style={{backgroundImage: `url(${image})`, backgroundSize: 'cover'}}
         >
           <div className="overlay" />
         </div>
@@ -60,11 +62,12 @@ export const CarouselSlider = ({
         <div
           className="one-forth d-flex align-items-center"
           data-scrollax=" properties: { translateY: '70%' }"
+          style={{position: 'relative', top: '290px'}}
         >
           <div className="text">
             <span className="subheading">{preface}</span>
             <h1 className="mb-4 mt-3">
-              {title.before} <span>{title.in}</span> {title.after}
+              {titleBefore} <span>{titleEm}</span> {titleAfter}
             </h1>
             <h2 className="mb-4">{subtitle}</h2>
             <p>
@@ -241,7 +244,7 @@ export const MobileMenu = ({label, children, className, ...rest}) => (
     aria-expanded="false"
     aria-label="Toggle navigation"
   >
-    <span className="oi oi-menu" /> {label}
+    <span className="icon-menu" /> {label}
     {children}
   </button>
 );

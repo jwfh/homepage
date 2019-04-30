@@ -32,11 +32,6 @@ import Layout from '../components/layout';
 // import Image from '../components/image';
 import SEO from '../components/seo';
 import presets from '../presets';
-import 'owl.carousel/dist/assets/owl.carousel.css';
-import 'owl.carousel/dist/assets/owl.theme.default.css';
-import 'owl.carousel';
-import OwlCarousel from 'react-owl-carousel';
-import * as $ from 'jquery';
 import {
   Section,
   Container,
@@ -47,60 +42,46 @@ import {
   DetailPanel,
   CarouselSlider,
 } from '../components/partials';
+import makeCarousel from 'react-reveal/makeCarousel';
+import Fade from 'react-reveal/Fade';
+import Slide from 'react-reveal/Slide';
+import styled, {css} from 'styled-components';
 
 export class IndexPage extends Component {
-  activateCarousel = () => {
-    $('.home-slider').owlCarousel({
-      // loop: true,
-      loop: false,
-      rewind: true,
-      autoplay: true,
-      margin: 0,
-      animateOut: 'fadeOut',
-      animateIn: 'fadeIn',
-      nav: false,
-      autoplayHoverPause: false,
-      items: 1,
-      navText: [
-        '<span class=\'ion-md-arrow-back\'></span>',
-        '<span class=\'ion-chevron-right\'></span>',
-      ],
-      responsive: {
-        0: {
-          items: 1,
-        },
-        600: {
-          items: 1,
-        },
-        1000: {
-          items: 1,
-        },
-      },
-    });
-  };
-
-  componentDidMount() {
-    this.activateCarousel();
+  constructor(props) {
+    super(props);
+    this.state = {
+      carouselIdx: 0,
+    };
   }
 
+  // componentDidMount() {
+  //   setInterval(() => {
+  //     this.setState({
+  //       carouselIdx: this.state.carouselIdx + 1,
+  //     });
+  //   }, 5000);
+  // }
+
   render() {
+    const {carouselIdx} = this.state;
+    const CarouselUI = ({children}) => (
+      <div className="home-slider owl-carousel" style={{display: 'block'}}>
+        {children}
+      </div>
+    );
+    const Carousel = makeCarousel(CarouselUI);
     return (
       <Layout>
         <SEO title="Home" />
         <section id="home-section" className="hero">
-          <div className="home-slider owl-carousel">
+          <Carousel defaultWait={3500}>
             {presets.pages.home.about.carousel.map((slider, index) => (
-              <CarouselSlider
-                key={index}
-                title={slider.title}
-                preface={slider.preface}
-                subtitle={slider.subtitle}
-                buttonLink={slider.buttonLink}
-                buttonLabel={slider.buttonLabel}
-                image={slider.image}
-              />
+              <Slide key={index} right>
+                <CarouselSlider {...slider} />
+              </Slide>
             ))}
-          </div>
+          </Carousel>
         </section>
 
         {/* <section
