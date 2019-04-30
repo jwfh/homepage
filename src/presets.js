@@ -36,8 +36,8 @@ import PoolBlocks from './images/pool-generic.jpg';
 import PortraitPhoto from './images/_DSC3842-Processed.jpg';
 import Sunset from './images/sunset.jpg';
 // import ProductPhoto from './images/_DSC0058-Processed.jpg';
-import AboutJPG1 from './images/_DSC8963-bg-16x10.jpg';
-import AboutJPG2 from './images/_DSC8819-bg-16x10.jpg';
+import AboutJPG1 from './images/_DSC8963-bg.jpg';
+import AboutJPG2 from './images/_DSC8819-bg.jpg';
 
 const site = {
   pages: {
