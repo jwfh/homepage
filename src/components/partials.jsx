@@ -58,7 +58,6 @@ export const CarouselSlider = ({
         >
           <div className="overlay" />
         </div>
-        {/* <BottomFade> */}
         <div
           className="one-forth d-flex align-items-center"
           data-scrollax=" properties: { translateY: '70%' }"
@@ -77,7 +76,6 @@ export const CarouselSlider = ({
             </p>
           </div>
         </div>
-        {/* </BottomFade> */}
       </div>
     </div>
   </div>

@@ -53,7 +53,6 @@ const HTML = (props) => (
       <script src="/js/jquery.magnific-popup.min.js" />
       <script src="/js/popper.min.js" />
       <script src="/js/bootstrap.min.js" />
-      {/* <script src="/js/owl.carousel.min.js" /> */}
       <script src="/js/jquery.animateNumber.min.js" />
       <script src="/js/scrollax.min.js" />
       <script src="/js/main.js" />

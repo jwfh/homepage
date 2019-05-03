@@ -36,7 +36,7 @@ import {
   Brand,
 } from './partials';
 
-const Header = () => (
+export const HomeHeader = () => (
   <HeaderComponent>
     <Nav>
       <Container>
@@ -47,7 +47,7 @@ const Header = () => (
         <MobileMenu label="Menu" />
         <NavList>
           <NavItem label="Home" anchor="home-section" />
-          <NavItem label="About" anchor="about-section" />
+          {/* <NavItem label="About" anchor="about-section" /> */}
           <NavItem label="Skills" anchor="skills-section" />
           <NavItem label="Projects" anchor="projects-section" />
           <NavItem label="My Blog" anchor="blog-section" />
@@ -58,4 +58,4 @@ const Header = () => (
   </HeaderComponent>
 );
 
-export default Header;
+// export default Header;

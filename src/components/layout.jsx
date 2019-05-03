@@ -25,7 +25,7 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
-import Header from './header';
+import {HomeHeader} from './header';
 import Footer from './footer';
 
 import '../css/europa.css';
@@ -39,7 +39,7 @@ import '../css/owl.theme.default.min.css';
 
 const Layout = ({children}) => (
   <Fragment>
-    <Header />
+    <HomeHeader />
     <main>{children}</main>
     <Footer />
   </Fragment>

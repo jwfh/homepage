@@ -10797,6 +10797,7 @@ h5,
 
 .owl-carousel {
   position: relative;
+  overflow: hidden;
 }
 .owl-carousel .owl-item {
   opacity: 0.4;
