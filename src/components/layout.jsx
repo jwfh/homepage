@@ -28,7 +28,6 @@ import PropTypes from 'prop-types';
 import {HomeHeader} from './header';
 import Footer from './footer';
 
-import '../css/europa.css';
 import '../css/flaticon.css';
 import '../css/icomoon.css';
 import '../css/layout.css';
