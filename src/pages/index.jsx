@@ -594,7 +594,9 @@ export const postQuery = graphql`
           html
           frontmatter {
             title
-            path
+          }
+          fields {
+            slug
           }
         }
       }

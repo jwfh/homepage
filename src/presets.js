@@ -230,7 +230,7 @@ const site = {
           link: HistoryIA,
           anchor: 'history-ia',
           authors: 'Jacob House',
-          date: 'December 10 2018',
+          date: 'February 2016',
         },
         {
           title:

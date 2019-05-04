@@ -1,5 +1,4 @@
 ---
-path: 'show-hidden-files-for-domain-admins'
 title: 'Show Hidden Files for Domain Admins'
 date: '2016-08-22 12:59:31.000000'
 published: true

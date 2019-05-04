@@ -22,22 +22,69 @@
  * IN THE SOFTWARE.
  */
 
-import React from 'react';
+import React, {Fragment} from 'react';
 import {graphql} from 'gatsby';
+import PropTypes from 'prop-types';
 
-const BlogPost = () => {
-  return <div />;
+import {GeneralHeader} from '../header';
+import SEO from '../../components/seo';
+import Footer from '../footer';
+import {
+  NarrowContainer,
+  PageTitle,
+  PhotoTitleTile,
+} from '../../components/partials';
+
+import '../../css/flaticon.css';
+import '../../css/icomoon.css';
+import '../../css/layout.css';
+import '../../css/style.css';
+import '../../css/magnific-popup.css';
+import '../../css/owl.carousel.min.css';
+import '../../css/owl.theme.default.min.css';
+
+// import StockPhoto from '../../images/bg_4.jpg';
+import QuidiVidi1 from '../../images/_DSC0075.jpg';
+import QuidiVidi2 from '../../images/Untitled_HDR2.jpg';
+import Harbour1 from '../../images/_DSC0296.jpg';
+import Cliff1 from '../../images/Untitled_Panorama1.jpg';
+
+const BGPhotos = [QuidiVidi1, Harbour1, QuidiVidi2, Cliff1];
+
+const BlogPost = ({data}) => {
+  const {markdownRemark: post} = data;
+  return (
+    <Fragment>
+      <GeneralHeader />
+      <main>
+        <SEO title={post.frontmatter.title} />
+        <PhotoTitleTile title={post.frontmatter.title} image={Cliff1} />
+        <NarrowContainer className="narrow py-5 my-5">
+          <PageTitle>{post.frontmatter.title}</PageTitle>
+        </NarrowContainer>
+      </main>
+      <Footer />
+    </Fragment>
+  );
 };
+
+// BlogPost.propTypes = {
+//   children: PropTypes.node.isRequired,
+//   data: PropTypes.object.isRequired,
+// };
 
 export default BlogPost;
 
-export const postQuery = graphql`
-  query BlogPostByPath($path: String!) {
-    markdownRemark(frontmatter: {path: {eq: $path}}) {
+export const query = graphql`
+  query PostQuery($slug: String!) {
+    markdownRemark(fields: {slug: {eq: $slug}}) {
       html
+      id
       frontmatter {
-        path
         title
+      }
+      fields {
+        slug
       }
     }
   }

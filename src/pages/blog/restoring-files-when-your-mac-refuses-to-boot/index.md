@@ -1,5 +1,4 @@
 ---
-path: 'restoring-files-when-your-mac-refuses-to-boot'
 title: 'Restoring Files When Your Mac Refuses to Boot'
 date: '2016-08-22 12:36:27.000000'
 published: true

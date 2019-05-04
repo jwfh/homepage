@@ -34,6 +34,7 @@ const HTML = (props) => (
         name="viewport"
         content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
+      <link rel="stylesheet" href="https://use.typekit.net/chw4wyx.css" />
       {props.headComponents}
     </head>
     <body {...props.bodyAttributes}>

@@ -1,5 +1,4 @@
 ---
-path: 'manually-removing-cached-user-profiles'
 title: 'Manually Removing Cached User Profiles'
 date: '2016-11-17 14:49:29.000000'
 published: true

@@ -126,7 +126,7 @@ Brand.propTypes = {
 };
 
 export const Header = styled.header`
-  margin-bottom: 1.45rem;
+  // margin-bottom: 1.45rem;
 `;
 
 export const Footer = ({children, className, ...rest}) => (
@@ -377,3 +377,44 @@ export const PageTitle = styled.h2`
 export const PageSubtitle = styled.h4`
   padding-top: 1pc;
 `;
+
+export const PhotoTitleTile = ({image, title, breadcrumbs}) => {
+  let breadcrumbsHTML = '';
+  return (
+    <section
+      className="hero-wrap hero-wrap-2"
+      style={{backgroundImage: `url('${image}')`}}
+      data-stellar-background-ratio="0.5"
+    >
+      <div className="overlay" />
+      <div className="container">
+        <div className="row no-gutters slider-text align-items-end justify-content-center">
+          <BottomFade className="col-md-9 pb-5 text-center">
+            <h1 className="mb-3 bread">{title}</h1>
+            {/* <p class="breadcrumbs">
+            <span class="mr-2">
+              <a href="index.html">
+                Home <i class="ion-ios-arrow-forward" />
+              </a>
+            </span>{' '}
+            <span class="mr-2">
+              <a href="blog.html">
+                Blog <i class="ion-ios-arrow-forward" />
+              </a>
+            </span>{' '}
+            <span>
+              Blog Single <i class="ion-ios-arrow-forward" />
+            </span>
+          </p> */}
+            <p
+              className="breadcrumbs"
+              dangerouslySetInnerHTML={{
+                __html: breadcrumbsHTML,
+              }}
+            />
+          </BottomFade>
+        </div>
+      </div>
+    </section>
+  );
+};

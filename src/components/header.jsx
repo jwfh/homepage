@@ -58,4 +58,26 @@ export const HomeHeader = () => (
   </HeaderComponent>
 );
 
+export const GeneralHeader = () => (
+  <HeaderComponent>
+    <Nav>
+      <Container>
+        <Brand to="/">
+          <Logo src={presets.header.logo} />
+          <Name>{presets.header.name}</Name>
+        </Brand>
+        <MobileMenu label="Menu" />
+        <NavList>
+          <NavItem label="Home" anchor="home-section" />
+          {/* <NavItem label="About" anchor="about-section" /> */}
+          <NavItem label="Skills" anchor="skills-section" />
+          <NavItem label="Projects" anchor="projects-section" />
+          <NavItem label="My Blog" anchor="blog-section" />
+          <NavItem label="Contact" anchor="contact-section" />
+        </NavList>
+      </Container>
+    </Nav>
+  </HeaderComponent>
+);
+
 // export default Header;

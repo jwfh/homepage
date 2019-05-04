@@ -1,5 +1,4 @@
 ---
-path: 'using-the-office-2016-deployment-tool'
 title: 'Using the Office 2016 Deployment Tool'
 date: '2016-10-04 19:51:46.000000'
 published: true

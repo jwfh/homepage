@@ -1,5 +1,4 @@
 ---
-path: 'creating-a-mandatory-profile'
 title: 'Creating a Mandatory Profile'
 date: ''
 published: false
