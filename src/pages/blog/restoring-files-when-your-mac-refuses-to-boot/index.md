@@ -5,7 +5,7 @@ published: true
 image: ''
 ---
 
-Today, without warning (unless you consider kernel panics at an increasing frequency a warning), my Late-2011 MacBook Pro called it quits. It shut down as I was using it and wouldn't revive itself. The farthest it could get was mid-boot before shutting off again. Booting with verbose mode (holding ⌘+V at boot) showed what appeared to be disk permission errors which caused the boot process to abort and the machine to power off.
+Today, without warning (unless you consider kernel panics at an increasing frequency a warning 😬), my Late-2011 MacBook Pro called it quits. It shut down as I was using it and wouldn't revive itself. The farthest it could get was mid-boot before shutting off again. Booting with verbose mode (holding ⌘+V at boot) showed what appeared to be disk permission errors which caused the boot process to abort and the machine to power off.
 
 Next on the checklist I thought would be to try Safe Boot, which can be activated by holding the _Shift_ key at the startup chime. No luck, unfortunately; the machine powered off just like before. After Safe Boot had ruled out any driver or startup program issues I moved onto Recovery Mode (holding ⌘+R at boot).
 

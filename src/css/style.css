@@ -11160,7 +11160,7 @@ h5,
 }
 .hero-wrap.hero-wrap-2 .overlay {
   width: 100%;
-  opacity: 0.3;
+  opacity: 0.25;
   background: #fff;
 }
 .hero-wrap.hero-wrap-2 .slider-text {
@@ -11193,10 +11193,10 @@ h5,
 }
 
 .slider-text .breadcrumbs {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 20px;
   z-index: 99;
-  font-weight: 400;
+  font-weight: 800;
 }
 .slider-text .breadcrumbs span {
   color: rgba(0, 0, 0, 0.8);

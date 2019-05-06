@@ -264,6 +264,13 @@ export const NavItem = ({label, className, anchor, ...rest}) => (
     </a>
   </li>
 );
+export const NavLink = ({label, className, to, ...rest}) => (
+  <li {...rest} className={'nav-item' + (className ? ` ${className}` : '')}>
+    <Link to={to} className="nav-link">
+      <span>{label}</span>
+    </Link>
+  </li>
+);
 
 export const Section = ({children, className, ...rest}) => (
   <section
@@ -389,29 +396,31 @@ export const PhotoTitleTile = ({image, title, breadcrumbs}) => {
       <div className="overlay" />
       <div className="container">
         <div className="row no-gutters slider-text align-items-end justify-content-center">
-          <BottomFade className="col-md-9 pb-5 text-center">
-            <h1 className="mb-3 bread">{title}</h1>
-            {/* <p class="breadcrumbs">
-            <span class="mr-2">
-              <a href="index.html">
-                Home <i class="ion-ios-arrow-forward" />
-              </a>
-            </span>{' '}
-            <span class="mr-2">
-              <a href="blog.html">
-                Blog <i class="ion-ios-arrow-forward" />
-              </a>
-            </span>{' '}
-            <span>
-              Blog Single <i class="ion-ios-arrow-forward" />
-            </span>
-          </p> */}
-            <p
+          <BottomFade>
+            <div className="col-md-9 pb-5 text-center">
+              <h1 className="mb-3 bread">{title}</h1>
+              <p className="breadcrumbs">
+                <span className="mr-2">
+                  <a href="index.html">
+                    Home <i className="ion-ios-arrow-forward" />
+                  </a>
+                </span>{' '}
+                <span className="mr-2">
+                  <a href="blog.html">
+                    Blog <i className="ion-ios-arrow-forward" />
+                  </a>
+                </span>{' '}
+                <span>
+                  This Page <i className="ion-ios-arrow-forward" />
+                </span>
+              </p>
+              {/* <p
               className="breadcrumbs"
               dangerouslySetInnerHTML={{
                 __html: breadcrumbsHTML,
               }}
-            />
+            /> */}
+            </div>
           </BottomFade>
         </div>
       </div>

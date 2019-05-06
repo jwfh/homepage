@@ -35,6 +35,7 @@ import {
   PhotoTitleTile,
 } from '../../components/partials';
 
+import '../../css/ionicons.min.css';
 import '../../css/flaticon.css';
 import '../../css/icomoon.css';
 import '../../css/layout.css';
@@ -44,12 +45,13 @@ import '../../css/owl.carousel.min.css';
 import '../../css/owl.theme.default.min.css';
 
 // import StockPhoto from '../../images/bg_4.jpg';
-import QuidiVidi1 from '../../images/_DSC0075.jpg';
-import QuidiVidi2 from '../../images/Untitled_HDR2.jpg';
-import Harbour1 from '../../images/_DSC0296.jpg';
-import Cliff1 from '../../images/Untitled_Panorama1.jpg';
+import QuidiVidi1 from '../../images/title-5.jpg';
+import QuidiVidi2 from '../../images/title-2.jpg';
+import Harbour1 from '../../images/title-4.jpg';
+import Cliff1 from '../../images/title-1.jpg';
+import Sunset from '../../images/title-3.jpg';
 
-const BGPhotos = [QuidiVidi1, Harbour1, QuidiVidi2, Cliff1];
+const bgPhotos = [QuidiVidi1, Harbour1, QuidiVidi2, Cliff1, Sunset];
 
 const BlogPost = ({data}) => {
   const {markdownRemark: post} = data;
@@ -58,9 +60,9 @@ const BlogPost = ({data}) => {
       <GeneralHeader />
       <main>
         <SEO title={post.frontmatter.title} />
-        <PhotoTitleTile title={post.frontmatter.title} image={Cliff1} />
+        <PhotoTitleTile title={post.frontmatter.title} image={bgPhotos[3]} />
         <NarrowContainer className="narrow py-5 my-5">
-          <PageTitle>{post.frontmatter.title}</PageTitle>
+          <div dangerouslySetInnerHTML={{__html: post.html}} />
         </NarrowContainer>
       </main>
       <Footer />
