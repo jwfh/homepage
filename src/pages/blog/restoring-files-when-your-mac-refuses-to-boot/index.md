@@ -14,10 +14,10 @@ Booting into Recovery Mode uses a hidden partition on your hard drive which cont
 In the sidebar of Disk Utility, I thought it strange that Macintosh HD was not mounted. "Doesn't the disk have to be mounted to verify or repair its permissions?", I thought. The answer is yes, yes it does. Unfortunately mounting the disk via disk utility failed. In Recovery Mode, a user is also given a Terminal to work with. My next attempt was to mount the volume using the `diskutil` command. The format of this command to mount a disk is as follows, where `disk0s2` is the volume I want to mount, as determined by running `diskutil list`.
 
 ```bash
-diskutil mount -mountPoint /Volumes/Macintosh\HD /dev/disk0s2
+diskutil mount -mountPoint /Volumes/Macintosh\ HD /dev/disk0s2
 ```
 
-Nope. Failed. Again. Last try: Single-user Mode. Single-user mode (holding ⌘+S at boot) boots your Mac verbosely and presents you with a terminal where you have root-level access. In other words, be careful. Everything you do is executed with root-level privileges; it doesn't even recognize sudo as a command. Luckily, since you are booting from the Macintosh HD partition, it is obviously mounted.
+Nope. Failed. Again. Last try: Single-user Mode. Single-user mode (holding ⌘+S at boot) boots your Mac verbosely and presents you with a terminal where you have root-level access. In other words, be careful. Everything you do is executed with root-level privileges; it doesn't even recognize `sudo` as a command. Luckily, since you are booting from the Macintosh HD partition, it is obviously mounted.
 
 From here, I plugged an external USB hard drive into my notebook and tried to create a mount point to mount it. As it turned out, Macintosh HD was mounted read-only &mdash; which explains why Disk Utility wasn't able to do anything with it &mdash; so I couldn't create a mount point by running the standard `mkdir /Volumes/USB\ Drive`. Since I was mainly concerned about recovering the files in the `~/` directory, a few apps from `/Applications`, and a couple of system-wide configuration files from `/Library`, I was able to mount the external disk at `/System` since I wasn't planning on recovering anything from here.
 

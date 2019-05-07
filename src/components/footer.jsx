@@ -22,7 +22,6 @@
  * IN THE SOFTWARE.
  */
 
-import {Link} from 'gatsby';
 import React from 'react';
 import presets from '../presets';
 import {

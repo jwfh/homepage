@@ -24,13 +24,29 @@
 
 import React from 'react';
 
-import Layout from '../../components/layout';
-import SEO from '../../components/seo';
+import {PhotoLayout} from '../../components/layout';
+import {NarrowContainer, Formatter} from '../../components/partials';
 
-const LibrarianPage = () => (
-  <Layout>
-    <SEO title="VOWR Librarian" />
-  </Layout>
+const title = 'VOWR Librarian';
+const body = `\
+Lorem ipsum dolor sit amet.
+`;
+const breadcrumbTrail = {
+  label: 'Home',
+  link: '/',
+  next: {
+    label: 'Projects',
+    link: '/projects/',
+    next: null,
+  },
+};
+
+const Page = () => (
+  <PhotoLayout title={title} breadcrumbs={breadcrumbTrail}>
+    <NarrowContainer className="narrow py-5 my-5">
+      <Formatter>{body}</Formatter>
+    </NarrowContainer>
+  </PhotoLayout>
 );
 
-export default LibrarianPage;
+export default Page;

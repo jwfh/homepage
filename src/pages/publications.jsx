@@ -24,7 +24,6 @@
 
 import React from 'react';
 
-import {Link} from 'gatsby';
 import Layout from '../components/layout';
 import {NarrowContainer, PageTitle} from '../components/partials';
 import presets from '../presets';

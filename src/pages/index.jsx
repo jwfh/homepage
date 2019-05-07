@@ -26,7 +26,7 @@
  */
 
 import React from 'react';
-import {Link, withPrefix, graphql} from 'gatsby';
+import {Link, graphql} from 'gatsby';
 import {BottomFade} from '../components/fade';
 import {HomeLayout} from '../components/layout';
 // import Image from '../components/image';
@@ -422,12 +422,6 @@ export const IndexPage = () => {
                     <div className="d-flex align-items-center mb-3 meta">
                       <p className="mb-0">
                         <span className="mr-2">March 23, 2019</span>
-                        <a href="#" className="mr-2">
-                          Admin
-                        </a>
-                        <a href="#" className="meta-chat">
-                          <span className="icon-chat" /> 3
-                        </a>
                       </p>
                     </div>
                     <h3 className="heading">
@@ -455,12 +449,6 @@ export const IndexPage = () => {
                     <div className="d-flex align-items-center mb-3 meta">
                       <p className="mb-0">
                         <span className="mr-2">March 23, 2019</span>
-                        <a href="#" className="mr-2">
-                          Admin
-                        </a>
-                        <a href="#" className="meta-chat">
-                          <span className="icon-chat" /> 3
-                        </a>
                       </p>
                     </div>
                     <h3 className="heading">
@@ -488,12 +476,6 @@ export const IndexPage = () => {
                     <div className="d-flex align-items-center mb-3 meta">
                       <p className="mb-0">
                         <span className="mr-2">March 23, 2019</span>
-                        <a href="#" className="mr-2">
-                          Admin
-                        </a>
-                        <a href="#" className="meta-chat">
-                          <span className="icon-chat" /> 3
-                        </a>
                       </p>
                     </div>
                     <h3 className="heading">

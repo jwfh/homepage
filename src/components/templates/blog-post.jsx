@@ -22,7 +22,7 @@
  * IN THE SOFTWARE.
  */
 
-import React, {Fragment} from 'react';
+import React from 'react';
 import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
 

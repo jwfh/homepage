@@ -25,12 +25,7 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 
-const BlogHomePage = () => (
-  <Layout>
-    <SEO title="Blog" />
-  </Layout>
-);
+const BlogHomePage = () => <Layout title="Blog" />;
 
 export default BlogHomePage;

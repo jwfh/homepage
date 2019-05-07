@@ -25,12 +25,7 @@
 import React from 'react';
 
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 
-const ProjectsHomePage = () => (
-  <Layout>
-    <SEO title="Blog" />
-  </Layout>
-);
+const ProjectsHomePage = () => <Layout title="Projects" />;
 
 export default ProjectsHomePage;
