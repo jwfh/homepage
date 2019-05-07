@@ -24,11 +24,10 @@
 
 import React from 'react';
 
-import Layout, {PhotoLayout} from '../components/layout';
-import {NarrowContainer, Formatter, PageTitle} from '../components/partials';
+import Layout from '../components/layout';
+import {NarrowContainer, Formatter} from '../components/partials';
 import NotFoundImage from '../images/404-error.jpg';
 
-const title = '404 Not Found';
 const body = `\
 # Lost?
 
@@ -43,7 +42,7 @@ could be causing the trouble.
 `;
 
 const Page = () => (
-  <Layout title={title}>
+  <Layout title="404 Not Found">
     <NarrowContainer className="narrow py-5 my-5">
       <Formatter>{body}</Formatter>
       <a href="https://www.distilled.net/wp-content/themes/distilled_2011/images/all/404-gentlemen.jpg">
