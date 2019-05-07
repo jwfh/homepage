@@ -26,54 +26,23 @@ import React, {Fragment} from 'react';
 import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
 
-import {GeneralHeader} from '../header';
-import SEO from '../../components/seo';
-import Footer from '../footer';
-import {
-  NarrowContainer,
-  PageTitle,
-  PhotoTitleTile,
-} from '../../components/partials';
-
-import '../../css/ionicons.min.css';
-import '../../css/flaticon.css';
-import '../../css/icomoon.css';
-import '../../css/layout.css';
-import '../../css/style.css';
-import '../../css/magnific-popup.css';
-import '../../css/owl.carousel.min.css';
-import '../../css/owl.theme.default.min.css';
-
-// import StockPhoto from '../../images/bg_4.jpg';
-import QuidiVidi1 from '../../images/title-5.jpg';
-import QuidiVidi2 from '../../images/title-2.jpg';
-import Harbour1 from '../../images/title-4.jpg';
-import Cliff1 from '../../images/title-1.jpg';
-import Sunset from '../../images/title-3.jpg';
-
-const bgPhotos = [QuidiVidi1, Harbour1, QuidiVidi2, Cliff1, Sunset];
+import {PhotoLayout} from '../../components/layout';
+import {NarrowContainer} from '../../components/partials';
 
 const BlogPost = ({data}) => {
   const {markdownRemark: post} = data;
   return (
-    <Fragment>
-      <GeneralHeader />
-      <main>
-        <SEO title={post.frontmatter.title} />
-        <PhotoTitleTile title={post.frontmatter.title} image={bgPhotos[3]} />
-        <NarrowContainer className="narrow py-5 my-5">
-          <div dangerouslySetInnerHTML={{__html: post.html}} />
-        </NarrowContainer>
-      </main>
-      <Footer />
-    </Fragment>
+    <PhotoLayout title={post.frontmatter.title} date={post.frontmatter.date}>
+      <NarrowContainer className="narrow py-5 my-5">
+        <div dangerouslySetInnerHTML={{__html: post.html}} />
+      </NarrowContainer>
+    </PhotoLayout>
   );
 };
 
-// BlogPost.propTypes = {
-//   children: PropTypes.node.isRequired,
-//   data: PropTypes.object.isRequired,
-// };
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
+};
 
 export default BlogPost;
 

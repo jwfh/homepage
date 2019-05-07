@@ -39,6 +39,12 @@ import Sunset from './images/sunset.jpg';
 import AboutJPG1 from './images/_DSC8963-bg.jpg';
 import AboutJPG2 from './images/_DSC8819-bg.jpg';
 
+// import StockPhoto from '../../images/bg_4.jpg';
+import QuidiVidi1 from './images/title-5.jpg';
+import Harbour1 from './images/title-4.jpg';
+import Cliff1 from './images/title-1.jpg';
+import Sunset1 from './images/title-3.jpg';
+
 const site = {
   pages: {
     home: {
@@ -142,7 +148,13 @@ const site = {
           ],
         },
       },
-      banner: {
+      linkBanner: {
+        text: 'Check out my **GitHub** repos',
+        buttonLabel: 'Open Link',
+        buttonLink: 'https://github.com/jwfh',
+        external: true,
+      },
+      contactBanner: {
         text: 'I\'m **Available** For Freelancing',
         buttonLabel: 'Hire me',
         buttonLink: '/contact',
@@ -246,7 +258,7 @@ const site = {
           link: ChemistryIA,
           anchor: 'chemistry-ia',
           authors: 'Jacob House',
-          date: 'December 2016',
+          date: 'February 2016',
         },
         {
           title: 'Is Tapering Effective?',
@@ -297,6 +309,7 @@ const site = {
     text: `Copyright ©${new Date().getFullYear()} Jacob House. Provided under dual MIT and Creative Commons Attribution 4.0 License.`,
     link: 'https://github.com/jwfh/homepage#license',
   },
+  bgPhotos: [QuidiVidi1, Harbour1, Cliff1, Sunset1],
   keywords: [
     'gatsby',
     'application',

@@ -26,12 +26,10 @@ import React from 'react';
 
 import {Link} from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 import {NarrowContainer, PageTitle, PageSubtitle} from '../components/partials';
 
 const AwardsPage = () => (
-  <Layout>
-    <SEO title="Awards" />
+  <Layout title="Awards">
     <NarrowContainer className="narrow py-5 my-5">
       <PageTitle>Awards</PageTitle>
       <PageSubtitle>

@@ -29,11 +29,21 @@ import React from 'react';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import presets from '../presets';
 import {media} from './breakpoints';
 import {BottomFade} from './fade';
 import remark from 'remark';
 import remark2react from 'remark-react';
+import math from 'remark-math';
+import remark2rehype from 'remark-rehype';
+import katex from 'rehype-katex';
+import stringify from 'rehype-stringify';
+
+const mathProcessor = remark()
+  .use(math)
+  .use(remark2rehype)
+  .use(katex)
+  .use(stringify);
+const processMath = (math) => mathProcessor.processSync(math).toString();
 
 export const CarouselSlider = ({
   image,
@@ -316,7 +326,12 @@ export const Banner = ({className, text, button, external}) => (
           <div className="col-md-4 col-lg-3 d-flex align-items-center">
             <p className="mb-0">
               {external ? (
-                <a href={button.link} className="btn btn-white py-3 px-5">
+                <a
+                  href={button.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-white py-3 px-5"
+                >
                   {button.label}
                 </a>
               ) : (
@@ -425,5 +440,15 @@ export const PhotoTitleTile = ({image, title, breadcrumbs}) => {
         </div>
       </div>
     </section>
+  );
+};
+
+export const Formatter = ({children, ...rest}) => {
+  return (
+    <div
+      dangerouslySetInnerHTML={{
+        __html: processMath(children),
+      }}
+    />
   );
 };

@@ -25,9 +25,16 @@
 import React, {Fragment} from 'react';
 import PropTypes from 'prop-types';
 
-import {HomeHeader} from './header';
+import {HomeHeader, GeneralHeader} from './header';
 import Footer from './footer';
+import SEO from './seo';
+import presets from '../presets';
+import {PhotoTitleTile} from './partials';
 
+import 'katex/dist/katex.min.css';
+
+import '../css/ionicons.min.css';
+// import '../css/animate.css';
 import '../css/flaticon.css';
 import '../css/icomoon.css';
 import '../css/layout.css';
@@ -36,9 +43,27 @@ import '../css/magnific-popup.css';
 import '../css/owl.carousel.min.css';
 import '../css/owl.theme.default.min.css';
 
-const Layout = ({children}) => (
+// Indices 0 and 3 are a little difficult to read
+const {bgPhotos} = presets;
+
+export const HomeLayout = ({children, title}) => (
   <Fragment>
+    <SEO title={title} />
     <HomeHeader />
+    <main>{children}</main>
+    <Footer />
+  </Fragment>
+);
+
+HomeLayout.propTypes = {
+  children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
+};
+
+const Layout = ({children, title}) => (
+  <Fragment>
+    <SEO title={title} />
+    <GeneralHeader />
     <main>{children}</main>
     <Footer />
   </Fragment>
@@ -46,6 +71,19 @@ const Layout = ({children}) => (
 
 Layout.propTypes = {
   children: PropTypes.node.isRequired,
+  title: PropTypes.string.isRequired,
 };
 
 export default Layout;
+
+export const PhotoLayout = ({title, children, ...rest}) => (
+  <Layout title={title}>
+    <PhotoTitleTile
+      // ...rest here so that breadcrumbs are passed to PhotoTitleTile
+      {...rest}
+      title={title}
+      image={bgPhotos[Date.now() % bgPhotos.length]}
+    />
+    {children}
+  </Layout>
+);

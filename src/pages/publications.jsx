@@ -26,13 +26,11 @@ import React from 'react';
 
 import {Link} from 'gatsby';
 import Layout from '../components/layout';
-import SEO from '../components/seo';
 import {NarrowContainer, PageTitle} from '../components/partials';
 import presets from '../presets';
 
 const PublicationsPage = () => (
-  <Layout>
-    <SEO title="Publications" />
+  <Layout title="Publications">
     <NarrowContainer className="narrow py-5 my-5">
       <PageTitle>Publications</PageTitle>
       {presets.pages.publications.papers.map((paper, index) => (

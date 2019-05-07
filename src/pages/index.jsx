@@ -28,9 +28,8 @@
 import React from 'react';
 import {Link, withPrefix, graphql} from 'gatsby';
 import {BottomFade} from '../components/fade';
-import Layout from '../components/layout';
+import {HomeLayout} from '../components/layout';
 // import Image from '../components/image';
-import SEO from '../components/seo';
 import presets from '../presets';
 import {
   Section,
@@ -53,8 +52,7 @@ export const IndexPage = () => {
   );
   const Carousel = makeCarousel(CarouselUI);
   return (
-    <Layout>
-      <SEO title="Home" />
+    <HomeLayout title="Home">
       <section id="home-section" className="hero">
         <Carousel defaultWait={3500}>
           {presets.pages.home.about.carousel.map((slider, index) => (
@@ -222,14 +220,14 @@ export const IndexPage = () => {
       </Section>
 
       {
-        // Banner section #2 (Hire Me)
+        // Banner section #2 (External link)
       }
       <Banner
-        external={presets.pages.home.banner.external}
-        text={presets.pages.home.banner.text}
+        external={presets.pages.home.linkBanner.external}
+        text={presets.pages.home.linkBanner.text}
         button={{
-          label: presets.pages.home.banner.buttonLabel,
-          link: presets.pages.home.banner.buttonLink,
+          label: presets.pages.home.linkBanner.buttonLabel,
+          link: presets.pages.home.linkBanner.buttonLink,
         }}
       />
 
@@ -381,6 +379,18 @@ export const IndexPage = () => {
           </Row>
         </Container>
       </Section>
+
+      {
+        // Banner section #3 (Hire Me)
+      }
+      <Banner
+        external={presets.pages.home.contactBanner.external}
+        text={presets.pages.home.contactBanner.text}
+        button={{
+          label: presets.pages.home.contactBanner.buttonLabel,
+          link: presets.pages.home.contactBanner.buttonLink,
+        }}
+      />
 
       {
         // Blog section
@@ -578,7 +588,7 @@ export const IndexPage = () => {
           </div>
         </div>
       </section>
-    </Layout>
+    </HomeLayout>
   );
 };
 
