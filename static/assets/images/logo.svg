@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2019 Jacob WF House.
+ 
+  This file is licensed under a MIT license.
+ 
+  Permission is hereby granted, free of charge, to any person obtaining a copy
+  of this software and associated documentation files (the "Software"), to
+  deal in the Software without restriction, including without limitation the
+  rights to use, copy, modify, merge, publish, distribute, sublicense, and/or
+  sell copies of the Software, and to permit persons to whom the Software is
+  furnished to do so, subject to the following conditions:
+ 
+  The above copyright notice and this permission notice shall be included in
+  all copies or substantial portions of the Software.
+ 
+  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING
+  FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS
+  IN THE SOFTWARE.
+ -->
+<!-- Generator: Adobe Illustrator 23.0.3, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+	 width="124px" height="124px" viewBox="0 0 124 124" style="enable-background:new 0 0 124 124;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#FFFFFF;}
+	.st1{fill:#2D363E;}
+</style>
+<g>
+	<rect class="st0" width="124" height="124"/>
+	<path class="st1" d="M123.99,124H0.01V0h123.99V124z M33.06,41.99c0,3.4-1.7,7.17-7.49,7.17c-4.59,0-7.36-4.85-7.36-4.85
+		l-5.54,4.65c0,0,4.09,7.36,12.89,7.36c9.31,0,15.03-5.35,15.03-14.59V11.55h-7.55C33.06,11.55,33.06,27.46,33.06,41.99z
+		 M111.25,11.55h-7.86l-9.56,26.42l-9.81-26.42h-6.23l-10,26.42l-9.31-26.42h-8.55l17.36,45.54l13.4-33.02l13.21,33.02L111.25,11.55
+		z M31.62,74.22h18.55v-7.17h-26.1v44.03h7.55V92.15h17.3v-7.17h-17.3V74.22z M92.38,84.98H73.57V67.05h-7.55v44.03h7.55V92.15
+		h18.81v18.93h7.55V67.05h-7.55V84.98z"/>
+</g>
+</svg>
