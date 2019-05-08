@@ -31,6 +31,6 @@ RUN npm install && npm run build
 # Production environment
 FROM nginx:alpine
 COPY --from=builder /usr/src/app/public /usr/share/nginx/html
-RUN sed -i -e 's/application\/pdf/application\/octet-stream/;s/\s*#error_page\s*404\s*\/404\.html\;/error_page 404 \/404\//' /etc/nginx/mime.types
+RUN sed -i -e 's/application\/pdf/application\/octet-stream/' /etc/nginx/mime.types && sed -i -e 's/\s*#error_page\s*404\s*\/404\.html\;/error_page 404 \/404\//' /etc/nginx/conf.d/default.conf
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
