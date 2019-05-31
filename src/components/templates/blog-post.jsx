@@ -25,14 +25,20 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
+import presets from '../../presets';
 
 import {PhotoLayout} from '../../components/layout';
 import {NarrowContainer} from '../../components/partials';
 
 const BlogPost = ({data}) => {
   const {markdownRemark: post} = data;
+  const photoIndex = Math.floor(Math.random() * presets.bgPhotos.length);
   return (
-    <PhotoLayout title={post.frontmatter.title} date={post.frontmatter.date}>
+    <PhotoLayout
+      title={post.frontmatter.title}
+      date={post.frontmatter.date}
+      photoIndex={photoIndex}
+    >
       <NarrowContainer className="narrow py-5 my-5">
         <div dangerouslySetInnerHTML={{__html: post.html}} />
       </NarrowContainer>

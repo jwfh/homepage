@@ -25,7 +25,7 @@
  * terms.
  */
 
-import React from 'react';
+import React, {Component} from 'react';
 import {Link} from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
@@ -160,7 +160,21 @@ export const FooterCopyright = ({link, text, className, ...rest}) => (
     className={'col-md-12 text-center' + (className ? ` ${className}` : '')}
   >
     <p>
-      <a href={link}>{text}</a>
+      <a
+        href="https://github.com/jwfh/homepage/commits/master"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <span className="ion-ios-calendar" />
+        &ensp;Last update on{' '}
+        {(() => {
+          const date = new Date();
+          return (
+            date.getDate() + '/' + date.getMonth() + '/' + date.getFullYear()
+          );
+        })()}
+      </a>
+      &emsp;|&emsp;<a href={link}>{text}</a>
     </p>
     <p>
       This template is made with{' '}
@@ -185,7 +199,7 @@ export const FooterList = ({children, className, title, ...rest}) => (
 export const IconItem = ({external, className, icon, label, ...rest}) =>
   external ? (
     <li>
-      <a {...rest}>
+      <a {...rest} target="_blank" rel="noopener noreferrer">
         <span className={'icon-' + icon + (className ? ` ${className}` : '')} />
         {label}
       </a>
@@ -400,48 +414,67 @@ export const PageSubtitle = styled.h4`
   padding-top: 1pc;
 `;
 
-export const PhotoTitleTile = ({image, title, breadcrumbs}) => {
-  let breadcrumbsHTML = '';
-  return (
-    <section
-      className="hero-wrap hero-wrap-2"
-      style={{backgroundImage: `url('${image}')`}}
-      data-stellar-background-ratio="0.5"
-    >
-      <div className="overlay" />
-      <div className="container">
-        <div className="row no-gutters slider-text align-items-end justify-content-center">
-          <BottomFade>
-            <div className="col-md-9 pb-5 text-center">
-              <h1 className="mb-3 bread">{title}</h1>
-              <p className="breadcrumbs">
-                <span className="mr-2">
-                  <a href="index.html">
-                    Home <i className="ion-ios-arrow-forward" />
-                  </a>
-                </span>{' '}
-                <span className="mr-2">
-                  <a href="blog.html">
-                    Blog <i className="ion-ios-arrow-forward" />
-                  </a>
-                </span>{' '}
-                <span>
-                  This Page <i className="ion-ios-arrow-forward" />
-                </span>
-              </p>
-              {/* <p
+export class PhotoTitleTile extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      image: props.image,
+    };
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('componentDidUpdate');
+    if (prevProps.image !== this.props.image) {
+      this.setState({
+        image: this.props.image,
+      });
+    }
+  }
+  render() {
+    const {title, breadcrumbs} = this.props;
+    const {image} = this.state;
+    let breadcrumbsHTML = '';
+    console.log('photo uri', image);
+    return (
+      <section
+        className="hero-wrap hero-wrap-2"
+        style={{backgroundImage: `url('${this.state.image}')`}}
+        data-stellar-background-ratio="0.5"
+      >
+        <div className="overlay" />
+        <div className="container">
+          <div className="row no-gutters slider-text align-items-end justify-content-center">
+            <BottomFade>
+              <div className="col-md-9 pb-5 text-center">
+                <h1 className="mb-3 bread">{title}</h1>
+                <p className="breadcrumbs">
+                  <span className="mr-2">
+                    <a href="index.html">
+                      Home <i className="ion-ios-arrow-forward" />
+                    </a>
+                  </span>{' '}
+                  <span className="mr-2">
+                    <a href="blog.html">
+                      Blog <i className="ion-ios-arrow-forward" />
+                    </a>
+                  </span>{' '}
+                  <span>
+                    This Page <i className="ion-ios-arrow-forward" />
+                  </span>
+                </p>
+                {/* <p
               className="breadcrumbs"
               dangerouslySetInnerHTML={{
                 __html: breadcrumbsHTML,
               }}
             /> */}
-            </div>
-          </BottomFade>
+              </div>
+            </BottomFade>
+          </div>
         </div>
-      </div>
-    </section>
-  );
-};
+      </section>
+    );
+  }
+}
 
 export const Formatter = ({children, ...rest}) => {
   return (

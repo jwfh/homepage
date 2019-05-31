@@ -31,15 +31,16 @@ const title = 'VOWR Librarian';
 const body = `\
 Lorem ipsum dolor sit amet.
 `;
-const breadcrumbTrail = {
-  label: 'Home',
-  link: '/',
-  next: {
+const breadcrumbTrail = [
+  {
+    label: 'Home',
+    link: '/',
+  },
+  {
     label: 'Projects',
     link: '/projects/',
-    next: null,
   },
-};
+];
 
 const Page = () => (
   <PhotoLayout title={title} breadcrumbs={breadcrumbTrail}>

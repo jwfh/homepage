@@ -43,6 +43,8 @@ import {
 } from '../components/partials';
 import makeCarousel from 'react-reveal/makeCarousel';
 import Slide from 'react-reveal/Slide';
+import remark from 'remark';
+import remark2react from 'remark-react';
 
 export const IndexPage = () => {
   const CarouselUI = ({children}) => (
@@ -63,7 +65,7 @@ export const IndexPage = () => {
         </Carousel>
       </section>
 
-      {/* <section
+      <section
         className="ftco-about ftco-counter img ftco-section"
         id="about-section"
       >
@@ -87,59 +89,44 @@ export const IndexPage = () => {
                       className="mb-4"
                       style={{fontSize: '34px', textTransform: 'capitalize'}}
                     >
-                      About Me
+                      {presets.pages.home.about.title}
                     </h2>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies it with the necessary regelialia. It is a
-                      paradisematic country, in which roasted parts of sentences
-                      fly into your mouth.
-                    </p>
+                    {
+                      remark()
+                        .use(remark2react)
+                        .processSync(presets.pages.home.about.body).contents
+                    }
                   </div>
                 </BottomFade>
               </div>
               <div className="row">
-                <div className="col-md-6">
-                  <BottomFade>
-                    <div className="media block-6 services d-block">
-                      <div className="icon">
-                        <span className="flaticon-analysis" />
+                {presets.pages.home.about.panels.map((panel, index) => (
+                  <div key={index} className="col-md-6">
+                    <BottomFade>
+                      <div className="media block-6 services d-block">
+                        <div className="icon">
+                          <span className="flaticon-analysis" />
+                        </div>
+                        <div className="media-body">
+                          <h3 className="heading mb-3">{panel.title}</h3>
+                          <p>{panel.body}</p>
+                        </div>
                       </div>
-                      <div className="media-body">
-                        <h3 className="heading mb-3">Web Design</h3>
-                        <p>
-                          A small river named Duden flows by their place and
-                          supplies.
-                        </p>
-                      </div>
-                    </div>
-                  </BottomFade>
-                </div>
-                <div className="col-md-6">
-                  <BottomFade>
-                    <div className="media block-6 services d-block">
-                      <div className="icon">
-                        <span className="flaticon-analysis" />
-                      </div>
-                      <div className="media-body">
-                        <h3 className="heading mb-3">Web Application</h3>
-                        <p>
-                          A small river named Duden flows by their place and
-                          supplies.
-                        </p>
-                      </div>
-                    </div>
-                  </BottomFade>
-                </div>
+                    </BottomFade>
+                  </div>
+                ))}
               </div>
               <BottomFade>
                 <div className="counter-wrap d-flex mt-md-3">
                   <div className="text p-4 pr-5 bg-primary">
                     <p className="mb-0">
-                      <span className="number" data-number="200">
+                      <span
+                        className="number"
+                        data-number={presets.pages.home.about.counter.number}
+                      >
                         0
                       </span>
-                      <span>Finished Projects</span>
+                      <span>{presets.pages.home.about.counter.caption}</span>
                     </p>
                   </div>
                 </div>
@@ -147,7 +134,7 @@ export const IndexPage = () => {
             </div>
           </div>
         </div>
-      </section> */}
+      </section>
       {/* 
     {data.allMarkdownRemark.edges.map((post) => (
       <Link key={post.node.id} to={post.node.frontmatter.path}>
@@ -395,17 +382,14 @@ export const IndexPage = () => {
       {
         // Blog section
       }
-      <Section className="bg-light" id="blog-section">
+      {/* <Section className="bg-light" id="blog-section">
         <div className="container">
           <div className="row justify-content-center mb-5 pb-5">
             <BottomFade>
               <div className="col-md-7 heading-section text-center">
                 <span className="subheading">Blog</span>
-                <h2 className="mb-4">My Blog</h2>
-                <p>
-                  Far far away, behind the word mountains, far from the
-                  countries Vokalia and Consonantia
-                </p>
+                <h2 className="mb-4">{presets.pages.home.blog.title}</h2>
+                <p>{presets.pages.home.blog.subtitle}</p>
               </div>
             </BottomFade>
           </div>
@@ -493,7 +477,7 @@ export const IndexPage = () => {
             </BottomFade>
           </div>
         </div>
-      </Section>
+      </Section> */}
 
       {
         // Contact section

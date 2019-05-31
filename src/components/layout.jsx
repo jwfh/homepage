@@ -22,7 +22,7 @@
  * IN THE SOFTWARE.
  */
 
-import React, {Fragment} from 'react';
+import React, {Fragment, Component} from 'react';
 import PropTypes from 'prop-types';
 
 import {HomeHeader, GeneralHeader} from './header';
@@ -76,14 +76,40 @@ Layout.propTypes = {
 
 export default Layout;
 
-export const PhotoLayout = ({title, children, ...rest}) => (
-  <Layout title={title}>
-    <PhotoTitleTile
-      // ...rest here so that breadcrumbs are passed to PhotoTitleTile
-      {...rest}
-      title={title}
-      image={bgPhotos[Date.now() % bgPhotos.length]}
-    />
-    {children}
-  </Layout>
-);
+export class PhotoLayout extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      photo: bgPhotos[this.props.photoIndex],
+    };
+  }
+  componentDidUpdate(prevProps, prevState) {
+    console.log('prev', prevProps);
+    if (prevProps.photoIndex !== this.props.photoIndex) {
+      this.setState(
+        {
+          photo: bgPhotos[this.props.photoIndex],
+        },
+        () => {
+          console.log(this.state.photo);
+        }
+      );
+    }
+  }
+  render() {
+    const {title, children, photoIndex, ...rest} = this.props;
+    console.log('chose index', photoIndex, this.state.photo);
+    return (
+      <Layout title={title}>
+        <PhotoTitleTile
+          // ...rest here so that breadcrumbs are passed to PhotoTitleTile
+          key={this.state.photo}
+          {...rest}
+          title={title}
+          image={this.state.photo}
+        />
+        {children}
+      </Layout>
+    );
+  }
+}

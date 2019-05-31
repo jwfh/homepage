@@ -71,6 +71,30 @@ const site = {
             image: AboutJPG2,
           },
         ],
+        title: 'About Me',
+        subtitle: '',
+        image: '',
+        body: `
+I'm a software developer from St. John's, Newfoundland, Canada. Currently in the final semester of a computer sciece degree, my interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography.
+          
+If any of these areas interest you, or if you'd like to collaborate on a project, feel free to contact me!
+        `,
+        panels: [
+          {
+            title: 'Software',
+            body: '',
+            icon: '',
+          },
+          {
+            title: 'Design',
+            body: '',
+            icon: '',
+          },
+        ],
+        counter: {
+          number: 339,
+          caption: 'Git Contributions This Year',
+        },
       },
       resumeBanner: {
         text: 'View my **Résumé**',
@@ -184,13 +208,13 @@ const site = {
           {
             title: 'Dean\'s List 2016-17',
             subtitle: 'Academic Award',
-            link: '/awards/#deans-list',
+            link: '/awards/',
             image: BookStacks,
           },
           {
             title: 'Portrait Photography',
             subtitle: 'Hobby & Passion',
-            link: '/portfolio/photography',
+            link: '/portfolio/photography/',
             image: PortraitPhoto,
           },
           // {
@@ -202,18 +226,21 @@ const site = {
           {
             title: 'Regional Science Fair',
             subtitle: 'Bronze Medal',
-            link: '/awards/#regional-science-fair',
+            link: '/awards/',
             image: PoolBlocks,
           },
           {
             title: 'Landscape Photography',
             subtitle: 'Hobby & Passion',
-            link: '/portfolio/photography',
+            link: '/portfolio/photography/',
             image: Sunset,
           },
         ],
       },
-      blog: {},
+      blog: {
+        title: 'My Blog',
+        subtitle: 'A little of everything, and nothing you can do without.',
+      },
       contact: {
         title: 'Hey You',
         subtitle: `Thanks for taking the time to look at my little slice of the Internet. 

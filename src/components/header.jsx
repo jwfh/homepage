@@ -48,10 +48,10 @@ export const HomeHeader = () => (
         <MobileMenu label="Menu" />
         <NavList>
           <NavItem label="Home" anchor="home-section" />
-          {/* <NavItem label="About" anchor="about-section" /> */}
+          <NavItem label="About" anchor="about-section" />
           <NavItem label="Skills" anchor="skills-section" />
           <NavItem label="Projects" anchor="projects-section" />
-          <NavItem label="My Blog" anchor="blog-section" />
+          {/* <NavItem label="My Blog" anchor="blog-section" /> */}
           <NavItem label="Contact" anchor="contact-section" />
         </NavList>
       </Container>
@@ -72,7 +72,7 @@ export const GeneralHeader = () => (
           <NavLink label="Home" to="/" />
           <NavLink label="Skills" to="/skills/" />
           <NavLink label="Projects" to="/projects/" />
-          <NavLink label="My Blog" to="/blog/" />
+          {/* <NavLink label="My Blog" to="/blog/" /> */}
           <NavLink label="Contact" to="/contact/" />
         </NavList>
       </Container>
