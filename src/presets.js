@@ -38,6 +38,7 @@ import Sunset from './images/sunset.jpg';
 // import ProductPhoto from './images/_DSC0058-Processed.jpg';
 import AboutJPG1 from './images/_DSC8963-bg.jpg';
 import AboutJPG2 from './images/_DSC8819-bg.jpg';
+import PenAndCoffee from './images/_DSC5309-Processed.jpg';
 
 // import StockPhoto from '../../images/bg_4.jpg';
 import QuidiVidi1 from './images/title-5.jpg';
@@ -73,26 +74,25 @@ const site = {
         ],
         title: 'About Me',
         subtitle: '',
-        image: '',
+        image: PenAndCoffee,
         body: `
-I'm a software developer from St. John's, Newfoundland, Canada. Currently in the final semester of a computer sciece degree, my interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography.
-          
-If any of these areas interest you, or if you'd like to collaborate on a project, feel free to contact me!
-        `,
+I'm a software developer from St. John's, Newfoundland, Canada. Currently in the final semester of a computer sciece degree, my interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography and graphic design.`,
         panels: [
           {
             title: 'Software',
-            body: '',
+            body:
+              'I\'m a recent convert to Vim. I prefer LaTeX over any other word processor. I think Python is fun, but not at the cost if ignoring low-level details. Most of all, I believe in working _with_ my programming language, operating system, and hardware rather than against it (and yes, that means knowing how they work).',
             icon: '',
           },
           {
             title: 'Design',
-            body: '',
+            body:
+              'Though most of my time is spent staring at text in a shell, you\'ll often see at least a few of the Adobe CC apps open in my dock. I\'m always squeezing a little photo editing here or logo design there in my spare time.',
             icon: '',
           },
         ],
         counter: {
-          number: 339,
+          number: 384,
           caption: 'Git Contributions This Year',
         },
       },

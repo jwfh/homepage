@@ -45,6 +45,7 @@ import makeCarousel from 'react-reveal/makeCarousel';
 import Slide from 'react-reveal/Slide';
 import remark from 'remark';
 import remark2react from 'remark-react';
+import CountUp from 'react-countup';
 
 export const IndexPage = () => {
   const CarouselUI = ({children}) => (
@@ -76,7 +77,10 @@ export const IndexPage = () => {
                 <div className="overlay" />
                 <div
                   className="img d-flex align-self-stretch align-items-center"
-                  style={{backgroundImage: 'url(\'/tmp/image_3.jpg\')'}}
+                  style={{
+                    backgroundImage:
+                      'url(' + presets.pages.home.about.image + ')',
+                  }}
                 />
               </div>
             </div>
@@ -104,12 +108,16 @@ export const IndexPage = () => {
                   <div key={index} className="col-md-6">
                     <BottomFade>
                       <div className="media block-6 services d-block">
-                        <div className="icon">
+                        {/* <div className="icon">
                           <span className="flaticon-analysis" />
-                        </div>
+                        </div> */}
                         <div className="media-body">
                           <h3 className="heading mb-3">{panel.title}</h3>
-                          <p>{panel.body}</p>
+                          {
+                            remark()
+                              .use(remark2react)
+                              .processSync(panel.body).contents
+                          }
                         </div>
                       </div>
                     </BottomFade>
@@ -120,12 +128,11 @@ export const IndexPage = () => {
                 <div className="counter-wrap d-flex mt-md-3">
                   <div className="text p-4 pr-5 bg-primary">
                     <p className="mb-0">
-                      <span
+                      <CountUp
                         className="number"
-                        data-number={presets.pages.home.about.counter.number}
-                      >
-                        0
-                      </span>
+                        end={presets.pages.home.about.counter.number}
+                        duration={2}
+                      />
                       <span>{presets.pages.home.about.counter.caption}</span>
                     </p>
                   </div>
