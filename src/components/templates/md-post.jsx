@@ -27,17 +27,38 @@ import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
 import presets from '../../presets';
 
-import {PhotoLayout} from '../../components/layout';
-import {NarrowContainer} from '../../components/partials';
+import {PhotoLayout} from '../layout';
+import {NarrowContainer} from '../partials';
 
-const BlogPost = ({data}) => {
-  const {markdownRemark: post} = data;
-  const photoIndex = Math.floor(Math.random() * presets.bgPhotos.length);
+const BlogPost = ({data: {markdownRemark: post}}) => {
+  let photo;
+  if (
+    typeof post.frontmatter.image !== 'undefined' &&
+    post.frontmatter.image !== null &&
+    post.frontmatter.image !== ''
+  ) {
+    photo = require('../../images/' + post.frontmatter.image);
+  }
+  let currentBC = presets.breadcrumbLabels;
+  let currentSlug = '/';
+  let breadcrumbPaths = post.fields.slug.split('/').filter((s) => s !== '');
+  breadcrumbPaths.pop();
+  let breadcrumbs = [{label: 'Home', link: '/'}];
+  breadcrumbPaths.map((s) => {
+    let label = currentBC[s].name;
+    currentBC = currentBC[s];
+    currentSlug += s + '/';
+    let ret = {label, link: currentSlug};
+    breadcrumbs.push(ret);
+  });
+  breadcrumbs.push({label: 'This Page', link: null});
+
   return (
     <PhotoLayout
       title={post.frontmatter.title}
       date={post.frontmatter.date}
-      photoIndex={photoIndex}
+      breadcrumbs={breadcrumbs}
+      photo={photo}
     >
       <NarrowContainer className="narrow py-5 my-5">
         <div dangerouslySetInnerHTML={{__html: post.html}} />
@@ -59,6 +80,7 @@ export const query = graphql`
       id
       frontmatter {
         title
+        image
       }
       fields {
         slug
