@@ -37,6 +37,7 @@ import math from 'remark-math';
 import remark2rehype from 'remark-rehype';
 import katex from 'rehype-katex';
 import stringify from 'rehype-stringify';
+import presets from '../presets';
 
 const mathProcessor = remark()
   .use(math)
@@ -463,4 +464,21 @@ export const Formatter = ({children, ...rest}) => {
       }}
     />
   );
+};
+
+export const bcMaker = (path) => {
+  let currentBC = presets.breadcrumbLabels;
+  let currentSlug = '/';
+  let breadcrumbPaths = path.split('/').filter((s) => s !== '');
+  breadcrumbPaths.pop();
+  let breadcrumbs = [{label: 'Home', link: '/'}];
+  breadcrumbPaths.map((s) => {
+    let label = currentBC[s].name;
+    currentBC = currentBC[s];
+    currentSlug += s + '/';
+    let ret = {label, link: currentSlug};
+    breadcrumbs.push(ret);
+  });
+  breadcrumbs.push({label: 'This Page', link: null});
+  return breadcrumbs;
 };

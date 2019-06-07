@@ -24,15 +24,15 @@
 
 import React from 'react';
 
-import Layout from '../components/layout';
-import {NarrowContainer, PageTitle} from '../components/partials';
-import presets from '../presets';
+import {PhotoLayout} from '../components/layout';
+import {NarrowContainer, PageTitle, bcMaker} from '../components/partials';
 
 import MathIA from '../pdf/ia_math_x1a.pdf';
 import TSPPaper from '../pdf/tsp_paper.pdf';
 import HistoryIA from '../pdf/ia_hist_x1a.pdf';
 import ChemistryIA from '../pdf/ia_chem_x1a.pdf';
 import BiologyIA from '../pdf/ia_biol_x1a.pdf';
+import BookStacks from '../images/_DSC3717-Processed.jpg';
 
 const papers = [
   {
@@ -75,10 +75,15 @@ const papers = [
   },
 ];
 
+let breadcrumbs = bcMaker('publications');
+
 const PublicationsPage = () => (
-  <Layout title="Publications">
+  <PhotoLayout
+    title="Publications"
+    photo={BookStacks}
+    breadcrumbs={breadcrumbs}
+  >
     <NarrowContainer className="narrow py-5 my-5">
-      <PageTitle>Publications</PageTitle>
       {papers.map((paper, index) => (
         <p key={index} id={paper.anchor}>
           <strong>
@@ -89,7 +94,7 @@ const PublicationsPage = () => (
         </p>
       ))}
     </NarrowContainer>
-  </Layout>
+  </PhotoLayout>
 );
 
 export default PublicationsPage;

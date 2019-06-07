@@ -28,7 +28,7 @@ import PropTypes from 'prop-types';
 import presets from '../../presets';
 
 import {PhotoLayout} from '../layout';
-import {NarrowContainer} from '../partials';
+import {NarrowContainer, bcMaker} from '../partials';
 
 const BlogPost = ({data: {markdownRemark: post}}) => {
   let photo;
@@ -39,19 +39,7 @@ const BlogPost = ({data: {markdownRemark: post}}) => {
   ) {
     photo = require('../../images/' + post.frontmatter.image);
   }
-  let currentBC = presets.breadcrumbLabels;
-  let currentSlug = '/';
-  let breadcrumbPaths = post.fields.slug.split('/').filter((s) => s !== '');
-  breadcrumbPaths.pop();
-  let breadcrumbs = [{label: 'Home', link: '/'}];
-  breadcrumbPaths.map((s) => {
-    let label = currentBC[s].name;
-    currentBC = currentBC[s];
-    currentSlug += s + '/';
-    let ret = {label, link: currentSlug};
-    breadcrumbs.push(ret);
-  });
-  breadcrumbs.push({label: 'This Page', link: null});
+  let breadcrumbs = bcMaker(post.fields.slug);
 
   return (
     <PhotoLayout
