@@ -37,6 +37,7 @@ import math from 'remark-math';
 import remark2rehype from 'remark-rehype';
 import katex from 'rehype-katex';
 import stringify from 'rehype-stringify';
+import presets from '../presets';
 
 const mathProcessor = remark()
   .use(math)
@@ -414,67 +415,46 @@ export const PageSubtitle = styled.h4`
   padding-top: 1pc;
 `;
 
-export class PhotoTitleTile extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      image: props.image,
-    };
-  }
-  componentDidUpdate(prevProps, prevState) {
-    console.log('componentDidUpdate');
-    if (prevProps.image !== this.props.image) {
-      this.setState({
-        image: this.props.image,
-      });
-    }
-  }
-  render() {
-    const {title, breadcrumbs} = this.props;
-    const {image} = this.state;
-    let breadcrumbsHTML = '';
-    console.log('photo uri', image);
-    return (
-      <section
-        className="hero-wrap hero-wrap-2"
-        style={{backgroundImage: `url('${this.state.image}')`}}
-        data-stellar-background-ratio="0.5"
-      >
-        <div className="overlay" />
-        <div className="container">
-          <div className="row no-gutters slider-text align-items-end justify-content-center">
-            <BottomFade>
-              <div className="col-md-9 pb-5 text-center">
-                <h1 className="mb-3 bread">{title}</h1>
-                <p className="breadcrumbs">
-                  <span className="mr-2">
-                    <a href="index.html">
-                      Home <i className="ion-ios-arrow-forward" />
-                    </a>
-                  </span>{' '}
-                  <span className="mr-2">
-                    <a href="blog.html">
-                      Blog <i className="ion-ios-arrow-forward" />
-                    </a>
-                  </span>{' '}
-                  <span>
-                    This Page <i className="ion-ios-arrow-forward" />
+export const PhotoTitleTile = ({title, photo, breadcrumbs, ...rest}) => (
+  <section
+    className="hero-wrap hero-wrap-2"
+    style={{backgroundImage: `url('${photo}')`}}
+    data-stellar-background-ratio="0.5"
+    {...rest}
+  >
+    <div className="overlay" />
+    <div className="container">
+      <div className="row no-gutters slider-text align-items-end justify-content-center">
+        <BottomFade>
+          <div className="col-md-9 pb-5 text-center">
+            <h1 className="mb-3 bread">{title}</h1>
+            <p className="breadcrumbs">
+              {breadcrumbs.map((breadcrumb, index) =>
+                breadcrumb.link ? (
+                  <span className="mr-2" key={index}>
+                    <Link to={breadcrumb.link}>
+                      {breadcrumb.label} <i className="ion-ios-arrow-forward" />
+                    </Link>
                   </span>
-                </p>
-                {/* <p
+                ) : (
+                  <span className="mr-2" key={index}>
+                    {breadcrumb.label} <i className="ion-ios-arrow-forward" />
+                  </span>
+                )
+              )}
+            </p>
+            {/* <p
               className="breadcrumbs"
               dangerouslySetInnerHTML={{
                 __html: breadcrumbsHTML,
               }}
             /> */}
-              </div>
-            </BottomFade>
           </div>
-        </div>
-      </section>
-    );
-  }
-}
+        </BottomFade>
+      </div>
+    </div>
+  </section>
+);
 
 export const Formatter = ({children, ...rest}) => {
   return (
@@ -484,4 +464,21 @@ export const Formatter = ({children, ...rest}) => {
       }}
     />
   );
+};
+
+export const bcMaker = (path) => {
+  let currentBC = presets.breadcrumbLabels;
+  let currentSlug = '/';
+  let breadcrumbPaths = path.split('/').filter((s) => s !== '');
+  breadcrumbPaths.pop();
+  let breadcrumbs = [{label: 'Home', link: '/'}];
+  breadcrumbPaths.map((s) => {
+    let label = currentBC[s].name;
+    currentBC = currentBC[s];
+    currentSlug += s + '/';
+    let ret = {label, link: currentSlug};
+    breadcrumbs.push(ret);
+  });
+  breadcrumbs.push({label: 'This Page', link: null});
+  return breadcrumbs;
 };

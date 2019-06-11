@@ -23,9 +23,56 @@
  */
 
 import React from 'react';
+import {graphql} from 'gatsby';
+import PropTypes from 'prop-types';
+import presets from '../../presets';
 
-import Layout from '../components/layout';
+import {PhotoLayout} from '../layout';
+import {NarrowContainer, bcMaker} from '../partials';
 
-const ProjectsHomePage = () => <Layout title="Projects" />;
+const BlogPost = ({data: {markdownRemark: post}}) => {
+  let photo;
+  if (
+    typeof post.frontmatter.image !== 'undefined' &&
+    post.frontmatter.image !== null &&
+    post.frontmatter.image !== ''
+  ) {
+    photo = require('../../images/' + post.frontmatter.image);
+  }
+  let breadcrumbs = bcMaker(post.fields.slug);
 
-export default ProjectsHomePage;
+  return (
+    <PhotoLayout
+      title={post.frontmatter.title}
+      date={post.frontmatter.date}
+      breadcrumbs={breadcrumbs}
+      photo={photo}
+    >
+      <NarrowContainer className="narrow py-5 my-5">
+        <div dangerouslySetInnerHTML={{__html: post.html}} />
+      </NarrowContainer>
+    </PhotoLayout>
+  );
+};
+
+BlogPost.propTypes = {
+  data: PropTypes.object.isRequired,
+};
+
+export default BlogPost;
+
+export const query = graphql`
+  query PostQuery($slug: String!) {
+    markdownRemark(fields: {slug: {eq: $slug}}) {
+      html
+      id
+      frontmatter {
+        title
+        image
+      }
+      fields {
+        slug
+      }
+    }
+  }
+`;
