@@ -8,7 +8,7 @@
     "aos": "^2.3.4",
     "bootstrap": "^4.3.1",
     "dompurify": "^1.0.10",
-    "gatsby": "^2.3.16",
+    "gatsby": "^2.8.3",
     "gatsby-image": "^2.0.37",
     "gatsby-plugin-manifest": "^2.0.29",
     "gatsby-plugin-offline": "^2.0.25",
