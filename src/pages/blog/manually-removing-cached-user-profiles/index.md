@@ -2,7 +2,7 @@
 title: 'Manually Removing Cached User Profiles'
 date: '2016-11-17 14:49:29.000000'
 published: true
-image: 'ad-user-profiles-1.png'
+image: 'ad-user-profiles-1.jpg'
 ---
 
 _This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._
