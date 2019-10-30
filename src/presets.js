@@ -71,7 +71,7 @@ const site = {
         subtitle: '',
         image: PenAndCoffee,
         body: `
-I'm a software developer from St. John's, Newfoundland, Canada. Currently in the final semester of a computer sciece degree, my interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography and graphic design.`,
+I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography and graphic design.`,
         panels: [
           {
             title: 'Software',
@@ -107,8 +107,8 @@ I'm a software developer from St. John's, Newfoundland, Canada. Currently in the
             content: [
               // Choose a maximum of SIX skills
               {label: 'Python', value: '90'},
-              {label: 'JavaScript (including React)', value: '80'},
               {label: 'C/C++', value: '75'},
+              {label: 'JavaScript (including React)', value: '60'},
               {label: 'Java', value: '65'},
               {label: 'Shell (Fish, ZSH, PoSH)', value: '80'},
               {label: 'Vim (Editor)', value: '85'},
@@ -174,9 +174,9 @@ I'm a software developer from St. John's, Newfoundland, Canada. Currently in the
         external: true,
       },
       contactBanner: {
-        text: 'I\'m **Available** For Freelancing',
-        buttonLabel: 'Hire me',
-        buttonLink: '/contact',
+        text: 'Check out my **photography**',
+        buttonLabel: 'Say Cheese',
+        buttonLink: '/portfolio/photography/',
         external: false,
       },
       projects: {
