@@ -174,10 +174,10 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
         external: true,
       },
       contactBanner: {
-        text: 'Check out my **photography**',
-        buttonLabel: 'Say Cheese',
-        buttonLink: '/portfolio/photography/',
-        external: false,
+        text: 'Read my paper about the **Mirai botnet**',
+        buttonLabel: 'Open PDF',
+        buttonLink: '/assets/pdf/mirai.pdf',
+        external: true,
       },
       projects: {
         title: 'Projects & Awards',

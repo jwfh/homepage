@@ -27,6 +27,7 @@ import React from 'react';
 import {PhotoLayout} from '../components/layout';
 import {NarrowContainer, PageTitle, bcMaker} from '../components/partials';
 
+import MiraiPaper from '../pdf/mirai.pdf';
 import MathIA from '../pdf/ia_math_x1a.pdf';
 import TSPPaper from '../pdf/tsp_paper.pdf';
 import HistoryIA from '../pdf/ia_hist_x1a.pdf';
@@ -35,6 +36,13 @@ import BiologyIA from '../pdf/ia_biol_x1a.pdf';
 import BookStacks from '../images/_DSC3717-Processed.jpg';
 
 const papers = [
+  {
+    title: 'How The Internet of Vulnerable Things Played a Role in DDoS Attacks in Late 2016',
+    link: MiraiPaper,
+    anchor: 'mirai-paper',
+    authors: 'Jacob House',
+    date: 'August 09 2019',
+  },
   {
     title: 'GAs To Solve The Travelling Salesman Problem',
     link: TSPPaper,
