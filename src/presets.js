@@ -37,7 +37,7 @@ import AboutJPG2 from './images/_DSC8819-bg.jpg';
 import PenAndCoffee from './images/_DSC5309-Processed.jpg';
 import CodeImage1 from './images/_DSC7566.jpg';
 import CodeImage2 from './images/_DSC7567.jpg';
-import CodeImage3 from './images/IMG_9221.jpg';
+import CodeImage3 from './images/IMG_9211.jpg';
 
 // import StockPhoto from '../../images/bg_4.jpg';
 import QuidiVidi1 from './images/title-5.jpg';
