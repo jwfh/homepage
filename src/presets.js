@@ -28,12 +28,16 @@ import LogoSVG from './images/logo.svg';
 import BookStacks from './images/_DSC3717-Processed.jpg';
 import Librarian from './images/LibrarianMockup.jpg';
 import PoolBlocks from './images/pool-generic.jpg';
-import PortraitPhoto from './images/_DSC3842-Processed.jpg';
+import PortraitPhoto1 from './images/_DSC3842-Processed.jpg';
+import PortraitPhoto2 from './images/_DSC7184-Processed.jpg';
 import Sunset from './images/sunset.jpg';
 // import ProductPhoto from './images/_DSC0058-Processed.jpg';
 import AboutJPG1 from './images/_DSC8963-bg.jpg';
 import AboutJPG2 from './images/_DSC8819-bg.jpg';
 import PenAndCoffee from './images/_DSC5309-Processed.jpg';
+import CodeImage1 from './images/_DSC7566.jpg';
+import CodeImage2 from './images/_DSC7567.jpg';
+import CodeImage3 from './images/IMG_9221.jpg';
 
 // import StockPhoto from '../../images/bg_4.jpg';
 import QuidiVidi1 from './images/title-5.jpg';
@@ -67,22 +71,31 @@ const site = {
             image: AboutJPG2,
           },
         ],
+        titlePreface: 'Welcome',
         title: 'About Me',
         subtitle: '',
-        image: PenAndCoffee,
+        image: CodeImage3,
         body: `
-I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My interests are primarily in areas such as security, automation, and operating systems. In my spare time I practice photography and graphic design.`,
+I'm a software developer on the Cloud Automation team at [Verafin](https://verafin.com/) in 
+St.&nbsp;John's, Newfoundland, Canada. My interests are primarily in areas such as security, 
+automation, and operating systems. In my spare time I practice photography and graphic design.`,
         panels: [
           {
             title: 'Software',
             body:
-              'I\'m a recent convert to Vim. I prefer LaTeX over any other word processor. I think Python is fun, but not at the cost if ignoring low-level details. Most of all, I believe in working _with_ my programming language, operating system, and hardware rather than against it (and yes, that means knowing how they work).',
+            `
+I'm a recent convert to Vim. I prefer LaTeX over any other word processor. I&nbsp;think Python is
+fun, but not at the cost if ignoring low-level details. Most of all, I&nbsp;believe in working _with_ 
+my programming language, operating system, and hardware rather than against it (and yes, that 
+means knowing how they work).`,
             icon: '',
           },
           {
             title: 'Design',
-            body:
-              'Though most of my time is spent staring at text in a shell, you\'ll often see at least a few of the Adobe CC apps open in my dock. I\'m always squeezing a little photo editing here or logo design there in my spare time.',
+            body: `
+Though most of my time is spent staring at text in a shell, you'll often see at least a few of
+the Adobe CC apps open in my dock. I\'m always squeezing a little photo editing here or logo 
+design there in my spare time.`,
             icon: '',
           },
         ],
@@ -100,6 +113,7 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
       },
       skills: {
         sliders: {
+          tagline: 'Skills',
           first: {
             title: 'Technical Skills',
             subtitle:
@@ -107,11 +121,11 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
             content: [
               // Choose a maximum of SIX skills
               {label: 'Python', value: '90'},
-              {label: 'C/C++', value: '75'},
-              {label: 'JavaScript (including React)', value: '60'},
-              {label: 'Java', value: '65'},
-              {label: 'Shell (Fish, ZSH, PoSH)', value: '80'},
-              {label: 'Vim (Editor)', value: '85'},
+              {label: 'Terraform', value: '75'},
+              {label: 'Shell (Bourne, Fish, scripting)', value: '85'},
+              {label: 'Text Processing (Vim, Sed, Awk)', value: '90'},
+              {label: 'C/C++', value: '70'},
+              {label: 'Java', value: '60'},
             ],
           },
           second: {
@@ -127,6 +141,7 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
           },
         },
         details: {
+          tagline: 'What I Do',
           title: 'Strategy, Design, and a bit of Magic',
           subtitle: 'Areas of my work that I am most interested in.',
           content: [
@@ -180,6 +195,7 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
         external: true,
       },
       projects: {
+        tagline: 'Accomplishments',
         title: 'Projects & Awards',
         subtitle:
           'This section is all about future goals and past success. The sky is, indeed, the limit.',
@@ -210,7 +226,7 @@ I'm a software developer at Verafin in St. John's, Newfoundland, Canada. My inte
             title: 'Portrait Photography',
             subtitle: 'Hobby & Passion',
             link: '/portfolio/photography/',
-            image: PortraitPhoto,
+            image: PortraitPhoto2,
           },
           // {
           //   title: 'Product Photography',

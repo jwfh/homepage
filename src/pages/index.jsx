@@ -88,7 +88,9 @@ export const IndexPage = () => {
               <div className="row justify-content-start pb-3">
                 <BottomFade>
                   <div className="col-md-12 heading-section">
-                    <span className="subheading">Welcome</span>
+                    <span className="subheading">
+                      {presets.pages.home.about.titlePreface}
+                    </span>
                     <h2
                       className="mb-4"
                       style={{fontSize: '34px', textTransform: 'capitalize'}}
@@ -168,20 +170,27 @@ export const IndexPage = () => {
         <Container>
           <SectionTitle
             className="pb-5"
-            tagline="Skills"
+            tagline={presets.pages.home.skills.sliders.tagline}
             title={presets.pages.home.skills.sliders.first.title}
             subtitle={presets.pages.home.skills.sliders.first.subtitle}
           />
           <Row>
             {presets.pages.home.skills.sliders.first.content.map(
               (slider, index) => (
-                <Slider value={slider.value} label={slider.label} key={index} />
+                <Slider 
+                  value={slider.value} 
+                  label={
+                    remark()
+                    .use(remark2react)
+                    .processSync(slider.label).contents
+                  } 
+                  key={index} />
               )
             )}
           </Row>
           <SectionTitle
             className="py-5"
-            tagline="Skills"
+            tagline={presets.pages.home.skills.sliders.tagline}
             title={presets.pages.home.skills.sliders.second.title}
             subtitle={presets.pages.home.skills.sliders.second.subtitle}
           />
@@ -194,7 +203,7 @@ export const IndexPage = () => {
           </Row>
           <SectionTitle
             className="py-5 mt-5"
-            tagline="What I Do"
+            tagline={presets.pages.home.skills.details.tagline}
             title={presets.pages.home.skills.details.title}
             subtitle={presets.pages.home.skills.details.subtitle}
           />
@@ -232,7 +241,7 @@ export const IndexPage = () => {
         <Container>
           <SectionTitle
             className="pb-5"
-            tagline="Accomplishments"
+            tagline={presets.pages.home.projects.tagline}
             title={presets.pages.home.projects.title}
             subtitle={presets.pages.home.projects.subtitle}
           />
@@ -263,12 +272,13 @@ export const IndexPage = () => {
               </BottomFade>
             </div>
             <div className="col-md-4">
-              <div className="row">
-                <div className="col-md-12">
+              <div className="row" style={{height: '100%'}}>
+                <div className="col-md-12" style={{height: '30%'}}>
                   <BottomFade>
                     <div
                       className="project img d-flex justify-content-center align-items-center"
                       style={{
+                        height: '100%',
                         backgroundImage:
                           'url(\'' +
                           presets.pages.home.projects.content[1].image +
@@ -291,11 +301,12 @@ export const IndexPage = () => {
                     </div>
                   </BottomFade>
                 </div>
-                <div className="col-md-12">
+                <div className="col-md-12" style={{height: '60%'}}>
                   <BottomFade>
                     <div
                       className="project img d-flex justify-content-center align-items-center"
                       style={{
+                        height: '100%',
                         backgroundImage:
                           'url(\'' +
                           presets.pages.home.projects.content[2].image +
