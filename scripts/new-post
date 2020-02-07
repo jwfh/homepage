@@ -27,8 +27,8 @@ import os
 import datetime
 
 
-POSTPATH = 'src/pages/blog/'
-POSTTEMPLATE = '''\
+POSTPATH = "src/pages/blog/"
+POSTTEMPLATE = """\
 ---
 path: '%(path)s'
 title: '%(title)s'
@@ -38,33 +38,30 @@ image: ''
 ---
 
 
-'''
+"""
 
 
 def getSlug(title: str) -> str:
-    slug = re.sub(
-        r'\s', '-', ''.join(re.findall('[A-Za-z \-]', title)).lower())
-    if input('Does %s look alright for a slug? (Y/n)' % (slug,)).lower() == 'n':
-        slug = input('Enter a slug: ')
+    slug = re.sub(r"\s", "-", "".join(re.findall("[A-Za-z \-]", title)).lower())
+    if input("Does %s look alright for a slug? (Y/n)" % (slug,)).lower() == "n":
+        slug = input("Enter a slug: ")
     return slug
 
 
 def main() -> None:
-    folder = os.getcwd() + '/' + POSTPATH
-    title = input('Enter post title: ')
+    folder = os.getcwd() + "/" + POSTPATH
+    title = input("Enter post title: ")
     slug = getSlug(title)
     while os.path.exists(folder + slug):
-        print('That path exists. Please choose another.')
-        slug = getSlug(slug + '-1')
+        print("That path exists. Please choose another.")
+        slug = getSlug(slug + "-1")
     os.makedirs(folder + slug)
-    with open(folder + slug + '/index.md', 'w') as mdFile:
-        mdFile.write(POSTTEMPLATE % {
-            'path': slug,
-            'title': title,
-            'date': datetime.datetime.now(),
-        })
-    print('You may now edit the file "%s."' % (folder + slug + '/index.md',))
+    with open(folder + slug + "/index.md", "w") as mdFile:
+        mdFile.write(
+            POSTTEMPLATE % {"path": slug, "title": title, "date": datetime.datetime.now(),}
+        )
+    print('You may now edit the file "%s."' % (folder + slug + "/index.md",))
 
 
-if __name__ == '__main__':
+if __name__ == "__main__":
     main()
