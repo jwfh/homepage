@@ -57,7 +57,7 @@ export const IndexPage = () => {
   return (
     <HomeLayout title="Home">
       <section id="home-section" className="hero">
-        <Carousel defaultWait={3500}>
+        <Carousel defaultWait={5000}>
           {presets.pages.home.about.carousel.map((slider, index) => (
             <Slide key={index} right>
               <CarouselSlider {...slider} />
