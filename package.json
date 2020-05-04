@@ -20,7 +20,7 @@
     "gatsby-source-filesystem": "^2.1.56",
     "gatsby-transformer-remark": "^2.6.59",
     "gatsby-transformer-sharp": "^2.3.19",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "katex": "^0.10.2",
     "owl.carousel": "^2.3.4",
     "popper": "^1.0.1",
