@@ -1,6 +1,6 @@
-all: install-deps
+all: install-dep
 	gatsby build
 	(cd '${.CURDIR}/public' && tar cJvf ../homepage.txz .)
 
-install-deps:
+install-dep:
 	yarn install
