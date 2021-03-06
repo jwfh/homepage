@@ -121,11 +121,11 @@ design there in my spare time.`,
             content: [
               // Choose a maximum of SIX skills
               {label: 'Python', value: '90'},
+              {label: 'Amazon Web Services', value: '70'},
               {label: 'Terraform', value: '75'},
               {label: 'Shell (Bourne, Fish, scripting)', value: '85'},
               {label: 'Text Processing (Vim, Sed, Awk)', value: '90'},
-              {label: 'C/C++', value: '70'},
-              {label: 'Java', value: '60'},
+              {label: 'C/C++', value: '60'},
             ],
           },
           second: {
