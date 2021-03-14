@@ -594,7 +594,7 @@ code {
   border-radius: 3px;
   font-family: "SFMono-Regular", Consolas, "Roboto Mono", "Droid Sans Mono",
     "Liberation Mono", Menlo, Courier, monospace;
-  padding: 0;
+  padding: 0.05em;
   padding-top: 0.2em;
   padding-bottom: 0.2em;
 }
@@ -607,7 +607,7 @@ code:after,
 tt:before,
 tt:after {
   letter-spacing: -0.2em;
-  content: " ";
+  content: "";
 }
 pre code:before,
 pre code:after,
