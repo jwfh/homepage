@@ -24,7 +24,16 @@ module.exports = {
     {
       resolve: 'gatsby-transformer-remark',
       options: {
+        // CommonMark mode (default: true)
+        commonmark: true,
+        // Footnotes mode (default: true)
+        footnotes: true,
+        // Pedantic mode (default: true)
+        pedantic: true,
+        // GitHub Flavored Markdown mode (default: true)
+        gfm: true,
         plugins: [
+          `gatsby-remark-autolink-headers`,
           'gatsby-plugin-catch-links',
           {
             resolve: 'gatsby-remark-katex',
@@ -40,6 +49,22 @@ module.exports = {
               // the content container as this plugin uses this as the
               // base for generating different widths of each image.
               maxWidth: 590,
+              linkImagesToOriginal: false,
+              showCaptions: true,
+              markdownCaptions: true,
+            },
+          },
+          {
+            resolve: 'gatsby-remark-smartypants',
+            options: {
+              dashes: 'oldschool',
+            },
+          },
+          {
+            resolve: 'gatsby-remark-copy-linked-files',
+            options: {
+              destinationDir: 'attachments',
+              ignoreFileExtensions: ['ai', 'jpg', 'jpeg', 'png'],
             },
           },
         ],
