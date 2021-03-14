@@ -34,6 +34,7 @@ import {BottomFade} from './fade';
 import remark from 'remark';
 import remark2react from 'remark-react';
 import math from 'remark-math';
+import moment from 'moment';
 import remark2rehype from 'remark-rehype';
 import katex from 'rehype-katex';
 import stringify from 'rehype-stringify';
@@ -428,6 +429,7 @@ export const PhotoTitleTile = ({title, photo, breadcrumbs, ...rest}) => (
         <BottomFade>
           <div className="col-md-9 pb-5 text-center">
             <h1 className="mb-3 bread">{title}</h1>
+            <p className="pubdate">{moment(date).format('MMMM Do, YYYY')}</p>
             <p className="breadcrumbs">
               {breadcrumbs.map((breadcrumb, index) =>
                 breadcrumb.link ? (

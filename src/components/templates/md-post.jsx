@@ -25,7 +25,6 @@
 import React from 'react';
 import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
-import presets from '../../presets';
 
 import {PhotoLayout} from '../layout';
 import {NarrowContainer, bcMaker} from '../partials';
@@ -68,6 +67,7 @@ export const query = graphql`
       id
       frontmatter {
         title
+        date
         image
       }
       fields {
