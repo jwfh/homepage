@@ -25,12 +25,12 @@
  * terms.
  */
 
-import React, {Component} from 'react';
-import {Link} from 'gatsby';
+import React, { Component } from 'react';
+import { Link } from 'gatsby';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
-import {media} from './breakpoints';
-import {BottomFade} from './fade';
+import { media } from './breakpoints';
+import { BottomFade } from './fade';
 import remark from 'remark';
 import remark2react from 'remark-react';
 import math from 'remark-math';
@@ -39,6 +39,7 @@ import remark2rehype from 'remark-rehype';
 import katex from 'rehype-katex';
 import stringify from 'rehype-stringify';
 import presets from '../presets';
+import { Fragment } from 'react';
 
 const mathProcessor = remark()
   .use(math)
@@ -66,14 +67,14 @@ export const CarouselSlider = ({
       >
         <div
           className="one-third order-md-last"
-          style={{backgroundImage: `url(${image})`, backgroundSize: 'cover'}}
+          style={{ backgroundImage: `url(${image})`, backgroundSize: 'cover' }}
         >
           <div className="overlay" />
         </div>
         <div
           className="one-forth d-flex align-items-center"
           data-scrollax=" properties: { translateY: '70%' }"
-          style={{position: 'relative', top: '290px'}}
+          style={{ position: 'relative', top: '290px' }}
         >
           <div className="text">
             <span className="subheading">{preface}</span>
@@ -104,7 +105,7 @@ export const Logo = styled.div`
 
 export const Name = () => <div />;
 
-const BrandLink = ({children, className, ...rest}) => (
+const BrandLink = ({ children, className, ...rest }) => (
   <Link
     {...rest}
     className={'navbar-brand' + (className ? ` ${className}` : '')}
@@ -141,7 +142,7 @@ export const Header = styled.header`
   // margin-bottom: 1.45rem;
 `;
 
-export const Footer = ({children, className, ...rest}) => (
+export const Footer = ({ children, className, ...rest }) => (
   <footer
     {...rest}
     className={'ftco-footer ftco-section' + (className ? ` ${className}` : '')}
@@ -150,13 +151,13 @@ export const Footer = ({children, className, ...rest}) => (
   </footer>
 );
 
-export const Row = ({children, className, ...rest}) => (
+export const Row = ({ children, className, ...rest }) => (
   <div {...rest} className={'row' + (className ? ` ${className}` : '')}>
     {children}
   </div>
 );
 
-export const FooterCopyright = ({link, text, className, ...rest}) => (
+export const FooterCopyright = ({ link, text, className, ...rest }) => (
   <div
     {...rest}
     className={'col-md-12 text-center' + (className ? ` ${className}` : '')}
@@ -189,7 +190,7 @@ export const FooterCopyright = ({link, text, className, ...rest}) => (
   </div>
 );
 
-export const FooterList = ({children, className, title, ...rest}) => (
+export const FooterList = ({ children, className, title, ...rest }) => (
   <div {...rest} className={'col-md' + (className ? ` ${className}` : '')}>
     <div className="ftco-footer-widget mb-4">
       <h2 className="ftco-heading-2">{title}</h2>
@@ -198,7 +199,7 @@ export const FooterList = ({children, className, title, ...rest}) => (
   </div>
 );
 
-export const IconItem = ({external, className, icon, label, ...rest}) =>
+export const IconItem = ({ external, className, icon, label, ...rest }) =>
   external ? (
     <li>
       <a {...rest} target="_blank" rel="noopener noreferrer">
@@ -207,15 +208,15 @@ export const IconItem = ({external, className, icon, label, ...rest}) =>
       </a>
     </li>
   ) : (
-    <li>
-      <Link {...rest}>
-        <span className={'icon-' + icon + (className ? ` ${className}` : '')} />
-        {label}
-      </Link>
-    </li>
-  );
+      <li>
+        <Link {...rest}>
+          <span className={'icon-' + icon + (className ? ` ${className}` : '')} />
+          {label}
+        </Link>
+      </li>
+    );
 
-export const Container = ({children, className, ...rest}) => (
+export const Container = ({ children, className, ...rest }) => (
   <div {...rest} className={'container' + (className ? ` ${className}` : '')}>
     {children}
   </div>
@@ -241,7 +242,7 @@ export const NarrowContainer = styled(Container)`
   `}
 `;
 
-export const Nav = ({children, className, ...rest}) => (
+export const Nav = ({ children, className, ...rest }) => (
   <nav
     {...rest}
     className={
@@ -254,7 +255,7 @@ export const Nav = ({children, className, ...rest}) => (
   </nav>
 );
 
-export const MobileMenu = ({label, children, className, ...rest}) => (
+export const MobileMenu = ({ label, children, className, ...rest }) => (
   <button
     {...rest}
     className={
@@ -273,7 +274,7 @@ export const MobileMenu = ({label, children, className, ...rest}) => (
   </button>
 );
 
-export const NavList = ({children, className, ...rest}) => (
+export const NavList = ({ children, className, ...rest }) => (
   <div
     {...rest}
     className={'collapse navbar-collapse' + (className ? ` ${className}` : '')}
@@ -283,14 +284,14 @@ export const NavList = ({children, className, ...rest}) => (
   </div>
 );
 
-export const NavItem = ({label, className, anchor, ...rest}) => (
+export const NavItem = ({ label, className, anchor, ...rest }) => (
   <li {...rest} className={'nav-item' + (className ? ` ${className}` : '')}>
     <a href={'#' + anchor} className="nav-link">
       <span>{label}</span>
     </a>
   </li>
 );
-export const NavLink = ({label, className, to, ...rest}) => (
+export const NavLink = ({ label, className, to, ...rest }) => (
   <li {...rest} className={'nav-item' + (className ? ` ${className}` : '')}>
     <Link to={to} className="nav-link">
       <span>{label}</span>
@@ -298,7 +299,7 @@ export const NavLink = ({label, className, to, ...rest}) => (
   </li>
 );
 
-export const Section = ({children, className, ...rest}) => (
+export const Section = ({ children, className, ...rest }) => (
   <section
     {...rest}
     className={'ftco-section' + (className ? ` ${className}` : '')}
@@ -307,7 +308,7 @@ export const Section = ({children, className, ...rest}) => (
   </section>
 );
 
-export const SectionTitle = ({className, title, subtitle, tagline}) => (
+export const SectionTitle = ({ className, title, subtitle, tagline }) => (
   <div
     className={
       'row justify-content-center' + (className ? ` ${className}` : '')
@@ -323,7 +324,7 @@ export const SectionTitle = ({className, title, subtitle, tagline}) => (
   </div>
 );
 
-export const Banner = ({className, text, button, external}) => (
+export const Banner = ({ className, text, button, external }) => (
   <Section className={'ftco-banner' + (className ? ` ${className}` : '')}>
     <Container>
       <Row>
@@ -351,10 +352,10 @@ export const Banner = ({className, text, button, external}) => (
                   {button.label}
                 </a>
               ) : (
-                <Link to={button.link} className="btn btn-white py-3 px-5">
-                  {button.label}
-                </Link>
-              )}
+                  <Link to={button.link} className="btn btn-white py-3 px-5">
+                    {button.label}
+                  </Link>
+                )}
             </p>
           </div>
         </BottomFade>
@@ -363,7 +364,7 @@ export const Banner = ({className, text, button, external}) => (
   </Section>
 );
 
-export const Slider = ({value, label, index, className, ...rest}) => (
+export const Slider = ({ value, label, index, className, ...rest }) => (
   <div
     {...rest}
     className={'col-md-6 animate-box' + (className ? ` ${className}` : '')}
@@ -378,7 +379,7 @@ export const Slider = ({value, label, index, className, ...rest}) => (
             aria-valuenow={value}
             aria-valuemin="0"
             aria-valuemax="100"
-            style={{width: value + '%'}}
+            style={{ width: value + '%' }}
           >
             <span>{value + '%'}</span>
           </div>
@@ -388,7 +389,7 @@ export const Slider = ({value, label, index, className, ...rest}) => (
   </div>
 );
 
-export const DetailPanel = ({className, title, icon, link, children}) => (
+export const DetailPanel = ({ className, title, icon, link, children }) => (
   <BottomFade className={className}>
     <div className="col-md-4 text-center d-flex">
       <div className="services-1">
@@ -416,10 +417,11 @@ export const PageSubtitle = styled.h4`
   padding-top: 1pc;
 `;
 
-export const PhotoTitleTile = ({title, photo, breadcrumbs, ...rest}) => (
+const PhotoTitleAlignmentOptions = Object.freeze({ left: 'left', right: 'right', center: 'center' })
+export const PhotoTitleTile = ({ title, photo, alignment, breadcrumbs, date, mainpage, ...rest }) => (
   <section
     className="hero-wrap hero-wrap-2"
-    style={{backgroundImage: `url('${photo}')`}}
+    style={{ backgroundImage: `url('${photo}')`, backgroundPosition: `top ${typeof alignment !== 'undefined' ? PhotoTitleAlignmentOptions[alignment] : 'center'}` }}
     data-stellar-background-ratio="0.5"
     {...rest}
   >
@@ -428,23 +430,61 @@ export const PhotoTitleTile = ({title, photo, breadcrumbs, ...rest}) => (
       <div className="row no-gutters slider-text align-items-end justify-content-center">
         <BottomFade>
           <div className="col-md-9 pb-5 text-center">
-            <h1 className="mb-3 bread">{title}</h1>
-            <p className="pubdate">{moment(date).format('MMMM Do, YYYY')}</p>
-            <p className="breadcrumbs">
-              {breadcrumbs.map((breadcrumb, index) =>
-                breadcrumb.link ? (
-                  <span className="mr-2" key={index}>
-                    <Link to={breadcrumb.link}>
-                      {breadcrumb.label} <i className="ion-ios-arrow-forward" />
-                    </Link>
-                  </span>
-                ) : (
-                  <span className="mr-2" key={index}>
-                    {breadcrumb.label} <i className="ion-ios-arrow-forward" />
-                  </span>
-                )
+            {mainpage ? (<Fragment>
+              <h1 className="mb-3 bread">{title}</h1>
+              <p className="pubdate">{moment(date).format('MMMM Do, YYYY')}</p>
+              <p className="breadcrumbs">
+                {breadcrumbs.map((breadcrumb, index) =>
+                  breadcrumb.link ? (
+                    <span className="mr-2" key={index}>
+                      <Link to={breadcrumb.link}>
+                        {breadcrumb.label} <i className="ion-ios-arrow-forward" />
+                      </Link>
+                    </span>
+                  ) : (
+                      <span className="mr-2" key={index}>
+                        {breadcrumb.label}
+                      </span>
+                    )
+                )}
+              </p>
+            </Fragment>) : (
+                <Fragment>
+                  <h1 className="mb-3 bread" style={{
+                    float: 'left',
+                    textAlign: 'left',
+                    background: 'white',
+                    padding: '9px',
+                  }}>{title}</h1>
+                  <p className="pubdate" style={{
+                    float: 'left',
+                    textAlign: 'left',
+                    background: 'white',
+                    padding: '9px',
+                  }}>{moment(date).format('MMMM Do, YYYY')}</p>
+                  <p className="breadcrumbs" style={{
+                    float: 'left',
+                    textAlign: 'left',
+                    background: 'white',
+                    padding: '9px',
+                  }}>
+                    {breadcrumbs.map((breadcrumb, index) =>
+                      breadcrumb.link ? (
+                        <span className="mr-2" key={index}>
+                          <Link to={breadcrumb.link}>
+                            {breadcrumb.label} <i className="ion-ios-arrow-forward" />
+                          </Link>
+                        </span>
+                      ) : (
+                          <span className="mr-2" key={index}>
+                            {breadcrumb.label}
+                          </span>
+                        )
+                    )}
+                  </p>
+                </Fragment>
               )}
-            </p>
+
             {/* <p
               className="breadcrumbs"
               dangerouslySetInnerHTML={{
@@ -458,7 +498,7 @@ export const PhotoTitleTile = ({title, photo, breadcrumbs, ...rest}) => (
   </section>
 );
 
-export const Formatter = ({children, ...rest}) => {
+export const Formatter = ({ children, ...rest }) => {
   return (
     <div
       dangerouslySetInnerHTML={{
@@ -473,14 +513,14 @@ export const bcMaker = (path) => {
   let currentSlug = '/';
   let breadcrumbPaths = path.split('/').filter((s) => s !== '');
   breadcrumbPaths.pop();
-  let breadcrumbs = [{label: 'Home', link: '/'}];
+  let breadcrumbs = [{ label: 'Home', link: '/' }];
   breadcrumbPaths.map((s) => {
     let label = currentBC[s].name;
     currentBC = currentBC[s];
     currentSlug += s + '/';
-    let ret = {label, link: currentSlug};
+    let ret = { label, link: currentSlug };
     breadcrumbs.push(ret);
   });
-  breadcrumbs.push({label: 'This Page', link: null});
+  breadcrumbs.push({ label: 'This Page', link: null });
   return breadcrumbs;
 };

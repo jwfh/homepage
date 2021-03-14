@@ -76,7 +76,7 @@ Layout.propTypes = {
 
 export default Layout;
 
-export const PhotoLayout = ({title, children, photo, random, ...rest}) => (
+export const PhotoLayout = ({title, children, photo, alignment, mainpage=true, random, ...rest}) => (
   <Layout title={title}>
     <PhotoTitleTile
       // ...rest here so that breadcrumbs are passed to PhotoTitleTile
@@ -88,6 +88,8 @@ export const PhotoLayout = ({title, children, photo, random, ...rest}) => (
           ? photo
           : bgPhotos[Math.floor(Math.random() * bgPhotos.length)]
       }
+      mainpage={mainpage}
+      alignment={alignment}
     />
     {children}
   </Layout>
