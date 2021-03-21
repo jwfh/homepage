@@ -3,6 +3,7 @@ title: 'Shortcuts: The Illicit Command Prompt'
 date: '2016-08-22 12:47:24.000000'
 published: true
 image: ''
+mainpage: false
 ---
 
 _This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._

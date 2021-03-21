@@ -72,7 +72,7 @@ export const GeneralHeader = () => (
           <NavLink label="Home" to="/" />
           <NavLink label="Skills" to="/skills/" />
           <NavLink label="Projects" to="/projects/" />
-          {/* <NavLink label="My Blog" to="/blog/" /> */}
+          <NavLink label="My Blog" to="/blog/" />
           <NavLink label="Contact" to="/contact/" />
         </NavList>
       </Container>

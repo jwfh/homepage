@@ -3,6 +3,7 @@ title: 'Using the Office 2016 Deployment Tool'
 date: '2016-10-04 19:51:46.000000'
 published: true
 image: 'flattener-exe.png'
+mainpage: false
 ---
 
 _This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._

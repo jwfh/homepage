@@ -3,6 +3,7 @@ title: 'Restoring Files When Your Mac Refuses to Boot'
 date: '2016-08-22 12:36:27.000000'
 published: true
 image: ''
+mainpage: false
 ---
 
 Today, without warning (unless you consider kernel panics at an increasing frequency a warning 😬), my Late-2011 MacBook Pro called it quits. It shut down as I was using it and wouldn't revive itself. The farthest it could get was mid-boot before shutting off again. Booting with verbose mode (holding ⌘+V at boot) showed what appeared to be disk permission errors which caused the boot process to abort and the machine to power off.
