@@ -22,7 +22,7 @@
  * IN THE SOFTWARE.
  */
 
-import {css} from 'styled-components';
+import { css } from 'styled-components';
 
 const sizes = {
   giant: 1200,

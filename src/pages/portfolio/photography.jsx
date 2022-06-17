@@ -1,8 +1,8 @@
 import React from 'react';
-import {Link} from 'gatsby';
+import { Link } from 'gatsby';
 
-import {PhotoLayout} from '../../components/layout';
-import {NarrowContainer, bcMaker} from '../../components/partials';
+import { PhotoLayout } from '../../components/layout';
+import { NarrowContainer, bcMaker } from '../../components/partials';
 import SEO from '../../components/seo';
 import Sheena from '../../images/Composition-Web.jpg';
 

@@ -23,14 +23,14 @@
  */
 
 import React from 'react';
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 
 import presets from '../../presets';
-import {PhotoLayout} from '../layout';
-import {NarrowContainer, bcMaker} from '../partials';
+import { PhotoLayout } from '../layout';
+import { NarrowContainer, bcMaker } from '../partials';
 
-const BlogPost = ({data: {markdownRemark: post}}) => {
+const BlogPost = ({ data: { markdownRemark: post } }) => {
   let photo;
   if (
     typeof post.frontmatter.image !== 'undefined' &&
@@ -51,12 +51,12 @@ const BlogPost = ({data: {markdownRemark: post}}) => {
       alignment={post.frontmatter.imagealign}
       mainpage={
         typeof post.frontmatter.mainpage !== 'undefined' &&
-        post.frontmatter.mainpage !== null &&
-        post.frontmatter.mainpage !== '' ? post.frontmatter.mainpage : true
+          post.frontmatter.mainpage !== null &&
+          post.frontmatter.mainpage !== '' ? post.frontmatter.mainpage : true
       }
     >
       <NarrowContainer className="narrow py-5 my-5">
-        <div dangerouslySetInnerHTML={{__html: post.html}} />
+        <div dangerouslySetInnerHTML={{ __html: post.html }} />
       </NarrowContainer>
     </PhotoLayout>
   );

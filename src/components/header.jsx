@@ -51,7 +51,7 @@ export const HomeHeader = () => (
           <NavItem label="About" anchor="about-section" />
           <NavItem label="Skills" anchor="skills-section" />
           <NavItem label="Projects" anchor="projects-section" />
-          <NavItem label="My Blog" anchor="blog-section" />
+          {/* <NavItem label="My Blog" anchor="blog-section" /> */}
           <NavItem label="Contact" anchor="contact-section" />
         </NavList>
       </Container>

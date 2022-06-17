@@ -1,8 +1,9 @@
 ---
 title: 'Building a Virtual Network using Bhyve'
-date: '1969-12-31 20:30:00'
+date: '2021-05-31 20:30:00'
 published: true
 image: 'cbsd-dmz-pfsense-crop.png'
+image2: ../../../images/cbsd-dmz-pfsense-crop.png
 imagealign: 'left'
 mainpage: false
 tags: ["tech"]
