@@ -6,20 +6,26 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const _ = require('lodash');
 const {createFilePath, createFileNode} = require('gatsby-source-filesystem');
 
-exports.createPages = ({actions, graphql}) => {
+exports.createPages = ({actions, graphql, reporter}) => {
   const {createPage} = actions;
   const blogTemplate = path.resolve('./src/components/templates/md-post.jsx');
+  const tagTemplate = path.resolve('./src/components/templates/tag.jsx');
   return graphql(`
     {
-      allMarkdownRemark(filter: {frontmatter: {published: {eq: true}}}) {
+      postsRemark: allMarkdownRemark(
+        filter: {frontmatter: {published: {eq: true}}}
+        sort: { order: DESC, fields: [frontmatter___date] }
+      ) {
         edges {
           node {
             frontmatter {
               published
               title
               date
+              tags
             }
             fields {
               slug
@@ -29,13 +35,17 @@ exports.createPages = ({actions, graphql}) => {
           }
         }
       }
+      tagsGroup: allMarkdownRemark(limit: 2000) {
+        group(field: frontmatter___tags) {
+          fieldValue
+        }
+      }
     }
   `).then((res) => {
     if (res.errors) {
       return Promise.reject(res.errors);
     }
-
-    res.data.allMarkdownRemark.edges.forEach(({node}) => {
+    res.data.postsRemark.edges.forEach(({node}) => {
       createPage({
         path: node.fields.slug,
         component: blogTemplate,
@@ -44,6 +54,17 @@ exports.createPages = ({actions, graphql}) => {
         },
       });
     });
+
+    res.data.tagsGroup.group.forEach((tag) => {
+      createPage({
+        path: `/blog/tags/${_.kebabCase(tag.fieldValue)}/`,
+        component: tagTemplate,
+        context: {
+          tag: tag.fieldValue,
+        },
+      });
+    });
+  
   });
 };
 

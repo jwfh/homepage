@@ -26,6 +26,7 @@ import React from 'react';
 import {graphql} from 'gatsby';
 import PropTypes from 'prop-types';
 
+import presets from '../../presets';
 import {PhotoLayout} from '../layout';
 import {NarrowContainer, bcMaker} from '../partials';
 
@@ -43,6 +44,7 @@ const BlogPost = ({data: {markdownRemark: post}}) => {
   return (
     <PhotoLayout
       title={post.frontmatter.title}
+      site={presets.pages.home.blog.title}
       date={post.frontmatter.date}
       breadcrumbs={breadcrumbs}
       photo={photo}

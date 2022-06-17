@@ -249,8 +249,8 @@ design there in my spare time.`,
         ],
       },
       blog: {
-        title: 'My Blog',
-        subtitle: 'A little of everything, and nothing you can do without.',
+        title: 'Fall in Love with the Process',
+        subtitle: 'Read the latest about my hobbies and projects.',
       },
       contact: {
         title: 'Hey You',
@@ -353,20 +353,7 @@ design there in my spare time.`,
     'operating sysetem',
     'web development',
   ],
-  breadcrumbLabels: {
-    blog: {
-      name: 'Blog',
-    },
-    portfolio: {
-      name: 'Portfolio',
-    },
-    presentations: {
-      name: 'Presentations',
-    },
-    projects: {
-      name: 'Projects',
-    },
-  },
+  breadcrumbLabels: {},
 };
 
 export default site;

@@ -76,8 +76,8 @@ Layout.propTypes = {
 
 export default Layout;
 
-export const PhotoLayout = ({title, children, photo, alignment, mainpage=true, random, ...rest}) => (
-  <Layout title={title}>
+export const PhotoLayout = ({title, site=null, children, photo, alignment, mainpage=true, random, ...rest}) => (
+  <Layout title={site == null ? title : `${title} | ${site}`}>
     <PhotoTitleTile
       // ...rest here so that breadcrumbs are passed to PhotoTitleTile
       // key={this.state.photo}

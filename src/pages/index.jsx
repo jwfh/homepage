@@ -386,7 +386,7 @@ export const IndexPage = () => {
       </Section>
 
       {
-        // Banner section #3 (Hire Me)
+        // Banner section #3 (Contact Banner)
       }
       <Banner
         external={presets.pages.home.contactBanner.external}
@@ -400,7 +400,7 @@ export const IndexPage = () => {
       {
         // Blog section
       }
-      {/* <Section className="bg-light" id="blog-section">
+      <Section className="bg-light" id="blog-section">
         <div className="container">
           <div className="row justify-content-center mb-5 pb-5">
             <BottomFade>
@@ -495,7 +495,7 @@ export const IndexPage = () => {
             </BottomFade>
           </div>
         </div>
-      </Section> */}
+      </Section>
 
       {
         // Contact section
