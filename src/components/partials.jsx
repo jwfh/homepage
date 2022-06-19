@@ -554,13 +554,16 @@ export const bcMaker = (path) => {
       label = labels[s].name;
       labels = labels[s];
     } else {
-
-      label = s.replace(/[^a-zA-Z0-9]/, ' ').split(' ').filter((w) => w !== '').map((w) => (w.length > 1 ? w[0].toUpperCase() + w.substr(1).toLowerCase() : w.toUpperCase())).join(' ');
+      label = s.replace(/[^a-zA-Z0-9]/, ' ')
+        .split(' ').filter((w) => w !== '')
+        .map((w) => w.length > 1
+          ? w[0].toUpperCase() + w.substr(1).toLowerCase()
+          : w.toUpperCase())
+        .join(' ');
       labels = null;
     }
     currentSlug += s + '/';
-    let ret = { label, link: currentSlug };
-    breadcrumbs.push(ret);
+    breadcrumbs.push({ label, link: currentSlug });
   });
   breadcrumbs.push({ label: 'This Page', link: null });
   return breadcrumbs;
