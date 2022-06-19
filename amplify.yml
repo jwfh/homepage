@@ -25,6 +25,7 @@ frontend:
   phases:
     preBuild:
       commands:
+        - yum install -y nasm
         - yarn install
     build:
       commands:
