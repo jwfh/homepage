@@ -550,7 +550,6 @@ export const bcMaker = (path) => {
   breadcrumbPaths.pop();
   let breadcrumbs = [{ label: 'Home', link: '/' }];
   breadcrumbPaths.map((s) => {
-    console.warn('labels, s', labels, s);
     if (labels != null && s in labels) {
       label = labels[s].name;
       labels = labels[s];
