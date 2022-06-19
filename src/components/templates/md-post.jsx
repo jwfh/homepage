@@ -28,18 +28,13 @@ import PropTypes from 'prop-types';
 
 import presets from '../../presets';
 import { PhotoLayout } from '../layout';
-import { NarrowContainer, bcMaker } from '../partials';
+import { NarrowContainer } from '../partials';
+import { blogPostBcMaker, getBlogImage, isMainpagePost } from '../blog'
+
 
 const BlogPost = ({ data: { markdownRemark: post } }) => {
-  let photo;
-  if (
-    typeof post.frontmatter.image !== 'undefined' &&
-    post.frontmatter.image !== null &&
-    post.frontmatter.image !== ''
-  ) {
-    photo = require('../../images/' + post.frontmatter.image);
-  }
-  let breadcrumbs = bcMaker(post.fields.slug);
+  let photo = getBlogImage(post);
+  let breadcrumbs = blogPostBcMaker(post);
 
   return (
     <PhotoLayout
@@ -49,11 +44,7 @@ const BlogPost = ({ data: { markdownRemark: post } }) => {
       breadcrumbs={breadcrumbs}
       photo={photo}
       alignment={post.frontmatter.imagealign}
-      mainpage={
-        typeof post.frontmatter.mainpage !== 'undefined' &&
-          post.frontmatter.mainpage !== null &&
-          post.frontmatter.mainpage !== '' ? post.frontmatter.mainpage : true
-      }
+      mainpage={isMainpagePost(post)}
     >
       <NarrowContainer className="narrow py-5 my-5">
         <div dangerouslySetInnerHTML={{ __html: post.html }} />

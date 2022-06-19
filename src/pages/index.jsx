@@ -46,6 +46,7 @@ import Slide from 'react-reveal/Slide';
 import remark from 'remark';
 import remark2react from 'remark-react';
 import CountUp from 'react-countup';
+import { getBlogImage } from '../components/blog';
 
 export const IndexPage = ({
   data: {
@@ -410,35 +411,40 @@ export const IndexPage = ({
             </BottomFade>
           </div>
           <div className="row d-flex">
-            {edges.map((post) => (
-              <BottomFade key={post.node.id}>
-                <div className="col-md-4 d-flex">
-                  <div className="blog-entry justify-content-end">
-                    <a
-                      href={post.node.frontmatter.path}
-                      className="block-20"
-                      style={{ backgroundImage: `url('${post.node.frontmatter.image}')` }}
-                    />
-                    <div className="text mt-3 float-right d-block">
-                      <div className="d-flex align-items-center mb-3 meta">
-                        <p className="mb-0">
-                          <span className="mr-2">{post.node.frontmatter.date}</span>
+            {edges
+              .map(edge => edge.node)
+              .map((post) => (
+                <BottomFade key={post.id}>
+                  <div className="col-md-4 d-flex">
+                    <div className="blog-entry justify-content-end">
+                      <Link
+                        href={post.fields.slug}
+                        className="block-20"
+                        style={{
+                          backgroundImage: `url('${getBlogImage(post)}')`,
+                          backgroundPosition: 'left',
+                        }}
+                      // data-stellar-background-ratio="0.5"
+                      />
+                      <div className="text mt-3 float-right d-block">
+                        <div className="d-flex align-items-center mb-3 meta">
+                          <p className="mb-0">
+                            <span className="mr-2">{post.frontmatter.date}</span>
+                          </p>
+                        </div>
+                        <h3 className="heading">
+                          <Link href={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </h3>
+                        <p>
+                          {post.excerpt}
                         </p>
                       </div>
-                      <h3 className="heading">
-                        <a href={post.node.frontmatter.path}>
-                          {post.node.frontmatter.title}
-                        </a>
-                      </h3>
-                      <p>
-                        A small river named Duden flows by their place and
-                        supplies it with the necessary regelialia.
-                      </p>
                     </div>
                   </div>
-                </div>
-              </BottomFade>
-            ))}
+                </BottomFade>
+              ))}
           </div>
         </div>
       </Section>
@@ -525,7 +531,7 @@ export const IndexPage = ({
 export const postQuery = graphql`
   query RecentBlogPostQuery {
     allMarkdownRemark(
-      limit: 1
+      limit: 3
       sort: { order: DESC, fields: [frontmatter___date] }
       filter: {
         frontmatter: {published: {eq: true}}
@@ -534,6 +540,7 @@ export const postQuery = graphql`
     ) {
       edges {
         node {
+          excerpt(pruneLength: 250)
           id
           html
           frontmatter {

@@ -179,6 +179,15 @@ Connect to the VM's display and follow the pfSense setup. Assign the WAN and LAN
 ![](./pfsense-nic-assignment.png)
 
 
+------
+
+### 🚧 This page is still under construction!
+
+Content below this mark is still being developed!
+
+-----
+
+
 
 
 
@@ -217,9 +226,6 @@ add path 'bpf*' unhide
 add include $devfsrules_jail
 add path pf unhide
 ```
-
-
-
 
 
 
