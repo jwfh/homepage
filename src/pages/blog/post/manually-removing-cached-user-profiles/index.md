@@ -6,8 +6,6 @@ image: 'active-directory-user-profiles-1.jpg'
 mainpage: false
 ---
 
-_This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._
-
 In many scenarios where users commonly switch between computers &mdash; think schools, libraries, Internet cafés &mdash; there is a recurring problem of disk space being used up simply by user profiles that have been left behind and are no longer needed. In fact, the high school I attended had this problem so frequently that they used [Deep Freeze](https://www.faronics.com/products/deep-freeze/enterprise) to combat the problem. Assuming that the users of these computers all have roaming profiles (this does include a mandatory profile[^1]), there is a Group Policy setting which forces the computer not to cache roaming profiles. The caveat: it only applies to new logins, not those dozens of gigabytes of existing junk. What about the other Group Policy dedicated to removing user profiles, the one where you get to say "if it's older than $x$ days, fire it out!" Well, unfortunately there are some instances where this does not work and instead it corrupts the user profile in question, thus preventing any subsequent logons from this user.
 
 We'll cover two ways to remove already-cached user profiles. To prevent caching of new profiles, use the Group Policy setting mentioned above.

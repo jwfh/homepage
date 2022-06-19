@@ -6,8 +6,6 @@ image: ''
 mainpage: false
 ---
 
-_This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._
-
 A common practice is to allow administrators and perhaps even help desk staff the ability to see hidden files on the file system. Unlike standard users, these users probably have access to the Folder Options editor from Windows Explorer. It is also possible to automate these folder options using Group Policy or scripting. Begin by launching the Group Policy Management console by running `gpmc.msc` at a _Run..._ prompt or a command prompt. Next, right-click the organizational unit that contains your users. Select _Create a GPO in this domain, and Link it here_ and then give the new group policy object a name. Within the new GPO, navigate to `User Configuration\Preferences\Control Panel Settings\Folder Options`.
 
 [sidebar-folderoptions.png]

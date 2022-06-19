@@ -6,8 +6,6 @@ image: ''
 mainpage: false
 ---
 
-_This post has been migrated from the [old JWFH WordPress blog](https://github.com/jwfh/homepage#about)._
-
 Let me give you a scenario. Begin with `net.exe`, which is located in `%windir%\System32`. It's a fairly powerful command-line utility that can be used to map network drives or shared printers, create fileshares, modify time settings, etc. Most notably for my example in this post, however, `net` can also be used to create user accounts and user groups:
 
 ```batch

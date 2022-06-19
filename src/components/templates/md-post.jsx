@@ -29,29 +29,26 @@ import PropTypes from 'prop-types';
 import presets from '../../presets';
 import { PhotoLayout } from '../layout';
 import { NarrowContainer } from '../partials';
-import { blogPostBcMaker, getBlogImage, isMainpagePost } from '../blog'
+import { blogPostBcMaker, generateMigrationFrontmatter, getBlogImage, isMainpagePost } from '../blog'
 
 
-const BlogPost = ({ data: { markdownRemark: post } }) => {
-  let photo = getBlogImage(post);
-  let breadcrumbs = blogPostBcMaker(post);
+const BlogPost = ({ data: { markdownRemark: post } }) => (
+  <PhotoLayout
+    title={post.frontmatter.title}
+    site={presets.pages.home.blog.title}
+    date={post.frontmatter.date}
+    breadcrumbs={blogPostBcMaker(post)}
+    photo={getBlogImage(post)}
+    alignment={post.frontmatter.imagealign}
+    mainpage={isMainpagePost(post)}
+  >
+    <NarrowContainer className="narrow py-5 my-5">
+      {generateMigrationFrontmatter(post)}
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </NarrowContainer>
+  </PhotoLayout>
+);
 
-  return (
-    <PhotoLayout
-      title={post.frontmatter.title}
-      site={presets.pages.home.blog.title}
-      date={post.frontmatter.date}
-      breadcrumbs={breadcrumbs}
-      photo={photo}
-      alignment={post.frontmatter.imagealign}
-      mainpage={isMainpagePost(post)}
-    >
-      <NarrowContainer className="narrow py-5 my-5">
-        <div dangerouslySetInnerHTML={{ __html: post.html }} />
-      </NarrowContainer>
-    </PhotoLayout>
-  );
-};
 
 BlogPost.propTypes = {
   data: PropTypes.object.isRequired,
