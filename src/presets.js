@@ -85,15 +85,22 @@ learning about historic building techniques, and weight lifting.`,
             title: 'Software',
             body:
               `
-Most of the code I write is Terraform for work with AWS. When it comes to writing business logic, I 
+Most of the code I write is Terraform for work with AWS. When it comes to writing business logic, I&nbsp;
 used to be a die-hard Python fan, but lately have been enjoying working with Java. 
+
 Most of all, I&nbsp;believe in working _with_ my programming language, operating system, 
 and hardware rather than against it (and yes, that means striving to know how they work under the hood).`,
             icon: '',
           },
           {
             title: 'Home DIY',
-            body: `...`,
+            body: `
+After buying an old house and falling in love with old construction, my biggest hobby is
+working on our ~~renovation~~ restoration.
+            
+The best part is learning about the science of things like the original [lath and plaster](./projects/plaster/)
+walls, lime mortar for brickwork, and classic hydronic heating principles, in order to help the house instead of
+[hurt it](https://www.vintagebuilding.com/lime-mortar-vs-portland-cement/).`,
             icon: '',
           },
         ],
