@@ -22,14 +22,14 @@
  * IN THE SOFTWARE.
  */
 
-import React, {Fragment} from 'react';
+import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import {HomeHeader, GeneralHeader} from './header';
+import { HomeHeader, GeneralHeader } from './header';
 import Footer from './footer';
 import SEO from './seo';
 import presets from '../presets';
-import {PhotoTitleTile} from './partials';
+import { PhotoTitleTile } from './partials';
 
 import 'katex/dist/katex.min.css';
 
@@ -44,9 +44,9 @@ import '../css/owl.carousel.min.css';
 import '../css/owl.theme.default.min.css';
 
 // Indices 0 and 3 are a little difficult to read
-const {bgPhotos} = presets;
+const { bgPhotos } = presets;
 
-export const HomeLayout = ({children, title}) => (
+export const HomeLayout = ({ children, title }) => (
   <Fragment>
     <SEO title={title} />
     <HomeHeader />
@@ -60,7 +60,7 @@ HomeLayout.propTypes = {
   title: PropTypes.string.isRequired,
 };
 
-const Layout = ({children, title}) => (
+const Layout = ({ children, title }) => (
   <Fragment>
     <SEO title={title} />
     <GeneralHeader />
@@ -76,8 +76,8 @@ Layout.propTypes = {
 
 export default Layout;
 
-export const PhotoLayout = ({title, children, photo, random, ...rest}) => (
-  <Layout title={title}>
+export const PhotoLayout = ({ title, site = null, children, photo, alignment, mainpage = true, random, ...rest }) => (
+  <Layout title={site == null ? title : `${title} | ${site}`}>
     <PhotoTitleTile
       // ...rest here so that breadcrumbs are passed to PhotoTitleTile
       // key={this.state.photo}
@@ -88,6 +88,8 @@ export const PhotoLayout = ({title, children, photo, random, ...rest}) => (
           ? photo
           : bgPhotos[Math.floor(Math.random() * bgPhotos.length)]
       }
+      mainpage={mainpage}
+      alignment={alignment}
     />
     {children}
   </Layout>

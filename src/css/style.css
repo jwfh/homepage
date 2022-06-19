@@ -11192,6 +11192,14 @@ h5,
   color: #000000;
 }
 
+.slider-text .pubdate {
+  font-size: 18px;
+  margin-bottom: 20px;
+  z-index: 99;
+  color: black;
+  font-weight: 600;
+}
+
 .slider-text .breadcrumbs {
   font-size: 18px;
   margin-bottom: 20px;

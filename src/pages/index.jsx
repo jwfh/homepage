@@ -26,9 +26,9 @@
  */
 
 import React from 'react';
-import {Link, graphql} from 'gatsby';
-import {BottomFade} from '../components/fade';
-import {HomeLayout} from '../components/layout';
+import { Link, graphql } from 'gatsby';
+import { BottomFade } from '../components/fade';
+import { HomeLayout } from '../components/layout';
 // import Image from '../components/image';
 import presets from '../presets';
 import {
@@ -46,10 +46,15 @@ import Slide from 'react-reveal/Slide';
 import remark from 'remark';
 import remark2react from 'remark-react';
 import CountUp from 'react-countup';
+import { getBlogImage } from '../components/blog';
 
-export const IndexPage = () => {
-  const CarouselUI = ({children}) => (
-    <div className="home-slider owl-carousel" style={{display: 'block'}}>
+export const IndexPage = ({
+  data: {
+    allMarkdownRemark: { edges },
+  },
+}) => {
+  const CarouselUI = ({ children }) => (
+    <div className="home-slider owl-carousel" style={{ display: 'block' }}>
       {children}
     </div>
   );
@@ -93,7 +98,7 @@ export const IndexPage = () => {
                     </span>
                     <h2
                       className="mb-4"
-                      style={{fontSize: '34px', textTransform: 'capitalize'}}
+                      style={{ fontSize: '34px', textTransform: 'capitalize' }}
                     >
                       {presets.pages.home.about.title}
                     </h2>
@@ -144,12 +149,6 @@ export const IndexPage = () => {
           </div>
         </div>
       </section>
-      {/* 
-    {data.allMarkdownRemark.edges.map((post) => (
-      <Link key={post.node.id} to={post.node.frontmatter.path}>
-        {post.node.frontmatter.title}
-      </Link>
-    ))} */}
 
       {
         // Banner section #1 (Résumé)
@@ -177,13 +176,13 @@ export const IndexPage = () => {
           <Row>
             {presets.pages.home.skills.sliders.first.content.map(
               (slider, index) => (
-                <Slider 
-                  value={slider.value} 
+                <Slider
+                  value={slider.value}
                   label={
                     remark()
-                    .use(remark2react)
-                    .processSync(slider.label).contents
-                  } 
+                      .use(remark2react)
+                      .processSync(slider.label).contents
+                  }
                   key={index} />
               )
             )}
@@ -272,8 +271,8 @@ export const IndexPage = () => {
               </BottomFade>
             </div>
             <div className="col-md-4">
-              <div className="row" style={{height: '100%'}}>
-                <div className="col-md-12" style={{height: '30%'}}>
+              <div className="row" style={{ height: '100%' }}>
+                <div className="col-md-12" style={{ height: '30%' }}>
                   <BottomFade>
                     <div
                       className="project img d-flex justify-content-center align-items-center"
@@ -301,7 +300,7 @@ export const IndexPage = () => {
                     </div>
                   </BottomFade>
                 </div>
-                <div className="col-md-12" style={{height: '60%'}}>
+                <div className="col-md-12" style={{ height: '60%' }}>
                   <BottomFade>
                     <div
                       className="project img d-flex justify-content-center align-items-center"
@@ -386,7 +385,7 @@ export const IndexPage = () => {
       </Section>
 
       {
-        // Banner section #3 (Hire Me)
+        // Banner section #3 (Contact Banner)
       }
       <Banner
         external={presets.pages.home.contactBanner.external}
@@ -400,7 +399,7 @@ export const IndexPage = () => {
       {
         // Blog section
       }
-      {/* <Section className="bg-light" id="blog-section">
+      <Section className="bg-light" id="blog-section">
         <div className="container">
           <div className="row justify-content-center mb-5 pb-5">
             <BottomFade>
@@ -412,90 +411,43 @@ export const IndexPage = () => {
             </BottomFade>
           </div>
           <div className="row d-flex">
-            <BottomFade>
-              <div className="col-md-4 d-flex">
-                <div className="blog-entry justify-content-end">
-                  <a
-                    href="single.html"
-                    className="block-20"
-                    style={{backgroundImage: 'url(\'/tmp/image_1.jpg\')'}}
-                  />
-                  <div className="text mt-3 float-right d-block">
-                    <div className="d-flex align-items-center mb-3 meta">
-                      <p className="mb-0">
-                        <span className="mr-2">March 23, 2019</span>
-                      </p>
+            {edges
+              .map(edge => edge.node)
+              .map((post) => (
+                <BottomFade key={post.id}>
+                  <div className="col-md-4 d-flex">
+                    <div className="blog-entry justify-content-end">
+                      <Link
+                        href={post.fields.slug}
+                        className="block-20"
+                        style={{
+                          backgroundImage: `url('${getBlogImage(post)}')`,
+                          backgroundPosition: 'left',
+                        }}
+                      // data-stellar-background-ratio="0.5"
+                      />
+                      <div className="text mt-3 float-right d-block">
+                        <div className="d-flex align-items-center mb-3 meta">
+                          <p className="mb-0">
+                            <span className="mr-2">{post.frontmatter.date}</span>
+                          </p>
+                        </div>
+                        <h3 className="heading">
+                          <Link href={post.fields.slug}>
+                            {post.frontmatter.title}
+                          </Link>
+                        </h3>
+                        <p>
+                          {post.excerpt}
+                        </p>
+                      </div>
                     </div>
-                    <h3 className="heading">
-                      <a href="single.html">
-                        Why Lead Generation is Key for Business Growth
-                      </a>
-                    </h3>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies it with the necessary regelialia.
-                    </p>
                   </div>
-                </div>
-              </div>
-            </BottomFade>
-            <BottomFade>
-              <div className="col-md-4 d-flex">
-                <div className="blog-entry justify-content-end">
-                  <a
-                    href="single.html"
-                    className="block-20"
-                    style={{backgroundImage: 'url(\'/tmp/image_2.jpg\')'}}
-                  />
-                  <div className="text mt-3 float-right d-block">
-                    <div className="d-flex align-items-center mb-3 meta">
-                      <p className="mb-0">
-                        <span className="mr-2">March 23, 2019</span>
-                      </p>
-                    </div>
-                    <h3 className="heading">
-                      <a href="single.html">
-                        Why Lead Generation is Key for Business Growth
-                      </a>
-                    </h3>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies it with the necessary regelialia.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
-            <BottomFade>
-              <div className="col-md-4 d-flex">
-                <div className="blog-entry">
-                  <a
-                    href="single.html"
-                    className="block-20"
-                    style={{backgroundImage: 'url(\'/tmp/image_3.jpg\')'}}
-                  />
-                  <div className="text mt-3 float-right d-block">
-                    <div className="d-flex align-items-center mb-3 meta">
-                      <p className="mb-0">
-                        <span className="mr-2">March 23, 2019</span>
-                      </p>
-                    </div>
-                    <h3 className="heading">
-                      <a href="single.html">
-                        Why Lead Generation is Key for Business Growth
-                      </a>
-                    </h3>
-                    <p>
-                      A small river named Duden flows by their place and
-                      supplies it with the necessary regelialia.
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </BottomFade>
+                </BottomFade>
+              ))}
           </div>
         </div>
-      </Section> */}
+      </Section>
 
       {
         // Contact section
@@ -577,17 +529,23 @@ export const IndexPage = () => {
 };
 
 export const postQuery = graphql`
-  query IndexQuery {
+  query RecentBlogPostQuery {
     allMarkdownRemark(
       limit: 3
-      filter: {frontmatter: {published: {eq: true}}}
+      sort: { order: DESC, fields: [frontmatter___date] }
+      filter: {
+        frontmatter: {published: {eq: true}}
+        fileAbsolutePath: {regex: "/pages\/blog\/post\//"}
+      }
     ) {
       edges {
         node {
+          excerpt(pruneLength: 250)
           id
           html
           frontmatter {
             title
+            image
           }
           fields {
             slug

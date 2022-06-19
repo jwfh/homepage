@@ -55,7 +55,7 @@ const site = {
             titleBefore: 'I\'m',
             titleEm: 'Jacob House',
             titleAfter: '',
-            subtitle: 'A Software Developer and Design Enthusiast',
+            subtitle: 'A Cloud Software Developer and Design Enthusiast',
             buttonLabel: 'Click',
             buttonLink: '',
             image: AboutJPG1,
@@ -76,26 +76,31 @@ const site = {
         subtitle: '',
         image: CodeImage3,
         body: `
-I'm a software developer on the Cloud Automation team at [Verafin](https://verafin.com/) in 
-St.&nbsp;John's, Newfoundland, Canada. My interests are primarily in areas such as security, 
-automation, and operating systems. In my spare time I practice photography and graphic design.`,
+I lead the Release Automation team at [Verafin](https://verafin.com/) in 
+St.&nbsp;John's, Newfoundland, Canada. My interests are primarily in areas such as cloud architecture, 
+security, and operating systems. In my spare time I enjoy DIY renovation and restoration projects, 
+learning about historic building techniques, and weight lifting.`,
         panels: [
           {
             title: 'Software',
             body:
-            `
-I'm a recent convert to Vim. I prefer LaTeX over any other word processor. I&nbsp;think Python is
-fun, but not at the cost if ignoring low-level details. Most of all, I&nbsp;believe in working _with_ 
-my programming language, operating system, and hardware rather than against it (and yes, that 
-means knowing how they work).`,
+              `
+Most of the code I write is Terraform for work with AWS. When it comes to writing business logic, I&nbsp;
+used to be a die-hard Python fan, but lately have been enjoying working with Java. 
+
+Most of all, I&nbsp;believe in working _with_ my programming language, operating system, 
+and hardware rather than against it (and yes, that means striving to know how they work under the hood).`,
             icon: '',
           },
           {
-            title: 'Design',
+            title: 'Home DIY',
             body: `
-Though most of my time is spent staring at text in a shell, you'll often see at least a few of
-the Adobe CC apps open in my dock. I\'m always squeezing a little photo editing here or logo 
-design there in my spare time.`,
+After buying an old house and falling in love with old construction, my biggest hobby is
+working on our ~~renovation~~ restoration.
+            
+The best part is learning about the science of things like the original [lath and plaster](./projects/plaster/)
+walls, lime mortar for brickwork, and classic hydronic heating principles, in order to help the house instead of
+[hurt it](https://www.vintagebuilding.com/lime-mortar-vs-portland-cement/).`,
             icon: '',
           },
         ],
@@ -120,12 +125,12 @@ design there in my spare time.`,
               'Give me a terminal and a compiler. I\'ll take care of the rest.',
             content: [
               // Choose a maximum of SIX skills
-              {label: 'Python', value: '90'},
-              {label: 'Amazon Web Services', value: '70'},
-              {label: 'Terraform', value: '75'},
-              {label: 'Shell (Bourne, Fish, scripting)', value: '85'},
-              {label: 'Text Processing (Vim, Sed, Awk)', value: '90'},
-              {label: 'C/C++', value: '60'},
+              { label: 'Terraform', value: '90' },
+              { label: 'Amazon Web Services', value: '85' },
+              { label: 'Java', value: '75' },
+              { label: 'Text Processing (Vim, Sed, Awk)', value: '75' },
+              { label: 'Python', value: '85' },
+              { label: 'C/C++', value: '60' },
             ],
           },
           second: {
@@ -133,10 +138,10 @@ design there in my spare time.`,
             subtitle: 'Form that gives function a voice to be heard.',
             content: [
               // Choose a maximum of SIX skills
-              {label: 'Adobe Creative Cloud', value: '85'},
-              {label: 'DSLR Photography', value: '80'},
-              {label: 'Print Design', value: '70'},
-              {label: 'Web & App UX', value: '75'},
+              { label: 'Adobe Creative Cloud', value: '85' },
+              { label: 'DSLR Photography', value: '70' },
+              { label: 'Print Design', value: '70' },
+              { label: 'Web & App UX', value: '65' },
             ],
           },
         },
@@ -147,13 +152,24 @@ design there in my spare time.`,
           content: [
             // Use multiples of THREE here
             {
+              title: 'Cloud Architecture',
+              link: '/portfolio/cloud/',
+              icon: 'ideas',
+              list: [
+                'Serverless',
+                'Automated Deployment',
+                'Fault Tolerant',
+                'Cost Optimized'
+              ],
+            },
+            {
               title: 'Software Development',
               link: '/portfolio/software/',
               icon: 'flasks',
               list: [
                 'Correctness',
                 'Code Quality',
-                'User Experience',
+                'D.R.Y.',
                 'Documentation',
               ],
             },
@@ -166,17 +182,6 @@ design there in my spare time.`,
                 'Application',
                 'Cryptographic',
                 'Threat Modeling',
-              ],
-            },
-            {
-              title: 'Systems Administration',
-              link: '/portfolio/sysadmin/',
-              icon: 'ideas',
-              list: [
-                'OS Agnostic',
-                'Automated Deployment',
-                'Userbase Integration',
-                'TCO & ROI',
               ],
             },
           ],
@@ -211,16 +216,16 @@ design there in my spare time.`,
            * -------
            */
           {
-            title: 'VOWR Music Librarian',
-            subtitle: 'Python Web App',
-            link: '/projects/vowr-librarian/',
-            image: Librarian,
-          },
-          {
             title: 'Dean\'s List 2016-17',
             subtitle: 'Academic Award',
             link: '/awards/',
             image: BookStacks,
+          },
+          {
+            title: 'VOWR Music Librarian',
+            subtitle: 'Python Web App',
+            link: '/projects/vowr-librarian/',
+            image: Librarian,
           },
           {
             title: 'Portrait Photography',
@@ -228,12 +233,6 @@ design there in my spare time.`,
             link: '/portfolio/photography/',
             image: PortraitPhoto2,
           },
-          // {
-          //   title: 'Product Photography',
-          //   subtitle: 'Finding the Perfect Angle',
-          //   link: '/portfolio/photography',
-          //   image: ProductPhoto,
-          // },
           {
             title: 'Regional Science Fair',
             subtitle: 'Bronze Medal',
@@ -249,8 +248,8 @@ design there in my spare time.`,
         ],
       },
       blog: {
-        title: 'My Blog',
-        subtitle: 'A little of everything, and nothing you can do without.',
+        title: 'Fall in Love with the Process',
+        subtitle: 'Read the latest about my hobbies and projects.',
       },
       contact: {
         title: 'Hey You',
@@ -271,16 +270,15 @@ design there in my spare time.`,
   },
   footer: {
     links: [
-      {label: 'Home', link: '/'},
-      {label: 'Projects', link: '/projects/'},
-      {label: 'Blog', link: '/blog/'},
-      {label: 'Contact', link: '/contact/'},
+      { label: 'Home', link: '/' },
+      { label: 'Projects', link: '/projects/' },
+      { label: 'Blog', link: '/blog/' },
+      { label: 'Contact', link: '/contact/' },
     ],
     services: [
-      {label: 'Software Development', link: '/portfolio/software/'},
-      {label: 'Software Security', link: '/portfolio/security/'},
-      {label: 'Photography', link: '/portfolio/photography/'},
-      {label: 'Graphic Design', link: '/portfolio/design/'},
+      { label: 'Software Development', link: '/portfolio/software/' },
+      { label: 'Software Security', link: '/portfolio/security/' },
+      { label: 'Photography', link: '/portfolio/photography/' },
     ],
     contact: [
       {
@@ -353,20 +351,7 @@ design there in my spare time.`,
     'operating sysetem',
     'web development',
   ],
-  breadcrumbLabels: {
-    blog: {
-      name: 'Blog',
-    },
-    portfolio: {
-      name: 'Portfolio',
-    },
-    presentations: {
-      name: 'Presentations',
-    },
-    projects: {
-      name: 'Projects',
-    },
-  },
+  breadcrumbLabels: {},
 };
 
 export default site;

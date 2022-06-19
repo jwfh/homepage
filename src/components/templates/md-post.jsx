@@ -23,37 +23,32 @@
  */
 
 import React from 'react';
-import {graphql} from 'gatsby';
+import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+
 import presets from '../../presets';
+import { PhotoLayout } from '../layout';
+import { NarrowContainer } from '../partials';
+import { blogPostBcMaker, generateMigrationFrontmatter, getBlogImage, isMainpagePost } from '../blog'
 
-import {PhotoLayout} from '../layout';
-import {NarrowContainer, bcMaker} from '../partials';
 
-const BlogPost = ({data: {markdownRemark: post}}) => {
-  let photo;
-  if (
-    typeof post.frontmatter.image !== 'undefined' &&
-    post.frontmatter.image !== null &&
-    post.frontmatter.image !== ''
-  ) {
-    photo = require('../../images/' + post.frontmatter.image);
-  }
-  let breadcrumbs = bcMaker(post.fields.slug);
+const BlogPost = ({ data: { markdownRemark: post } }) => (
+  <PhotoLayout
+    title={post.frontmatter.title}
+    site={presets.pages.home.blog.title}
+    date={post.frontmatter.date}
+    breadcrumbs={blogPostBcMaker(post)}
+    photo={getBlogImage(post)}
+    alignment={post.frontmatter.imagealign}
+    mainpage={isMainpagePost(post)}
+  >
+    <NarrowContainer className="narrow py-5 my-5">
+      {generateMigrationFrontmatter(post)}
+      <div dangerouslySetInnerHTML={{ __html: post.html }} />
+    </NarrowContainer>
+  </PhotoLayout>
+);
 
-  return (
-    <PhotoLayout
-      title={post.frontmatter.title}
-      date={post.frontmatter.date}
-      breadcrumbs={breadcrumbs}
-      photo={photo}
-    >
-      <NarrowContainer className="narrow py-5 my-5">
-        <div dangerouslySetInnerHTML={{__html: post.html}} />
-      </NarrowContainer>
-    </PhotoLayout>
-  );
-};
 
 BlogPost.propTypes = {
   data: PropTypes.object.isRequired,
@@ -68,7 +63,10 @@ export const query = graphql`
       id
       frontmatter {
         title
+        date
         image
+        imagealign
+        mainpage
       }
       fields {
         slug
