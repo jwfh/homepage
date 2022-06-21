@@ -158,8 +158,8 @@ walls, lime mortar for brickwork, and classic hydronic heating principles, in or
               list: [
                 'Serverless',
                 'Automated Deployment',
-                'Fault Tolerant',
-                'Cost Optimized'
+                'Fault-Tolerant',
+                'Region-Independant'
               ],
             },
             {
