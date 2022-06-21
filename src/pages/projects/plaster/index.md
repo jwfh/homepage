@@ -1,5 +1,5 @@
 ---
-title: 'Plaster'
+title: 'Lathing and Plastering'
 published: true
 image: 'laths-rear.jpeg'
 ---
@@ -21,3 +21,5 @@ image: 'laths-rear.jpeg'
 [Wells, L. S., Clarke, W. F., Newman, E. S., &amp; Bishop, D. L. (1951). _Investigation of Failures of White-Coat Plaster_. U.S. Dept. of Commerce, National Bureau of Standards.](./attachments/investigation-of-failures.pdf)
 
 [MacDonald, M. (1989). _Repairing Historic Flat Plaster: Walls and Ceilings_. U.S. Department of the Interior, National Park Service, Preservation Assistance Division, Technical Preservation Services.](./attachments/repairing-historic-flat-plaster.pdf)
+
+[United States Gypsum Association. (1966). _Manual of Gypsum Lathing &amp; Plastering._](./attachments/manual-of-gypsum-lathing-and-plastering.pdf)

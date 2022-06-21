@@ -285,6 +285,7 @@ export const NavItem = ({ label, className, anchor, ...rest }) => (
     </a>
   </li>
 );
+
 export const NavLink = ({ label, className, to, ...rest }) => (
   <li {...rest} className={'nav-item' + (className ? ` ${className}` : '')}>
     <Link to={to} className="nav-link">
