@@ -26,7 +26,7 @@ import ContactJPG from './images/about.jpg';
 import ResumePDF from './pdf/resume.pdf';
 import LogoSVG from './images/logo.svg';
 import BookStacks from './images/_DSC3717-Processed.jpg';
-import Librarian from './images/LibrarianMockup.jpg';
+import PlasterKeysOnLath from './images/laths-rear.jpeg';
 import PoolBlocks from './images/pool-generic.jpg';
 import PortraitPhoto1 from './images/_DSC3842-Processed.jpg';
 import PortraitPhoto2 from './images/_DSC7184-Processed.jpg';
@@ -222,10 +222,10 @@ walls, lime mortar for brickwork, and classic hydronic heating principles, in or
             image: BookStacks,
           },
           {
-            title: 'VOWR Music Librarian',
-            subtitle: 'Python Web App',
-            link: '/projects/vowr-librarian/',
-            image: Librarian,
+            title: 'Lath and Plastering',
+            subtitle: 'Lime on Wooden Laths',
+            link: '/projects/plaster/',
+            image: PlasterKeysOnLath,
           },
           {
             title: 'Portrait Photography',
