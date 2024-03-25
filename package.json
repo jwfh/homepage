@@ -24,7 +24,7 @@
     "gatsby-transformer-remark": "^2.6.59",
     "gatsby-transformer-sharp": "^2.3.19",
     "jquery": "^3.5.0",
-    "katex": "^0.10.2",
+    "katex": "^0.16.10",
     "moment": "^2.29.1",
     "owl.carousel": "^2.3.4",
     "popper": "^1.0.1",
